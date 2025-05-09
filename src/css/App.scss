@@ -232,7 +232,6 @@ body{
       }   
     
       .footer-bg{
-        // background-attachment: fixed;
         position: absolute;
         top: 90vh;
         left: 90vh;
@@ -257,21 +256,10 @@ body{
             color: var(--purple);
           }
         
-        .std{
-          // font-size: 0.9em;
-          // max-width: 42em;
-          // line-height: 1.5;
-          // color: var(--std-color);
-          // word-break: break-word;
-          // -webkit-hyphens: none;
-          // hyphens: none;
-          // font-size: 1.2em;
-
-          p{
+        .std p{
             margin-bottom: 1em;
-            width: 85vw;
-            // margin-right: -25vw;
-          }
+            width: 35vw;
+          
         }
       }
       
@@ -284,7 +272,6 @@ body{
 
   width: 440px;
   height: 440px;
-  // overflow: hidden;
 
   span{
     position: absolute;
@@ -395,8 +382,6 @@ body{
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
-  margin-right: -25vw;
-  padding-right: 1em;
   transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
@@ -633,10 +618,6 @@ body::-webkit-scrollbar {
     }
   }
   
-  // .title-container .long-text{
-    
-  // }
-
   .title-container .title {
     margin-bottom: 1rem;
   }
@@ -645,90 +626,3 @@ body::-webkit-scrollbar {
     display: none;
   }
 }
-  
-// @media only screen and (max-width:$breakpoint-mobile) {
-//   body{
-
-//     #header{
-//       .header-container{
-//         .header-nav-button {
-//           display: flex;
-//           transition: all 1s linear;
-//         }
-//         .header-nav{
-//           display: none;
-//         }
-//       }
-//     }
-
-//     .wrapper {
-//       padding-bottom: 10vh;
-
-//       section{
-
-//         .static-container {
-//           margin: 0 2rem 0 calc(2rem + 1px);
-//         }
-//       }
-//       .rings{
-//         width: 400px;
-//         height: 400px;
-//       }
-//     }
-    
-//     .bottom-right{
-//       display: none;
-//     }
-
-//     .omverflow{
-//       display: none;
-//     }
-
-//     .spine{
-//       left: 1rem;
-//     }
-
-//     .spine-target{
-//       left: calc(1rem - 4px);
-//     }
-    
-//     .wrapper:after {
-//       left: 1rem;
-//     }
-
-    
-//     #home .title {
-//       white-space: nowrap;
-//     }
-    
-    
-//     .title {
-//       margin-bottom: 1rem;
-//       line-height: 1.1;
-//     }
-    
-//     #home .std {
-//       font-size: 0.9rem;
-//     }
-    
-//     .wrapper section .title-container {
-//       padding: 0 1rem 0 2rem;
-//       .std .subtitle, .title {
-//         margin-right: -2rem;
-//         font-size: 1.9rem;
-//       }
-//     }
-//   }
-  
-//   // .title-container .long-text{
-    
-//   // }
-
-//   .title-container .title {
-//     margin-bottom: 1rem;
-//   }
-
-//   .infoScene{
-//     display: none;
-//   }
-// }
