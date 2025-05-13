@@ -30,17 +30,17 @@ function App() {
         {
           index: true, // This makes it the default child route
           element: <Home />,
-          name: ".Frostz()",
+          // name: ".Frostz()",
         },
         {
           path: "/about",
           element: <About />,
-          name: ".about()",
+          // name: ".about()",
         },
         {
           path: "*",
           element: <NotFound />,
-          name: "",
+          // name: "",
         },
       ],
     },

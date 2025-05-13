@@ -11,6 +11,16 @@
   --bgLight: radial-gradient(var(--bg), transparent, var(--purple) 130%);
   --gray: #808080;
   --comment: #555;
+  font-family: "Roboto Mono", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 0;
+  min-width: 0;
+  font-family: inherit;
 }
 
 #header {
