@@ -10,8 +10,10 @@ export default function NavBar(props) {
     const isCurrentlyOpen = document.body.classList.contains("is-nav-open");
 
     if (isCurrentlyOpen) {
+      console.log("close")
       document.body.classList.remove("is-nav-open");
     } else {
+      console.log("open")
       document.body.classList.add("is-nav-open");
     }
   };

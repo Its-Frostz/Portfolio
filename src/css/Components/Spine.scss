@@ -1,0 +1,40 @@
+
+.spine {
+  pointer-events: none;
+  position: fixed;
+  top: 50vh;
+  bottom: 0;
+  left: calc(25vw - 2rem);
+  z-index: 2;
+  width: 1px;
+  background: var(--purple)
+    linear-gradient(to top, var(--bg) 1rem, rgba(var(--bg-rgb), 0) 20vh);
+
+  @media screen and (max-width: 1024px) {
+    left: 1rem;
+  }
+}
+.spine-target {
+  pointer-events: none;
+  position: fixed;
+  top: calc(50vh - 8px);
+  left: calc(25vw - 2rem - 4px);
+  width: 9px;
+  height: 9px;
+  z-index: 2;
+
+  @media screen and (max-width: 1024px) {
+    left: calc(1rem - 4px);
+  }
+
+  .circle,
+  .pulse {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    transform-origin: center;
+    border-radius: 3rem;
+    background: transparent;
+    border: 1px solid var(--purple);
+  }
+}

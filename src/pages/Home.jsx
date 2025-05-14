@@ -7,8 +7,6 @@ import TitleSection from '../components/TitleSection.jsx'
 // Home components
 import Intro from '../components/Home/Intro.jsx'
 
-import '../css/Home/Home.scss'
-
 export default function Home() {
   return (
     <div id="home" className="wrapper">
@@ -18,6 +16,11 @@ export default function Home() {
       <TitleSection name="curriculum">
         <TitleFunction params="/_life/..." subtitle="<VitaeJournal>">Summarization</TitleFunction>
       </TitleSection>
+
+      <TitleSection name="Scene1">
+        <TitleFunction purple='.Wings' params="2007" subtitle="The journey begins... Enjoy ;)">Player</TitleFunction>
+      </TitleSection>
+
     </div>
   )
 }

@@ -1,7 +1,15 @@
 import React from 'react'
+import '../css/Components/Spine.scss'
 
 export default function Spine() {
   return (
-    <div>Spine</div>
+    <div>
+      <div className="spine" />
+
+      <div className="spine-target">
+        <div className="circle" />
+        <div className="pulse" />
+      </div>
+    </div>
   )
 }

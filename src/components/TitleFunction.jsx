@@ -1,13 +1,34 @@
 import React from 'react'
 import TextBlock from './TextBlock'
+
 export default function TitleFunction(props) {
+  function purp() {
+    if (props.purple != null) {
+      console.log(`pulpleeeeeeeeeeeee ${props.children}`);
+      return (
+        <>
+          <span className="func">{props.purple}(</span>
+            <span className="params">{props.params}</span>
+          <span className="func">)</span>
+        </>
+      );
+    }
+    else{
+      console.log(`not purple ${props.children}`);
+      return (
+        <>
+          (<span className="params">{props.params}</span>)
+        </>
+      );
+    }
+  }
   return (
     <div>
       <h1 className="title">
         {props.children}
         {props.params&&(
           <span>
-            (<span className="params">{props.params}</span>)
+            {purp()}
           </span>
         )}
       </h1>
