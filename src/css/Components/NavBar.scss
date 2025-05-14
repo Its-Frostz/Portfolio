@@ -38,8 +38,8 @@
   border: 0;
 
   @media screen and (max-width: 768px) {
-    display: flex;
     transition: all 1s linear;
+    display: flex;
   }
 
   .label {
@@ -52,8 +52,8 @@
     width: 0.25rem;
     height: 0.25rem;
     border-radius: 0.25rem;
-    background: var(--header-link);
     transition: all 400ms cubic-bezier(0.19, 1, 0.22, 1);
+    background: var(--header-link);
   }
 }
 
@@ -94,7 +94,7 @@
     right: 0;
     z-index: 99;
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
     padding: 8rem 1rem 4rem;
     text-align: right;
     transform: translate3d(110%, 0, 0);
@@ -130,8 +130,8 @@
     height: 2rem;
     display: flex;
     align-items: center;
-    color: #dbdbdb;
     transition: color 400ms ease-out;
+    color: #dbdbdb;
     line-height: 1;
 
     &:hover {
@@ -178,8 +178,8 @@
       height: 1.2rem;
       fill: var(--purple);
       position: relative;
-      top: 2px;
       transition: fill 400ms ease-out;
+      top: 2px;
 
       @media screen and (max-width: 768px) {
         width: 3rem;
@@ -197,6 +197,50 @@
 }
 
 // mobile menu
+// @media screen and (max-width: 768px) {
+//   body.is-nav-open {
+//     .wrapper {
+//       opacity: 0.1 !important;
+//       // transition: opacity 1s cubic-bezier(0.86, 0, 0.07, 1);
+
+//     }
+//     .header-nav-button {
+//       opacity: 0;
+//     }
+//   }
+  
+//   // 1. Nav container: start off-screen right, slide in on open
+//   .header-nav {
+//     transform: translateX(100%);                       // off-screen
+//     // transition: transform 0.5s ease-out;                // container slide
+//   }
+
+//   // when the menu is toggled open:
+//   body.is-nav-open .header-nav {
+//     transform: translateX(0);                          // container in place
+//   }
+
+//   // 2. Now stagger each <li> *after* the container arrives
+//   .header-nav ul li {
+//     opacity: 0;
+//     transform: translateX(50vw);
+//     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+//   }
+
+//   // only animate items when container is open:
+//   body.is-nav-open .header-nav ul li {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+
+//   // stagger delays:
+//   body.is-nav-open .header-nav ul li:nth-child(1) { transition-delay: 0.45s; }
+//   body.is-nav-open .header-nav ul li:nth-child(2) { transition-delay: 0.55s; }
+//   body.is-nav-open .header-nav ul li:nth-child(3) { transition-delay: 0.65s; }
+//   body.is-nav-open .header-nav ul li:nth-child(4) { transition-delay: 0.75s; }
+//   body.is-nav-open .header-nav ul li:nth-child(5) { transition-delay: 0.85s; }
+// }
+
 @media screen and (max-width: 768px) {
   body.is-nav-open {
     .wrapper {
