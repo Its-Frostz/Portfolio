@@ -1,6 +1,6 @@
 // import React from "react";
 
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 import "../css/Components/NavBar.scss";
 import Github from "./Icons/Github.jsx";
 import Instagram from "./Icons/Instagram.jsx";
@@ -41,7 +41,7 @@ export default function NavBar(props) {
             title="Open menu"
             type="button"
             className="header-nav-button"
-            onClick={handleToggleNav()}
+            onClick={handleToggleNav}
           >
             <span className="label">Menu</span>
 
@@ -55,16 +55,16 @@ export default function NavBar(props) {
               title="Close menu"
               type="button"
               className="header-nav-close-button"
-              onClick={handleToggleNav()}
+              onClick={handleToggleNav}
             >
               <span className="label">✕</span>
             </button>
             <ul>
               <li>
-                <Link to={"/"}>.is()</Link>
+                <NavLink to={"/"} end className={({ isActive }) => (isActive ? 'router-link-exact-active' : '')}>.is()</NavLink>
               </li>
               <li>
-                <Link to={"/about"}>.about()</Link>
+                <NavLink to={"/about"} end className={({ isActive }) => (isActive ? 'router-link-exact-active' : '')}>.about()</NavLink>
               </li>
               <li>
                 <a
