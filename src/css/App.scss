@@ -1,5 +1,5 @@
 
-// vars
+// vars & sets default font family
 :root {
   --purple: #682ae9;
   --light: #dbdbdb;
@@ -13,6 +13,17 @@
   --bgLight: radial-gradient(var(--bg), transparent, var(--purple) 130%);
   --gray: #808080;
   --comment: #555;
+  font-family: 'Roboto Mono', monospace;
+}
+
+// Hide scrollbar
+body::-webkit-scrollbar {
+  display: none;
+  // Chrome, Safari and Opera
+  -ms-overflow-style: none;
+  // IE and Edge
+  scrollbar-width: none;
+  // Firefox
 }
 
 // reset
@@ -98,7 +109,7 @@ svg {
 // background
 body {
   background: var(--bg);
-  transition: background-color 0.4s ease-out;
+  transition: background-color 0.5s ease-out;
 
   &.blue-background {
     background: #0497d1;

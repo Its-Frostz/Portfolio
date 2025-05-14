@@ -4,6 +4,7 @@ import NavBar from './components/NavBar.jsx'
 import About from './pages/About.jsx'
 import NotFound from './pages/404.jsx'
 import Footer from './components/Footer.jsx'
+import './css/App.scss'
 import {
   createBrowserRouter,
   RouterProvider,

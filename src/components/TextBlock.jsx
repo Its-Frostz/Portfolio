@@ -1,7 +1,8 @@
 import React from 'react'
+import '../css/Components/TextBlock.scss'
 
-export default function TextBlock() {
+export default function TextBlock({children}) {
   return (
-    <div>TextBlock</div>
+    <div className="std">{children}</div>
   )
 }

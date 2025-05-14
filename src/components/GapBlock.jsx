@@ -1,7 +1,8 @@
 import React from 'react'
+import '../css/Components/Gapblock.scss'
 
-export default function GapBlock() {
+export default function GapBlock(props) {
   return (
-    <div>GapBlock</div>
+    <div className={`gap${props.isFull? ' full':''}`}></div>
   )
 }

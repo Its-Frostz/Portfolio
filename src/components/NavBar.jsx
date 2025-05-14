@@ -1,10 +1,9 @@
 // import React from "react";
 
 import { Link } from "react-router";
-import "../css/Components/NavBar.css";
+import "../css/Components/NavBar.scss";
 import Github from "./Icons/Github.jsx";
 import Instagram from "./Icons/Instagram.jsx";
-import { BrowserRouter } from "react-router";
 
 export default function NavBar(props) {
   const handleToggleNav = () => {
