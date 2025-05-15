@@ -178,6 +178,7 @@
       height: 1.2rem;
       fill: var(--purple);
       position: relative;
+      overflow: visible;
       transition: fill 400ms ease-out;
       top: 2px;
 
@@ -196,7 +197,7 @@
   }
 }
 
-// mobile menu
+//mobile menu
 // @media screen and (max-width: 768px) {
 //   body.is-nav-open {
 //     .wrapper {
@@ -221,24 +222,32 @@
 //   }
 
 //   // 2. Now stagger each <li> *after* the container arrives
-//   .header-nav ul li {
-//     opacity: 0;
-//     transform: translateX(50vw);
-//     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+//   .header-nav{
+//     .header-nav-close-button,
+//     ul li {
+//       opacity: 0;
+//       transform: translateX(50vw);
+//       transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+//     }
 //   }
 
 //   // only animate items when container is open:
-//   body.is-nav-open .header-nav ul li {
-//     opacity: 1;
-//     transform: translateX(0);
+//   body.is-nav-open .header-nav 
+//   {
+//     .header-nav-close-button,
+//     ul li {
+//       opacity: 1;
+//       transform: translateX(0);
+//     }
 //   }
 
 //   // stagger delays:
-//   body.is-nav-open .header-nav ul li:nth-child(1) { transition-delay: 0.45s; }
-//   body.is-nav-open .header-nav ul li:nth-child(2) { transition-delay: 0.55s; }
-//   body.is-nav-open .header-nav ul li:nth-child(3) { transition-delay: 0.65s; }
-//   body.is-nav-open .header-nav ul li:nth-child(4) { transition-delay: 0.75s; }
-//   body.is-nav-open .header-nav ul li:nth-child(5) { transition-delay: 0.85s; }
+//   body.is-nav-open .header-nav .header-nav-close-button { transition-delay: 0.35s; }
+//   body.is-nav-open .header-nav ul li:nth-child(1) { transition-delay: 0.40s; }
+//   body.is-nav-open .header-nav ul li:nth-child(2) { transition-delay: 0.50s; }
+//   body.is-nav-open .header-nav ul li:nth-child(3) { transition-delay: 0.60s; }
+//   body.is-nav-open .header-nav ul li:nth-child(4) { transition-delay: 0.70s; }
+//   body.is-nav-open .header-nav ul li:nth-child(5) { transition-delay: 0.80s; }
 // }
 
 @media screen and (max-width: 768px) {

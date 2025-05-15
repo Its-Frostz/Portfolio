@@ -1,0 +1,189 @@
+
+.page-about {
+  .header-bg {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+#about {
+  .pic {
+    pointer-events: none;
+    display: block;
+    position: fixed;
+    z-index: 9999;
+    top: 50%;
+    left: -12vw;
+    transform: translate3d(0, -50%, 0);
+    width: 43vw;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    background-image: url(../../Assets/me2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    filter: grayscale(1) brightness(1);
+    mix-blend-mode: difference;
+
+    @media screen and (max-width: 1024px) {
+      top: -12vh;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0) rotate(90deg);
+      width: 70vw;
+    }
+  }
+
+  .static-container {
+    padding-top: 30vh;
+
+    @media screen and (max-width: 1024px) {
+      padding-top: 50vw;
+    }
+  }
+
+  .about-contact {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 2rem 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+      list-style: none;
+      margin: 0 1rem 0 0;
+      color: var(--gray);
+    }
+
+    a {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+
+      &.bt {
+        background: var(--purple);
+        color: var(--bg);
+        padding: 0 1rem;
+        height: 2rem;
+        border-radius: 3rem;
+        margin-left: 1rem;
+        line-height: 2rem;
+
+        .ico {
+          margin-left: 0.5rem;
+          height: 14px;
+          width: 14px;
+        }
+
+        &:hover {
+          background: var(--light);
+        }
+      }
+
+      .ico {
+        flex: 0 0 auto;
+        overflow: visible;
+        width: 1.5rem;
+        height: 1.5rem;
+        // stroke: var(--bg);
+        fill: var(--purple);
+        // stroke-width: 2px;
+        transition: all 400ms ease-out;
+      }
+
+      &:hover {
+        .ico {
+          fill: var(--light);
+        }
+      }
+    }
+
+    @media screen and (max-width: 568px) {
+      flex-flow: row wrap;
+
+      li:last-child {
+        flex: 0 0 100%;
+        margin: 1rem 0 0;
+      }
+    }
+  }
+
+  .about-grid {
+    padding: 3rem 2rem 0 0;
+    margin-right: -25vw;
+    width: 75vw;
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .columns {
+      margin-bottom: 2rem;
+    }
+
+    ul {
+      display: grid;
+      grid-template: 1fr / repeat(4, 1fr);
+      grid-gap: 2rem;
+      grid-row-gap: 1rem;
+    }
+
+    li {
+      list-style: none;
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5em;
+      color: var(--gray);
+    }
+
+    .tools {
+      display: grid;
+      grid-template: 1fr / repeat(4, 1fr);
+      grid-gap: 2rem;
+      grid-row-gap: 1rem;
+
+      ul {
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      padding: 3rem 1rem 0 0;
+      margin: 0;
+      width: calc(100vw - 4rem);
+    }
+
+    @media screen and (max-width: 768px) {
+      ul {
+        grid-template: 1fr / repeat(3, 1fr);
+      }
+
+      .tools {
+        grid-template: 1fr / repeat(3, 1fr);
+
+        ul {
+          display: block;
+        }
+      }
+    }
+
+    @media screen and (max-width: 568px) {
+      ul {
+        grid-template: 1fr / 1fr;
+        grid-gap: 1rem;
+      }
+
+      .tools {
+        grid-template: 1fr / 1fr;
+        grid-gap: 1rem;
+
+        ul {
+          display: block;
+        }
+      }
+    }
+  }
+}

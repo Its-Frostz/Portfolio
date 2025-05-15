@@ -7,6 +7,8 @@ import TitleSection from '../components/TitleSection.jsx'
 // Home components
 import Intro from '../components/Home/Intro.jsx'
 
+import '../css/pages/Home.scss'
+
 export default function Home() {
   return (
     <div id="home" className="wrapper">

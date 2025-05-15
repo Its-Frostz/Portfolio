@@ -5,7 +5,7 @@ export default function Instagram() {
     <svg 
         xmlns="http://www.w3.org/2000/svg" 
         className="ico"
-        viewBox="1 2 20 20" 
+        viewBox="2 3 18 18" 
         
         role="img"
         aria-labelledby="InstagramIcoTitle"
