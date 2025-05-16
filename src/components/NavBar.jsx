@@ -68,7 +68,7 @@ export default function NavBar(props) {
               </li>
               <li>
                 <a
-                  href="mailto:thecoldqrage@gmail.com"
+                  href="mailto:yupthisisfrostz@gmail.com"
                   title="Send me an email"
                 >
                   .email()

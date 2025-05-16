@@ -1,0 +1,68 @@
+{
+  "email": "yupthisisfrostz@gmail.com",
+  "links": [
+    {
+      "url": "https://www.instagram.com/signior_atif/",
+      "title": "gitHub",
+      "icon": "Github"
+    },
+    {
+      "url": "https://github.com/Its-Frostz",
+      "title": "instagram",
+      "icon": "Instagram"
+    }
+  ],
+  "description": [
+    "Computer Science student driven by poetry, critical thinking, and a love of elegant problem‑solving.",
+    "A proud Bengali from India ❤️"
+  ],
+  "subtitles": ["he/him"],
+  "skills": [
+    "Problem‑Solving",
+    "Web Development",
+    "Game Development",
+    "Machine Learning"
+  ],
+  "languages": [
+    ["Python", "C++", "C", "C#", "Java"],
+    ["HTML", "CSS", "JavaScript", "TypeScript", "React", "react-spring", "Flask", "Express"],
+    ["Unreal Engine", "Blueprints", "C++", "Mechanic Prototyping", "Level Logic"],
+    ["Python", "PyTorch", "TensorFlow", "Keras"]
+  ],
+  "education": [
+    {
+      "degree": "B.Sc. Computer Science (in progress)",
+      "institution": "Your University Name",
+      "time": "2022 – present"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Sample Text1",
+      "url":"https://sampleredirect.com/",
+      "description": "Sample Text1"
+    },
+    {
+      "title": "Sample Text2",
+      "url":"https://sampleredirect.com/",
+      "description": "Sample Text2"
+    },
+    {
+      "title": "Sample Text3",
+      "url":"https://sampleredirect.com/",
+      "description": "Sample Text3"
+    }
+  ],
+  "languages-spoken": {
+    "fluent": [
+      ["en-US", "English"],
+      ["bn-IN", "Bengali"]
+    ],
+    "intermediate": [["hi-IN", "Hindi"]],
+    "basic": [
+      ["ar-SA", "Arabic"],
+      ["de-DE", "German"]
+    ]
+  },
+  "busy": ["Al-Qur'an", "Poetry", "Chess", "Video Games"]
+}
