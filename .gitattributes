@@ -1,0 +1,6 @@
+#  Ignore SCSS in language stats
+*.scss linguist-vendored
+
+#  Ensure JS and JSX are counted normally
+*.js linguist-language=JavaScript
+*.jsx linguist-language=JavaScript
