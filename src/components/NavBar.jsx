@@ -84,7 +84,7 @@ export default function NavBar(props) {
                   .email()
                 </a>
               </li>
-              {links.map((link) => {
+              {links && links.map((link) => {
                 const IconComponent = iconMap[link.icon];
                 return (
                   <li key={link.url} className="social-link">

@@ -21,19 +21,16 @@ export default function About() {
           setJsonData(data);
         } else {
           setJsonData([]); // Set to empty array if data is not as expected
+          console.warn("Fetched data or data.links is missing.");
         }
         // console.log(data); // You can keep this for debugging
       } catch (error) {
+        console.error('Error fetching data:', error);
         setJsonData([]); // Set to empty array on error
       }
     };
     loadData();
   }, []);
-
-  useEffect(() => {
-    console.log("json data updated", jsonData);
-  }, [jsonData])
-
 
   return (
     <div id="about" className="wrapper">
