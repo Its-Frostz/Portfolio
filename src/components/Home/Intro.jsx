@@ -16,9 +16,7 @@ export default function Intro() {
         <TextBlock>
           <p className="-purple">Atif Ahmed</p>
           <p className="-gray">
-            Young Mind with Big Dreams.
-            <br />
-            "No Stoping Until My Phone Number Becomes My Net Worth"
+            A chaotic overachiever, who makes his whole personality being a software developer.
           </p>
         </TextBlock>
       </div>

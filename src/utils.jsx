@@ -1,6 +1,7 @@
 // Icons for icon mapping
 import Github from "./components/Icons/Github.jsx";
 import Instagram from "./components/Icons/Instagram.jsx";
+import CV from "./components/Icons/CV.jsx";
 
 export async function fetchData() {
   try {
@@ -17,4 +18,5 @@ export async function fetchData() {
 export const iconMap = {
   Github: Github,
   Instagram: Instagram,
+  CV: CV,
 };

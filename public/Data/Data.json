@@ -13,8 +13,18 @@
     }
   ],
   "description": [
-    "Computer Science student driven critical thinking, and a love of elegant problem-solving.",
-    "A proud Bengali from India <3"
+    "Computer Science student driven critical thinking, and a love of elegant problem-solving."
+  ],
+  "humour": [
+    ["A proud Bengali from India <3"],
+    ["Too ambitious for his own good, too stubborn to fail."],
+    ["Turning wild ideas into production disasters—then covertly patching them."],
+    ["Part-time wizard, full-time bug exterminator."],
+    ["Excessively curious, alarmingly productive.","If code were currency, I'd be Elon Musk."],
+    ["Too ambitious for his own good, too stubborn to fail."],
+    ["Writes code like Shakespeare wrote plays — dramatic, and yet somehow it works."],
+    ["A high-functioning overthinker who compiles better than your last five builds ;)"],
+    ["Turning caffeine and chaos into clean code since... never mind..","Full-time dev, part-time existential crisis."]
   ],
   "subtitles": ["He/Him/Batman"],
   "skills": [

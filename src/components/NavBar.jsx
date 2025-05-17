@@ -17,14 +17,15 @@ export default function NavBar(props) {
     }
   };
 
-  const [links, setLinks] = useState([])
-
+  const [links, setLinks] = useState([]);
 
   useEffect(() => {
-    const loadData = async () => { // Renamed 'fetch' to avoid conflict with window.fetch if ever an issue
+    const loadData = async () => {
+      // Renamed 'fetch' to avoid conflict with window.fetch if ever an issue
       try {
         const data = await fetchData();
-        if (data && data.links) { // Good practice to check if data and data.links exist
+        if (data && data.links) {
+          // Good practice to check if data and data.links exist
           setLinks(data.links);
         } else {
           setLinks([]); // Set to empty array if data is not as expected
@@ -32,7 +33,7 @@ export default function NavBar(props) {
         }
         // console.log(data); // You can keep this for debugging
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
         setLinks([]); // Set to empty array on error
       }
     };
@@ -71,10 +72,26 @@ export default function NavBar(props) {
             </button>
             <ul>
               <li>
-                <NavLink to={"/"} end className={({ isActive }) => (isActive ? 'router-link-exact-active' : '')}>.is()</NavLink>
+                <NavLink
+                  to={"/"}
+                  end
+                  className={({ isActive }) =>
+                    isActive ? "router-link-exact-active" : ""
+                  }
+                >
+                  .is()
+                </NavLink>
               </li>
               <li>
-                <NavLink to={"/about"} end className={({ isActive }) => (isActive ? 'router-link-exact-active' : '')}>.about()</NavLink>
+                <NavLink
+                  to={"/about"}
+                  end
+                  className={({ isActive }) =>
+                    isActive ? "router-link-exact-active" : ""
+                  }
+                >
+                  .about()
+                </NavLink>
               </li>
               <li>
                 <a
@@ -84,16 +101,21 @@ export default function NavBar(props) {
                   .email()
                 </a>
               </li>
-              {links && links.map((link) => {
-                const IconComponent = iconMap[link.icon];
-                return (
-                  <li key={link.url} className="social-link">
-                    <a href={`${link.url}`} title={link.title} target="_blank">
-                      {(link.icon && <IconComponent />) || link.title}
-                    </a>
-                  </li>
-                );
-              })}
+              {links &&
+                links.map((link) => {
+                  const IconComponent = iconMap[link.icon];
+                  return (
+                    <li key={link.url} className="social-link">
+                      <a
+                        href={`${link.url}`}
+                        title={link.title}
+                        target="_blank"
+                      >
+                        {IconComponent ? <IconComponent /> : link.title}
+                      </a>
+                    </li>
+                  );
+                })}
             </ul>
           </nav>
         </div>
