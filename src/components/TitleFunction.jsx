@@ -4,7 +4,6 @@ import TextBlock from './TextBlock'
 export default function TitleFunction(props) {
   function purp() {
     if (props.purple != null) {
-      console.log(`pulpleeeeeeeeeeeee ${props.children}`);
       return (
         <>
           <span className="func">{props.purple}(</span>
@@ -14,7 +13,6 @@ export default function TitleFunction(props) {
       );
     }
     else{
-      console.log(`not purple ${props.children}`);
       return (
         <>
           (<span className="params">{props.params}</span>)

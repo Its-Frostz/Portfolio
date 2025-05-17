@@ -1,24 +1,40 @@
-import React from 'react'
-import TextBlock from '../components/TextBlock'
-import Github from '../components/Icons/Github';
-import Instagram from '../components/Icons/Instagram';
+// React and util 
+import { useEffect, useState } from 'react';
+import { fetchData, iconMap } from '@/utils.jsx'
 
+// Components
+import TextBlock from '../components/TextBlock'
+
+// SCSS
 import '../css/pages/About.scss'
 
-const links = [
-  {
-    title: "instagram",
-    url: "https://www.instagram.com/signior_atif/",
-    icon: Instagram,
-  },
-  {
-    title: "github",
-    url: "https://github.com/Its-Frostz",
-    icon: Github,
-  },
-];
-
 export default function About() {
+
+  const [jsonData, setJsonData] = useState({})
+
+  useEffect(() => {
+
+    const loadData = async () => { // Renamed 'fetch' to avoid conflict with window.fetch if ever an issue
+      try {
+        const data = await fetchData();
+        if (data) { // Good practice to check if data exist
+          setJsonData(data);
+        } else {
+          setJsonData([]); // Set to empty array if data is not as expected
+        }
+        // console.log(data); // You can keep this for debugging
+      } catch (error) {
+        setJsonData([]); // Set to empty array on error
+      }
+    };
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    console.log("json data updated", jsonData);
+  }, [jsonData])
+
+
   return (
     <div id="about" className="wrapper">
       <div className="pic"></div>
@@ -27,19 +43,21 @@ export default function About() {
 
         <TextBlock>
           <div className="first-fold">
-            <ul className="about-contact">
-              {links.map((link, index) => {
-                const IconComponent = link.icon;
-                return (
-                  <li key={`${link.url}`}>
-                    <a href={`${link.url}`} title={`${link.title}`} target="_blank">
-                      {(link.icon && <IconComponent />) || link.title}
-                    </a>
-                  </li>
-                );
-              })}
-              <li></li>
-            </ul>
+            {jsonData.links && (
+              <ul className="about-contact">
+                {jsonData.links.map((link) => {
+                  const IconComponent = iconMap[link.icon];
+                  return (
+                    <li key={`${link.url}`}>
+                      <a href={`${link.url}`} title={`${link.title}`} target="_blank" rel="noopener noreferrer">
+                        {(link.icon && <IconComponent />) || link.title}
+                      </a>
+                    </li>
+                  );
+                })}
+                <li></li>
+              </ul>
+            )}
           </div>
         </TextBlock>
       </div>

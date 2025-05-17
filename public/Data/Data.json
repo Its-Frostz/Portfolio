@@ -13,27 +13,27 @@
     }
   ],
   "description": [
-    "Computer Science student driven by poetry, critical thinking, and a love of elegant problem‑solving.",
-    "A proud Bengali from India ❤️"
+    "Computer Science student driven critical thinking, and a love of elegant problem-solving.",
+    "A proud Bengali from India <3"
   ],
-  "subtitles": ["he/him"],
+  "subtitles": ["He/Him/Batman"],
   "skills": [
-    "Problem‑Solving",
+    "Problem-Solving",
     "Web Development",
     "Game Development",
     "Machine Learning"
   ],
   "languages": [
-    ["Python", "C++", "C", "C#", "Java"],
-    ["HTML", "CSS", "JavaScript", "TypeScript", "React", "react-spring", "Flask", "Express"],
+    ["C++", "Python", "C#", "Java"],
+    ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Vue", "GSAP", "react-spring", "Flask", "Express", "Node"],
     ["Unreal Engine", "Blueprints", "C++", "Mechanic Prototyping", "Level Logic"],
     ["Python", "PyTorch", "TensorFlow", "Keras"]
   ],
   "education": [
     {
       "degree": "B.Sc. Computer Science (in progress)",
-      "institution": "Your University Name",
-      "time": "2022 – present"
+      "institution": "SAMPLE UNI",
+      "time": "2025 - present"
     }
   ],
   "projects": [
@@ -64,5 +64,5 @@
       ["de-DE", "German"]
     ]
   },
-  "busy": ["Al-Qur'an", "Poetry", "Chess", "Video Games"]
+  "busy": ["Al-Qur'an", "Poetry", "Chess", "Physics", "Video Games"]
 }

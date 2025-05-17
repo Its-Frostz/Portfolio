@@ -1,34 +1,44 @@
-// import React from "react";
-
+// React and util
 import { NavLink } from "react-router";
+import { useEffect, useState } from "react";
+import { fetchData, iconMap } from "@/utils.jsx";
+
+// SCSS
 import "../css/Components/NavBar.scss";
-import Github from "./Icons/Github.jsx";
-import Instagram from "./Icons/Instagram.jsx";
 
 export default function NavBar(props) {
   const handleToggleNav = () => {
     const isCurrentlyOpen = document.body.classList.contains("is-nav-open");
 
     if (isCurrentlyOpen) {
-      console.log("close")
       document.body.classList.remove("is-nav-open");
     } else {
-      console.log("open")
       document.body.classList.add("is-nav-open");
     }
   };
-  const items = [
-    {
-      title: "github",
-      url: "https://github.com/Its-Frostz",
-      icon: Github,
-    },
-    {
-      title: "instagram",
-      url: "https://www.instagram.com/signior_atif/",
-      icon: Instagram,
-    },
-  ];
+
+  const [links, setLinks] = useState([])
+
+
+  useEffect(() => {
+    const loadData = async () => { // Renamed 'fetch' to avoid conflict with window.fetch if ever an issue
+      try {
+        const data = await fetchData();
+        if (data && data.links) { // Good practice to check if data and data.links exist
+          setLinks(data.links);
+        } else {
+          setLinks([]); // Set to empty array if data is not as expected
+          console.warn("Fetched data or data.links is missing.");
+        }
+        // console.log(data); // You can keep this for debugging
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLinks([]); // Set to empty array on error
+      }
+    };
+    loadData();
+  }, []);
+
   return (
     <>
       <header id="header">
@@ -74,8 +84,8 @@ export default function NavBar(props) {
                   .email()
                 </a>
               </li>
-              {items.map((link, index) => {
-                const IconComponent = link.icon;
+              {links.map((link) => {
+                const IconComponent = iconMap[link.icon];
                 return (
                   <li key={link.url} className="social-link">
                     <a href={`${link.url}`} title={link.title} target="_blank">
