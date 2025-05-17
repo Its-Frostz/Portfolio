@@ -1,5 +1,5 @@
 // Scss
-import '../css/Components/TitleSection.scss'
+import "../css/Components/TitleSection.scss";
 
 export default function TitleSection(props) {
   return (
@@ -8,5 +8,5 @@ export default function TitleSection(props) {
         {props.children}
       </div>
     </section>
-  )
+  );
 }

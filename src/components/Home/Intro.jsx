@@ -1,8 +1,8 @@
 // Utilility components
-import TextBlock from '../TextBlock'
+import TextBlock from "../TextBlock";
 
 // As this is kind of a scene just reused scene section for this
-import '../../css/Components/SceneSection.scss'
+import "../../css/Components/SceneSection.scss";
 
 export default function Intro() {
   return (
@@ -17,11 +17,11 @@ export default function Intro() {
           <p className="-purple">Atif Ahmed</p>
           <p className="-gray">
             Young Mind with Big Dreams.
-            <br/>
+            <br />
             "No Stoping Until My Phone Number Becomes My Net Worth"
           </p>
         </TextBlock>
       </div>
     </section>
-  )
+  );
 }

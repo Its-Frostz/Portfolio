@@ -1,5 +1,5 @@
 // SCSS
-import '../css/Components/Spine.scss'
+import "../css/Components/Spine.scss";
 
 export default function Spine() {
   return (
@@ -11,5 +11,5 @@ export default function Spine() {
         <div className="pulse" />
       </div>
     </div>
-  )
+  );
 }
