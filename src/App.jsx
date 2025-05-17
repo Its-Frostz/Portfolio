@@ -1,16 +1,23 @@
+// React utility and Routing stuff
 import { useEffect } from 'react'
-import Home from './pages/Home.jsx'
-import NavBar from './components/NavBar.jsx'
-import About from './pages/About.jsx'
-import NotFound from './pages/404.jsx'
-import Spine from './components/Spine.jsx'
-import Footer from './components/Footer.jsx'
-import { useMatches } from 'react-router'
 import {
+  useMatches,
   createBrowserRouter,
   RouterProvider,
-  Outlet,
+  Outlet
 } from "react-router";
+
+// Page components
+import Home from './pages/Home.jsx'
+import About from './pages/About.jsx'
+import NotFound from './pages/404.jsx'
+
+// Static components
+import NavBar from './components/NavBar.jsx'
+import Spine from './components/Spine.jsx'
+import Footer from './components/Footer.jsx'
+
+// SCSS
 import './css/App.scss'
 
 function useRouteMetadata() {
@@ -53,7 +60,6 @@ function App() {
             title: '.Frostz()',
             nav: 'Atif.is()',
           },
-          // name: ".Frostz()",
         },
         {
           path: "/about",
@@ -62,7 +68,6 @@ function App() {
             title: '.about()',
             nav: 'Atif.about()',
           },
-          // name: ".about()",
         },
         {
           path: "*",
@@ -71,7 +76,6 @@ function App() {
             title: '.404()',
             nav: '404()',
           },
-          // name: "",
         },
       ],
     },

@@ -101,10 +101,3 @@ export default function NavBar(props) {
     </>
   );
 }
-// NavBar.prototype = {
-//     name: PropTypes.string
-// }
-
-// NavBar.defaultProps = {
-//     name: ".Frostz()"
-// }

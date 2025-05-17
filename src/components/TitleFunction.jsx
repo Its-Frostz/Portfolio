@@ -1,4 +1,4 @@
-import React from 'react'
+// Utility Component
 import TextBlock from './TextBlock'
 
 export default function TitleFunction(props) {

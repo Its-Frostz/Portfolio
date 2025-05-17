@@ -1,4 +1,5 @@
-import React from 'react'
+// SCSS
+import '../../css/Components/SceneSection.scss'
 
 export default function SceneSection() {
   return (

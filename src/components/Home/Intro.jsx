@@ -1,5 +1,7 @@
-import React from 'react'
+// Utilility components
 import TextBlock from '../TextBlock'
+
+// As this is kind of a scene just reused scene section for this
 import '../../css/Components/SceneSection.scss'
 
 export default function Intro() {

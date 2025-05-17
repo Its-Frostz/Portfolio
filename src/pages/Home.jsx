@@ -1,5 +1,4 @@
-import React from 'react'
-// Util components
+// Utility components
 import GapBlock from '../components/GapBlock.jsx'
 import TitleFunction from '../components/TitleFunction.jsx'
 import TitleSection from '../components/TitleSection.jsx'

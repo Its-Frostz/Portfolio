@@ -1,4 +1,4 @@
-import React from 'react'
+// Scss
 import '../css/Components/TitleSection.scss'
 
 export default function TitleSection(props) {

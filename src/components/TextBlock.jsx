@@ -1,4 +1,4 @@
-import React from 'react'
+// SCSS
 import '../css/Components/TextBlock.scss'
 
 export default function TextBlock({children}) {

@@ -1,4 +1,4 @@
-import React from 'react'
+// SCSS
 import '../css/Components/Spine.scss'
 
 export default function Spine() {

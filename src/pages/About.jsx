@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { fetchData, iconMap } from '@/utils.jsx'
 
-// Components
+// Utility Components
 import TextBlock from '../components/TextBlock'
 
 // SCSS
