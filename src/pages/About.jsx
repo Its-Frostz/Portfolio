@@ -43,7 +43,7 @@ export default function About() {
     
   //   const interval = setInterval(() => {
   //     setCurrentHumor(getRandomItem(jsonData.humour));
-  //   }, 3000); // Change every 3 seconds
+  //   }, 8000); // Change every 3 seconds
 
   //   // Clean up interval on component unmount
   //   return () => clearInterval(interval);
@@ -88,16 +88,28 @@ export default function About() {
                   </li>
                 </ul>
                 <p className="-purple">
-                  <span>
-                    {jsonData.description}
-                    <br />
-                  </span>
+                  {jsonData.description.map((line, i) => (
+                    <span key={i}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}
                   {/* {currentHumor && (
                     <span>
                       {currentHumor}
                       <br />
                     </span>
                   )} */}
+                </p>
+                <p class="-gray">
+                  {jsonData.subtitles.map((subtitle, i) => (
+                    <span key={i}>
+                      {"// " + subtitle}
+                      <br />
+                    </span>
+                  ))}
+                  {/* // Digital Craftsman | Shaping pixels into poetry */}
+                  // {jsonData.currentPosition[0].title} @ {jsonData.currentPosition[0].institution}
                 </p>
               </>
             )}
