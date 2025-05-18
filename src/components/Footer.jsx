@@ -1,5 +1,11 @@
+import "../css/Components/Footer.scss";
+
 export default function Footer() {
   return (
-    <div>Footer</div>
-  )
+    <>
+      <footer className="footer">
+        <p>Made with 🤍 By Atif </p>
+      </footer>
+    </>
+  );
 }
