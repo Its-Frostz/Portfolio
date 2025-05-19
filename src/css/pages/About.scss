@@ -140,7 +140,7 @@
     width: 75vw;
 
     h2 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-bottom: 1rem;
     }
 
@@ -165,6 +165,15 @@
       h2 {
         font-size: 1.1rem;
         color: var(--purple);
+      }
+    }
+  
+    .busy {
+      ul {
+        display: grid;
+        grid-template: 1fr / repeat(4, 1fr);
+        grid-gap: 2rem;
+        grid-row-gap: 1rem;
       }
     }
 

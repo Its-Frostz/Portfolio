@@ -34,16 +34,16 @@
     }
   ],
   "skills": [
-    "Problem Solving",
-    "Web Development",
     "Game Development",
-    "Machine Learning"
+    "Machine Learning",
+    "Web Development",
+    "Problem Solving (DSA / ALGO)"
   ],
   "languages": [
-    ["C++", "Python", "C#", "Java"],
-    ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Vue", "GSAP", "react-spring", "Flask", "Express", "Node"],
-    ["Unreal Engine", "Blueprints", "C++", "Level-Logic", "Mechanics Prototyping"],
-    ["Python", "PyTorch", "TensorFlow", "Keras"]
+    ["Unreal Engine", "Unity", "Blueprints", "C++", "C#", "Animation Blueprints", "AI Behavior Trees", "Lighting Systems", "Multiplayer Networking"],
+    ["Python", "PyTorch", "TensorFlow", "Keras", "NumPy", "Pandas", "OpenCV", "FastAPI", "Flask"],
+    ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Vue", "GSAP", "React-Spring", "Flask", "Express", "Node"],
+    ["C++", "Python", "C#", "Java"] 
   ],
   "education": [
     {
@@ -80,5 +80,5 @@
       ["de-DE", "German"]
     ]
   },
-  "busy": ["Al-Qur'an", "Poetry", "Chess", "Physics", "Video Games"]
+  "busy": ["Al-Qur'an", "Poetry", "Physics", "Chess", "Video Games"]
 }
