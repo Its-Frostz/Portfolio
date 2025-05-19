@@ -8,11 +8,11 @@ export default function Footer() {
       <SceneSection id="thanks">
         <TextBlock>
           {/* I have an idea... <Potion/> tadaaaa */}
-    
+
           <div class="madeof">
             <p class="-comment">// Made with</p>
-    
-            <div class="cols">
+
+            <div class="cols -purple-lighter">
               <ul class="col">
                 <li class="ico">{`</>`}</li>
                 <li>React 19</li>
@@ -23,15 +23,13 @@ export default function Footer() {
                 <li>Photoshop</li>
               </ul>
               <ul class="col">
-                <li class="ico">~</li>  
-                <li>Over 40 cups of Tea</li>
+                <li class="ico">~</li>
+                <li>Over 53 cups of Tea</li>
                 <li>Few sleepless nights</li>
                 <li>{/* Add something I guess my mind aint working */}</li>
               </ul>
               <ul class="col songs">
-                <li class="ico">
-                  {/* probably <MusicIcon /> */}
-                </li>
+                <li class="ico">{/* probably <MusicIcon /> */}</li>
                 {/*Add one more colomn of songs or something*/}
               </ul>
             </div>

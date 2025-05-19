@@ -45,6 +45,10 @@
     width: 70vw;
     line-height: 1.2;
   }
+  .-purple-lighter {
+    color: var(--purple);
+    filter: brightness(1);
+  }
   .-purple {
     color: var(--purple);
   }
