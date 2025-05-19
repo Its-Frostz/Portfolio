@@ -13,7 +13,7 @@
     }
   ],
   "description": [
-    "Computer Science student heavily driven by critical thinking, And borderline obsession with elegant problem solving. ",
+    "Computer Science student heavily driven by critical thinking, And borderline obsession with elegant problem-solving. ",
     "A proud Bengali from India <3"
   ],
   "humour": [
@@ -30,7 +30,7 @@
   "currentPosition":[
     {
       "title": "9th Position",
-      "institution": "International Code Wars Olympiad"
+      "institution": "Code Wars International Olympiad"
     }
   ],
   "skills": [
@@ -42,7 +42,7 @@
   "languages": [
     ["C++", "Python", "C#", "Java"],
     ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Vue", "GSAP", "react-spring", "Flask", "Express", "Node"],
-    ["Unreal Engine", "Blueprints", "C++", "Mechanic Prototyping", "Level Logic"],
+    ["Unreal Engine", "Blueprints", "C++", "Level-Logic", "Mechanics Prototyping"],
     ["Python", "PyTorch", "TensorFlow", "Keras"]
   ],
   "education": [

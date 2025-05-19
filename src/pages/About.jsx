@@ -57,65 +57,79 @@ export default function About() {
         <h1 className="title">
           about(<span className="params">Atif</span>)
         </h1>
-        <TextBlock>
-          <div className="first-fold">
-            {jsonData.links && (
-              <>
-                <ul className="about-contact">
-                  {jsonData.links.map((link) => {
-                    const IconComponent = iconMap[link.icon];
-                    return (
-                      <li key={`${link.url}`}>
-                        <a
-                          href={`${link.url}`}
-                          title={`${link.title}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {IconComponent ? <IconComponent /> : link.title}
-                        </a>
+        {jsonData.links && (
+          <TextBlock>
+            <div className="first-fold">
+                  <ul className="about-contact">
+                    {jsonData.links.map((link) => {
+                      const IconComponent = iconMap[link.icon];
+                      return (
+                        <li key={`${link.url}`}>
+                          <a
+                            href={`${link.url}`}
+                            title={`${link.title}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {IconComponent ? <IconComponent /> : link.title}
+                          </a>
+                        </li>
+                      );
+                    })}
+                    <li>
+                      Maybe Someday...
+                      <a disabled target="_blank" className="bt">
+                        CV
+                        {(() => {
+                          const CvIcon = iconMap["CV"];
+                          return CvIcon ? <CvIcon /> : "";
+                        })()}
+                      </a>
+                    </li>
+                  </ul>
+                  <p className="-purple">
+                    {jsonData.description.map((line, i) => (
+                      <span key={i}>
+                        {line}
+                        <br />
+                      </span>
+                    ))}
+                    {/* {currentHumor && (
+                      <span>
+                        {currentHumor}
+                        <br />
+                      </span>
+                    )} */}
+                  </p>
+                  <p class="-gray">
+                    {jsonData.subtitles.map((subtitle, i) => (
+                      <span key={i}>
+                        {"// " + subtitle}
+                        <br />
+                      </span>
+                    ))}
+                    {/* // Digital Craftsman | Shaping pixels into poetry */}
+                    // {jsonData.currentPosition[0].title+` @ `+jsonData.currentPosition[0].institution}
+                  </p>
+            </div>
+            <div class="about-grid">
+              <h2>Main skills</h2>
+              <div class="columns fluent">
+                <ul>
+                  {jsonData.languages.map((languages, i) => (
+                    <>
+                      <li key={i}>
+                        <h2>{jsonData.skills[i]}</h2>
+                        {languages.join(", ")}
+                        <br/>
                       </li>
-                    );
-                  })}
-                  <li>
-                    Maybe Someday...
-                    <a disabled target="_blank" className="bt">
-                      CV
-                      {(() => {
-                        const CvIcon = iconMap["CV"];
-                        return CvIcon ? <CvIcon /> : "";
-                      })()}
-                    </a>
-                  </li>
+                    </>
+                  ))}
                 </ul>
-                <p className="-purple">
-                  {jsonData.description.map((line, i) => (
-                    <span key={i}>
-                      {line}
-                      <br />
-                    </span>
-                  ))}
-                  {/* {currentHumor && (
-                    <span>
-                      {currentHumor}
-                      <br />
-                    </span>
-                  )} */}
-                </p>
-                <p class="-gray">
-                  {jsonData.subtitles.map((subtitle, i) => (
-                    <span key={i}>
-                      {"// " + subtitle}
-                      <br />
-                    </span>
-                  ))}
-                  {/* // Digital Craftsman | Shaping pixels into poetry */}
-                  // {jsonData.currentPosition[0].title} @ {jsonData.currentPosition[0].institution}
-                </p>
-              </>
-            )}
-          </div>
-        </TextBlock>
+              </div>
+            </div>
+          </TextBlock>
+        )}
       </div>
       <Wrapper/>
     </div>

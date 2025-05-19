@@ -22,7 +22,6 @@ export default function Wrapper() {
               <li>GSAP 3</li>
               <li>ScrollMagic</li>
               <li>Figma</li>
-              <li>Photoshop</li>
             </ul>
             <ul class="col">
               <li class="ico">~</li>
