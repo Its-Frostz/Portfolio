@@ -69,13 +69,13 @@
       "description": "Sample Text3"
     }
   ],
-  "languages-spoken": {
-    "fluent": [
+  "languagesSpoken": {
+    "Fluent": [
       ["en-US", "English"],
       ["bn-IN", "Bengali"]
     ],
-    "intermediate": [["hi-IN", "Hindi"]],
-    "basic": [
+    "Intermediate": [["hi-IN", "Hindi"]],
+    "Basic": [
       ["ar-SA", "Arabic"],
       ["de-DE", "German"]
     ]
