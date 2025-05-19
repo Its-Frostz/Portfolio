@@ -5,7 +5,9 @@ import TitleSection from "../components/TitleSection.jsx";
 
 // Home components
 import Intro from "../components/Home/Intro.jsx";
+import Wrapper from "../components/Wrapper.jsx";
 
+// SCSS
 import "../css/pages/Home.scss";
 
 export default function Home() {
@@ -29,6 +31,7 @@ export default function Home() {
           Player
         </TitleFunction>
       </TitleSection>
+      <Wrapper/>
     </div>
   );
 }
