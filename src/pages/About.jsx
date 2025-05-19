@@ -4,6 +4,7 @@ import { fetchData, iconMap } from "@/utils.jsx";
 
 // Utility Components
 import TextBlock from "../components/TextBlock";
+import Wrapper from "../components/Wrapper";
 
 // SCSS
 import "../css/pages/About.scss";
@@ -116,6 +117,7 @@ export default function About() {
           </div>
         </TextBlock>
       </div>
+      <Wrapper/>
     </div>
   );
 }
