@@ -1,9 +1,9 @@
 // SCSS
 import "../css/Components/SceneSection.scss";
 
-export default function SceneSection({ children, container }) {
+export default function SceneSection({ children, container, id }) {
   return (
-    <section className="scene">
+    <section className="scene" id={id}>
       <div className="static-container">
         {children}
       </div>
