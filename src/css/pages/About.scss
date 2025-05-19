@@ -168,52 +168,44 @@
       }
     }
   
-    .busy {
-      ul {
-        display: grid;
-        grid-template: 1fr / repeat(4, 1fr);
-        grid-gap: 2rem;
-        grid-row-gap: 1rem;
-      }
-    }
-
+    
     .tools {
       display: grid;
       grid-template: 1fr / repeat(4, 1fr);
       grid-gap: 2rem;
       grid-row-gap: 1rem;
-
+      
       ul {
         display: block;
       }
     }
-
+    
     @media screen and (max-width: 1024px) {
       padding: 3rem 1rem 0 0;
       margin: 0;
       width: calc(100vw - 4rem);
     }
-
+    
     @media screen and (max-width: 768px) {
       ul {
         grid-template: 1fr / repeat(3, 1fr);
       }
-
+      
       .tools {
         grid-template: 1fr / repeat(3, 1fr);
-
+        
         ul {
           display: block;
         }
       }
     }
-
+    
     @media screen and (max-width: 568px) {
       ul {
         grid-template: 1fr / 1fr;
         grid-gap: 1rem;
       }
-
+      
       .tools {
         grid-template: 1fr / 1fr;
         grid-gap: 1rem;
