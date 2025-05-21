@@ -1,0 +1,7 @@
+21/05/2025 - Couldnt do much cuz I was sick
+
+- Added quite a few utility feature to utils.jsx
+- Added dynamic root class to App.jsx
+
+--- Gotta make a hook for the svg Animations I am thinking of implementing
+--- loading animation and spine animation on page change 
