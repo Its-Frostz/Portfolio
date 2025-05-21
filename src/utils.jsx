@@ -1,8 +1,16 @@
-// Icons for icon mapping
+/**
+ * Icons used for mapping in the application.
+ * These icons are imported from the components/Icons directory.
+ */
 import Github from "./components/Icons/Github.jsx";
 import Instagram from "./components/Icons/Instagram.jsx";
 import CV from "./components/Icons/CV.jsx";
 
+/**
+ * Fetches data from the Data.json file.
+ * @returns {Promise<Object>} The parsed JSON data from Data.json
+ * @throws {Error} If there's an error fetching or parsing the data
+ */
 export async function fetchData() {
   try {
     const response = await fetch("./Data/Data.json");
@@ -14,7 +22,10 @@ export async function fetchData() {
   }
 }
 
-// Maps icon components to thier respective string names in data.json
+/**
+ * Maps icon component names to their respective React components.
+ * Used to dynamically render icons based on string identifiers from data.
+ */
 export const iconMap = {
   Github: Github,
   Instagram: Instagram,
@@ -22,6 +33,48 @@ export const iconMap = {
 };
 
 
+/**
+ * Generates a random integer between the specified minimum and maximum values (inclusive).
+ * @param {number} min - The minimum value (inclusive)
+ * @param {number} max - The maximum value (inclusive)
+ * @returns {number} A random integer between min and max
+ */
+export function random(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+/**
+ * DOM utility object providing methods for element selection.
+ * Simplifies common DOM query operations.
+ */
+export const DOM = {
+  get: (selector) => document.querySelector(selector),
+  getAll: (selector) => [...document.querySelectorAll(selector)],
+}
+
+/**
+ * Converts a string to camelCase format.
+ * Handles spaces, hyphens, and underscores as word separators.
+ * @param {string} str - The string to convert
+ * @returns {string} The camelCased string
+ */
+export function camelCase(str) {
+  return str
+    .toLowerCase()
+    .replace(/([-_\s][a-z])/g, (group) =>
+      group.toUpperCase().replace(/[-_\s]/g, '')
+    )
+}
+
+/**
+ * Retrieves child nodes of a parent element and maps them to a structured object.
+ * Only processes nodes with valid class names and specific HTML elements.
+ * @param {string} parentSelector - CSS selector for the parent element
+ * @param {Document|HTMLElement} [root=document] - The root element to search within
+ * @returns {Object} An object with camelCased class names as keys and corresponding elements as values
+ */
 export function getNodes(parentSelector, root = document) {
   const el = DOM.get(parentSelector, root);
 
@@ -41,4 +94,12 @@ export function getNodes(parentSelector, root = document) {
   });
 
   return el;
+}
+
+export function isReverse(e) {
+  return e.scrollDirection === 'REVERSE'
+}
+
+export function isForward(e) {
+  return e.scrollDirection === 'FORWARD'
 }
