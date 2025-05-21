@@ -26,24 +26,25 @@ function useRouteMetadata() {
   return {
     title: match?.handle?.nav || "404()",
     nav: match?.handle?.title || "404()",
+    rootClass: match?.handle?.rootClass || "",
   };
 }
 
 // Root layout component that contains the consistent UI elements
 function RootLayout() {
-  const { title, nav } = useRouteMetadata();
+  const { title, nav, rootClass } = useRouteMetadata();
 
   useEffect(() => {
     document.title = title;
   }, [title]);
 
   return (
-    <>
+    <div id="app" className={rootClass}>
       <NavBar name={nav} />
       <Outlet /> {/* Child routes render here */}
       <Spine />
       <Footer />
-    </>
+    </div>
   );
 }
 
@@ -59,6 +60,7 @@ function App() {
           handle: {
             title: ".Frostz()",
             nav: "Atif.is()",
+            rootClass: "page-home",
           },
         },
         {
@@ -67,6 +69,7 @@ function App() {
           handle: {
             title: ".about()",
             nav: "Atif.about()",
+            rootClass: "page-about",
           },
         },
         {
@@ -75,6 +78,7 @@ function App() {
           handle: {
             title: ".404()",
             nav: "404()",
+            rootClass: "page-not-found",
           },
         },
       ],
