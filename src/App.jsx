@@ -11,6 +11,7 @@ import {
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import NotFound from "./pages/404.jsx";
+import Test from "./pages/Test.jsx";
 
 // Static components
 import NavBar from "./components/NavBar.jsx";
@@ -70,6 +71,15 @@ function App() {
             title: ".about()",
             nav: "Atif.about()",
             rootClass: "page-about",
+          },
+        },
+        {
+          path: "/test",
+          element: <Test />,
+          handle: {
+            title: ".test()",
+            nav: "test()",
+            rootClass: "page-test",
           },
         },
         {
