@@ -1,132 +1,61 @@
 import React from "react";
 import { useToonAnimation } from "../toonsHook";
-import {getNodes} from "@/utils.jsx"
-import {LOOP_EASE_IN_OUT} from "@/Constants.jsx"
-import '@/css/Components/toons/Potion.scss'
+import { getNodes } from "@/utils.jsx";
+import { LOOP_EASE_IN_OUT } from "@/Constants.jsx";
+import "@/css/Components/toons/Potion.scss";
 
-export default function PotionSVG({isPlaying}) {
-    const svgRef = useToonAnimation(isPlaying, (svg, loop) => {
-        const potion = getNodes('#potion')
-        loop
-        .to(potion, 3, {
-            transformOrigin: '50% 90%',
-            rotation: 15,
-            ...LOOP_EASE_IN_OUT,
-          })
-          .fromTo(
-            potion.potionDrop,
-            0.5,
-            {
-              yPercent: 100,
-              rotation: 0,
-              scale: 1,
-            },
-            {
-              transformOrigin: '20% 120%',
-              rotation: 360,
-              yPercent: -100,
-              scale: 0,
-              repeat: -1,
-            },
-            'start'
-          )
-          .fromTo(
-            potion.potionDrop2,
-            0.7,
-            {
-              yPercent: 100,
-              rotation: 0,
-              scale: 1,
-            },
-            {
-              transformOrigin: '0% 120%',
-              rotation: -360,
-              yPercent: -100,
-              scale: 0,
-              repeat: -1,
-            },
-            'start'
-          ).to(potion, 3, {
-            transformOrigin: '50% 90%',
-            rotation: 15,
-            ...LOOP_EASE_IN_OUT,
-          })
-          .fromTo(
-            potion.potionDrop,
-            0.5,
-            {
-              yPercent: 100,
-              rotation: 0,
-              scale: 1,
-            },
-            {
-              transformOrigin: '20% 120%',
-              rotation: 360,
-              yPercent: -100,
-              scale: 0,
-              repeat: -1,
-            },
-            'start'
-          )
-          .fromTo(
-            potion.potionDrop2,
-            0.7,
-            {
-              yPercent: 100,
-              rotation: 0,
-              scale: 1,
-            },
-            {
-              transformOrigin: '0% 120%',
-              rotation: -360,
-              yPercent: -100,
-              scale: 0,
-              repeat: -1,
-            },
-            'start'
-          ).to(potion, 3, {
-            transformOrigin: '50% 90%',
-            rotation: 15,
-            ...LOOP_EASE_IN_OUT,
-          })
-          .fromTo(
-            potion.potionDrop,
-            0.5,
-            {
-              yPercent: 100,
-              rotation: 0,
-              scale: 1,
-            },
-            {
-              transformOrigin: '20% 120%',
-              rotation: 360,
-              yPercent: -100,
-              scale: 0,
-              repeat: -1,
-            },
-            'start'
-          )
-          .fromTo(
-            potion.potionDrop2,
-            0.7,
-            {
-              yPercent: 100,
-              rotation: 0,
-              scale: 1,
-            },
-            {
-              transformOrigin: '0% 120%',
-              rotation: -360,
-              yPercent: -100,
-              scale: 0,
-              repeat: -1,
-            },
-            'start'
-          )
+export default function PotionSVG({ isPlaying }) {
+  const svgRef = useToonAnimation(isPlaying, (svg, loop) => {
+    const potion = getNodes("#potion");
+    loop
+      .to(potion, 3, {
+        transformOrigin: "50% 90%",
+        rotation: 15,
+        ...LOOP_EASE_IN_OUT,
       })
+      .fromTo(
+        potion.potionDrop,
+        0.5,
+        {
+          yPercent: 100,
+          rotation: 0,
+          scale: 1,
+        },
+        {
+          transformOrigin: "20% 120%",
+          rotation: 360,
+          yPercent: -100,
+          scale: 0,
+          repeat: -1,
+        },
+        "start"
+      )
+      .fromTo(
+        potion.potionDrop2,
+        0.7,
+        {
+          yPercent: 100,
+          rotation: 0,
+          scale: 1,
+        },
+        {
+          transformOrigin: "0% 120%",
+          rotation: -360,
+          yPercent: -100,
+          scale: 0,
+          repeat: -1,
+        },
+        "start"
+      );
+  });
 
   return (
-    <svg ref={svgRef} xmlns="http://www.w3.org/2000/svg" id="potion" viewBox="0 0 100 100">
+    <svg
+      ref={svgRef}
+      xmlns="http://www.w3.org/2000/svg"
+      id="potion"
+      viewBox="0 0 100 100"
+    >
       <g class="potion-potion">
         <g class="potion-vase">
           <g class="potion-bottle">
