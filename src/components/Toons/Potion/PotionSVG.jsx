@@ -12,7 +12,9 @@ export default function PotionSVG({ isPlaying }) {
         transformOrigin: "50% 90%",
         rotation: 15,
         ...LOOP_EASE_IN_OUT,
-      })
+      },
+      "start"
+    )
       .fromTo(
         potion.potionDrop,
         0.5,
