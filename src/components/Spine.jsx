@@ -4,12 +4,11 @@ import { Power3, gsap, Elastic } from "gsap";
 import { useGSAP } from "@gsap/react";
 
 export default function Spine() {
-  
   const init = () => {
     gsap
       .timeline()
       .fromTo(
-        '.spine',
+        ".spine",
         1,
         {
           autoAlpha: 0,
@@ -20,10 +19,10 @@ export default function Spine() {
           yPercent: 0,
           ease: Power3.easeOut,
         },
-        'enter'
+        "enter"
       )
       .fromTo(
-        '.spine-target .circle',
+        ".spine-target .circle",
         1,
         {
           scale: 0,
@@ -34,21 +33,21 @@ export default function Spine() {
           autoAlpha: 1,
           ease: Elastic.easeOut.config(1, 0.5),
         },
-        'enter+=.7'
+        "enter+=.7"
       )
       .fromTo(
-        '.spine-target .circle',
+        ".spine-target .circle",
         2,
         {
-          backgroundColor: 'transparent',
+          backgroundColor: "transparent",
         },
         {
-          backgroundColor: '#5918df',
+          backgroundColor: "#5918df",
         },
-        'enter+=1.2'
+        "enter+=1.2"
       )
       .fromTo(
-        '.spine-target .pulse',
+        ".spine-target .pulse",
         4,
         {
           autoAlpha: 1,
@@ -59,9 +58,9 @@ export default function Spine() {
           scale: 8,
           ease: Power3.easeOut,
         },
-        'enter+=1.2'
-      )
-  }
+        "enter+=1.2"
+      );
+  };
 
   useGSAP(() => {
     init();

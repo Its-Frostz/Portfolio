@@ -133,18 +133,20 @@ export default function About() {
               <h2>Languages</h2>
               <div class="columns languages">
                 <ul>
-                  {Object.entries(jsonData.languagesSpoken).map(([level, langs], i) => (
-                    <li key={level}>
-                      <span class="-comment">// {level}</span>
-                      <br />
-                      {langs.map(([abbribiation, label], i) => (
-                        <span key={abbribiation}>
-                          <em class="-purple">{abbribiation}</em> {label}
-                          <br />
-                        </span>
-                      ))}
-                    </li>
-                  ))}
+                  {Object.entries(jsonData.languagesSpoken).map(
+                    ([level, langs], i) => (
+                      <li key={level}>
+                        <span class="-comment">// {level}</span>
+                        <br />
+                        {langs.map(([abbribiation, label], i) => (
+                          <span key={abbribiation}>
+                            <em class="-purple">{abbribiation}</em> {label}
+                            <br />
+                          </span>
+                        ))}
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
 

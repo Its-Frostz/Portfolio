@@ -15,32 +15,30 @@ import Wrapper from "../components/Wrapper.jsx";
 import "../css/pages/Home.scss";
 
 export default function Home() {
-
-  
   const playIntroScene = () => {
-    gsap  
+    gsap
       .timeline()
       .from(
-        '#intro .title',
+        "#intro .title",
         2,
         {
           autoAlpha: 0,
           rotationX: 90,
-          transformOrigin: '50% 50% -100px',
+          transformOrigin: "50% 50% -100px",
           ease: Power3.easeOut,
         },
-        'enter'
+        "enter"
       )
       .from(
-        '#intro .std',
+        "#intro .std",
         2,
         {
           autoAlpha: 0,
           x: -32,
           ease: Power3.easeOut,
         },
-        'enter+=1.5'
-      )
+        "enter+=1.5"
+      );
   };
 
   useGSAP(() => {
@@ -67,7 +65,7 @@ export default function Home() {
           Player
         </TitleFunction>
       </TitleSection>
-      <Wrapper/>
+      <Wrapper />
     </div>
   );
 }
