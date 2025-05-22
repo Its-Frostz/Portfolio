@@ -1,7 +1,9 @@
-import React from "react";
+// Animation stuff for toon
 import { useToonAnimation } from "../toonsHook";
 import { getNodes } from "@/utils.jsx";
 import { LOOP_EASE_IN_OUT } from "@/Constants.jsx";
+
+// SCSS
 import "@/css/Components/toons/Potion.scss";
 
 export default function PotionSVG({ isPlaying }) {

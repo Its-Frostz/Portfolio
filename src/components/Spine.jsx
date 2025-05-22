@@ -1,5 +1,7 @@
 // SCSS
 import "../css/Components/Spine.scss";
+
+// GSAP and stuff
 import { Power3, gsap, Elastic } from "gsap";
 import { useGSAP } from "@gsap/react";
 

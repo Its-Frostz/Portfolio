@@ -1,6 +1,6 @@
+// Gsap and stuff
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { Power3 } from "gsap";
+import { gsap, Power3 } from "gsap";
 
 // Utility components
 import GapBlock from "../components/GapBlock.jsx";

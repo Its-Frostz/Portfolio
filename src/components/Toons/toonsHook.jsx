@@ -1,4 +1,7 @@
+// React and util
 import { useRef, useEffect } from "react";
+
+// GSAP and stuff
 import { gsap } from "gsap";
 
 export function useToonAnimation(isPlaying, initFn) {
