@@ -64,6 +64,13 @@ body {
   margin: 0 auto;
 }
 
+.page-test {
+  .header-bg {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 .wrapper {
   position: relative;
   z-index: 1;
