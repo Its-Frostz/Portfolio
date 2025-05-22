@@ -1,7 +1,7 @@
 import React from "react";
 import { useToonAnimation } from "../toonsHook";
 import {getNodes} from "@/utils.jsx"
-import {Power2} from "gsap"
+import {LOOP_EASE_IN_OUT} from "@/Constants.jsx"
 import '@/css/Components/toons/Potion.scss'
 
 export default function PotionSVG({isPlaying}) {
@@ -11,7 +11,7 @@ export default function PotionSVG({isPlaying}) {
         .to(potion, 3, {
             transformOrigin: '50% 90%',
             rotation: 15,
-            ease: Power2.easeInOut,
+            ...LOOP_EASE_IN_OUT,
           })
           .fromTo(
             potion.potionDrop,
@@ -49,7 +49,7 @@ export default function PotionSVG({isPlaying}) {
           ).to(potion, 3, {
             transformOrigin: '50% 90%',
             rotation: 15,
-            ease: Power2.easeInOut,
+            ...LOOP_EASE_IN_OUT,
           })
           .fromTo(
             potion.potionDrop,
@@ -87,7 +87,7 @@ export default function PotionSVG({isPlaying}) {
           ).to(potion, 3, {
             transformOrigin: '50% 90%',
             rotation: 15,
-            ease: Power2.easeInOut,
+            ...LOOP_EASE_IN_OUT,
           })
           .fromTo(
             potion.potionDrop,
