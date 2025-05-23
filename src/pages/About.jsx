@@ -101,7 +101,7 @@ export default function About() {
                   </span>
                 )} */}
               </p>
-              <p class="-gray">
+              <p className="-gray">
                 {jsonData.subtitles.map((subtitle, i) => (
                   <span key={i}>
                     {"// " + subtitle}
@@ -115,9 +115,9 @@ export default function About() {
                   jsonData.currentPosition[0].institution}
               </p>
             </div>
-            <div class="about-grid">
+            <div className="about-grid">
               <h2>Main skills</h2>
-              <div class="columns fluent">
+              <div className="columns fluent">
                 <ul>
                   {jsonData.languages.map((languages, i) => (
                     <>
@@ -131,16 +131,16 @@ export default function About() {
                 </ul>
               </div>
               <h2>Languages</h2>
-              <div class="columns languages">
+              <div className="columns languages">
                 <ul>
                   {Object.entries(jsonData.languagesSpoken).map(
                     ([level, langs], i) => (
                       <li key={level}>
-                        <span class="-comment">// {level}</span>
+                        <span className="-comment">// {level}</span>
                         <br />
                         {langs.map(([abbribiation, label], i) => (
                           <span key={abbribiation}>
-                            <em class="-purple">{abbribiation}</em> {label}
+                            <em className="-purple">{abbribiation}</em> {label}
                             <br />
                           </span>
                         ))}
@@ -151,7 +151,7 @@ export default function About() {
               </div>
 
               <h2>Also busy with</h2>
-              <div class="columns busy">
+              <div className="columns busy">
                 <ul>
                   {jsonData.busy.map((busy, i) => (
                     <li key={i}>{busy}</li>

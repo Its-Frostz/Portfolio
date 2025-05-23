@@ -8,9 +8,9 @@ const PotionSVG = React.forwardRef((props, ref) => {
       id="potion"
       viewBox="0 0 100 100"
     >
-      <g class="potion-potion">
-        <g class="potion-vase">
-          <g class="potion-bottle">
+      <g className="potion-potion">
+        <g className="potion-vase">
+          <g className="potion-bottle">
             <path
               fill="#00c8c8"
               d="M55.6 23.2H44.8c-2.1 0-3.8-1.8-3.8-3.8l.1-6.4c0-1.6 1.4-3 3-3l12.6.1c1.6 0 3 1.4 3 3l-.1 6.4c-.3 2-2 3.7-4 3.7z"
@@ -26,8 +26,8 @@ const PotionSVG = React.forwardRef((props, ref) => {
               opacity=".8"
             />
 
-            <g class="potion-liquids">
-              <path class="potion-liquid2" fill="#4612a5">
+            <g className="potion-liquids">
+              <path className="potion-liquid2" fill="#4612a5">
                 <animate
                   dur="1.6s"
                   repeatCount="indefinite"
@@ -40,7 +40,7 @@ const PotionSVG = React.forwardRef((props, ref) => {
                          0.455 0.03 0.515 0.955"
                 />
               </path>
-              <path class="potion-liquid" fill="#5918df">
+              <path className="potion-liquid" fill="#5918df">
                 <animate
                   dur="1.4s"
                   repeatCount="indefinite"
@@ -55,9 +55,9 @@ const PotionSVG = React.forwardRef((props, ref) => {
               </path>
             </g>
           </g>
-          <g class="potion-drops">
+          <g className="potion-drops">
             <ellipse
-              class="potion-drop2"
+              className="potion-drop2"
               cx="49.4"
               cy="37.5"
               fill="#5918df"
@@ -65,7 +65,7 @@ const PotionSVG = React.forwardRef((props, ref) => {
               ry="4.6"
             />
             <ellipse
-              class="potion-drop"
+              className="potion-drop"
               cx="59.8"
               cy="42"
               fill="#5918df"
