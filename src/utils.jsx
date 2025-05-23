@@ -32,7 +32,6 @@ export const iconMap = {
   CV: CV,
 };
 
-
 /**
  * Generates a random integer between the specified minimum and maximum values (inclusive).
  * @param {number} min - The minimum value (inclusive)
@@ -40,9 +39,9 @@ export const iconMap = {
  * @returns {number} A random integer between min and max
  */
 export function random(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min + 1)) + min
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
@@ -52,7 +51,7 @@ export function random(min, max) {
 export const DOM = {
   get: (selector) => document.querySelector(selector),
   getAll: (selector) => [...document.querySelectorAll(selector)],
-}
+};
 
 /**
  * Converts a string to camelCase format.
@@ -64,8 +63,8 @@ export function camelCase(str) {
   return str
     .toLowerCase()
     .replace(/([-_\s][a-z])/g, (group) =>
-      group.toUpperCase().replace(/[-_\s]/g, '')
-    )
+      group.toUpperCase().replace(/[-_\s]/g, "")
+    );
 }
 
 /**
@@ -80,11 +79,11 @@ export function getNodes(parentSelector, root = document) {
 
   if (!el) return {};
 
-  const allowedNodes = ['div', 'span', 'svg', 'g', 'ellipse', 'path'].map(
+  const allowedNodes = ["div", "span", "svg", "g", "ellipse", "path"].map(
     (node) => `${parentSelector} ${node}`
   );
 
-  const children = DOM.getAll(allowedNodes.join(','), root);
+  const children = DOM.getAll(allowedNodes.join(","), root);
 
   children.forEach((child) => {
     if (child.classList && child.classList[0]) {
@@ -97,9 +96,9 @@ export function getNodes(parentSelector, root = document) {
 }
 
 export function isReverse(e) {
-  return e.scrollDirection === 'REVERSE'
+  return e.scrollDirection === "REVERSE";
 }
 
 export function isForward(e) {
-  return e.scrollDirection === 'FORWARD'
+  return e.scrollDirection === "FORWARD";
 }

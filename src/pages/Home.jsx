@@ -16,8 +16,8 @@ import "../css/pages/Home.scss";
 
 export default function Home() {
   const isPlaying = {
-    Potion: true
-  }
+    Potion: true,
+  };
 
   const playIntroScene = () => {
     gsap
@@ -69,7 +69,7 @@ export default function Home() {
           Player
         </TitleFunction>
       </TitleSection>
-      <Wrapper isPlaying={isPlaying.Potion}/>
+      <Wrapper isPlaying={isPlaying.Potion} />
     </div>
   );
 }

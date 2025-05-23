@@ -13,7 +13,7 @@ export default function Wrapper({ isPlaying }) {
     <SceneSection id="thanks">
       <TextBlock>
         {/* I have an idea... <Potion/> tadaaaa */}
-        <Potion isPlaying={isPlaying}/>
+        <Potion isPlaying={isPlaying} />{/* tadaaaa */}
 
         <div class="madeof">
           <p class="-comment">// Made with</p>
