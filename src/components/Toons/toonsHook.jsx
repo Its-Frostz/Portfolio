@@ -1,44 +1,50 @@
 // React and util
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 // GSAP and stuff
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export function useToonAnimation(isPlaying, initFn) {
   const svgRef = useRef(null);
-  const loopRef = useRef(null);
+  const timelineRef = useRef(null);
 
-  // Run once on mount
-  useEffect(() => {
-    const svg = svgRef.current;
-    const loop = new gsap.timeline({ paused: true });
-    loopRef.current = loop;
+  useGSAP(
+    () => {
+      const svg = svgRef.current;
+      const tl = gsap.timeline({ paused: true });
+      timelineRef.current = tl;
 
-    if (typeof initFn === "function") {
-      initFn(svg, loop);
-    } else {
-      console.warn("No init function provided to useToonAnimation");
-    }
+      if (typeof initFn === "function") {
+        initFn(svg, tl);
+      } else {
+        console.warn("No init function provided to useToonAnimation");
+      }
 
-    return () => {
-      loop.kill();
-    };
-  }, []);
+      return () => {
+        tl.kill();
+      };
+    },
+    { dependencies: [], scope: svgRef }
+  ); // scope ties GSAP context to this ref
 
-  // Watch isPlaying
-  useEffect(() => {
-    const svg = svgRef.current;
-    const loop = loopRef.current;
-    if (!svg || !loop) return;
+  // Sync animation state with `isPlaying`
+  useGSAP(
+    () => {
+      const svg = svgRef.current;
+      const tl = timelineRef.current;
+      if (!svg || !tl) return;
 
-    // Toggle SVG built-in animation
-    if ("unpauseAnimations" in svg && "pauseAnimations" in svg) {
-      isPlaying ? svg.unpauseAnimations() : svg.pauseAnimations();
-    }
+      // SVG native animations
+      if ("unpauseAnimations" in svg && "pauseAnimations" in svg) {
+        isPlaying ? svg.unpauseAnimations() : svg.pauseAnimations();
+      }
 
-    // Toggle GSAP loop
-    isPlaying ? loop.play() : loop.pause();
-  }, [isPlaying]);
+      // GSAP timeline
+      isPlaying ? tl.play() : tl.pause();
+    },
+    { dependencies: [isPlaying] }
+  );
 
   return svgRef;
 }

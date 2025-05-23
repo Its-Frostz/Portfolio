@@ -10,9 +10,9 @@ import { LOOP_EASE_IN_OUT } from "@/Constants.jsx";
 import "@/css/Components/toons/Potion.scss";
 
 export default function Potion({ isPlaying }) {
-  const svgRef = useToonAnimation(isPlaying, (svg, loop) => {
+  const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
     const potion = getNodes("#potion");
-    loop
+    tl
       .addLabel("start")
       .to(potion, {
         duration: 3,
