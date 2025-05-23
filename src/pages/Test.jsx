@@ -1,6 +1,6 @@
 import React from "react";
-import PotionSVG from "@/components/Toons/Potion/PotionSVG.jsx";
+import Potion from "@/components/Toons/Potion/Potion.jsx";
 
 export default function Test() {
-  return <PotionSVG isPlaying={true} />;
+  return <Potion isPlaying={true} />;
 }
