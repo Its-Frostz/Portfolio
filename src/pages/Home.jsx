@@ -15,6 +15,10 @@ import Wrapper from "../components/Wrapper.jsx";
 import "../css/pages/Home.scss";
 
 export default function Home() {
+  const isPlaying = {
+    Potion: true
+  }
+
   const playIntroScene = () => {
     gsap
       .timeline()
@@ -65,7 +69,7 @@ export default function Home() {
           Player
         </TitleFunction>
       </TitleSection>
-      <Wrapper />
+      <Wrapper isPlaying={isPlaying.Potion}/>
     </div>
   );
 }

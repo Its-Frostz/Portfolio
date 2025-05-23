@@ -2,14 +2,18 @@
 import SceneSection from "./SceneSection";
 import TextBlock from "./TextBlock";
 
+//Svg Component
+import Potion from "./Toons/Potion/Potion";
+
 // SCSS
 import "../css/Components/Wrapper.scss";
 
-export default function Wrapper() {
+export default function Wrapper({ isPlaying }) {
   return (
     <SceneSection id="thanks">
       <TextBlock>
         {/* I have an idea... <Potion/> tadaaaa */}
+        <Potion isPlaying={isPlaying}/>
 
         <div class="madeof">
           <p class="-comment">// Made with</p>
