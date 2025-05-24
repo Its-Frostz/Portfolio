@@ -25,15 +25,16 @@ export default function Home() {
     Potion: false,
   });
 
-  const togglePlaying = (trackName) => {
-    setIsPlaying((prev) => ({
-      ...prev,
-      [trackName]: !prev[trackName],
+  const togglePlayingTrue = (trackName) => {
+    setIsPlaying(() => ({
+      [trackName]: true,
     }));
   };
-  useEffect(() => {
-    console.log(isPlaying);
-  }, [isPlaying]);
+  const togglePlayingFalse = (trackName) => {
+    setIsPlaying(() => ({
+      [trackName]: false,
+    }));
+  };
 
   const sceneRefs = {
     wrapper: {
@@ -41,25 +42,26 @@ export default function Home() {
       Toon: "Potion",
       start: "top bottom",
       end: "bottom top",
-      element: document.getElementById("thanks"),
     },
   };
   useEffect(() => {
     const triggers = [];
-
+    
     const setUpScene = () => {
       Object.entries(sceneRefs).forEach(([sceneId, ref]) => {
+        const element = document.getElementById(ref.id.replace("#", ""));
         const trigger = ScrollTrigger.create({
           trigger: ref.id,
           start: ref.start,
           end: ref.end,
-          onEnter: () => togglePlaying(ref.Toon),
-          onLeave: () => togglePlaying(ref.Toon),
-          onLeaveBack: () => togglePlaying(ref.Toon),
+          onEnter: () => togglePlayingTrue(ref.Toon),
+          onEnterBack: () => togglePlayingTrue(ref.Toon),
+          onLeave: () => togglePlayingFalse(ref.Toon),
+          onLeaveBack: () => togglePlayingFalse(ref.Toon),
           markers: true,
-          // onToggle: (self) => {
-          //   ref.element.classList.toggle("active", self.isActive);
-          // },
+          onToggle: (self) => {
+            element.classList.toggle("active", self.isActive);
+          },
         });
         triggers.push(trigger);
       });
@@ -67,7 +69,7 @@ export default function Home() {
     };
     setUpScene();
     return () => {
-      console.log(triggers);
+      console.log(" im out toodalooo! ",triggers);
       triggers.forEach((trigger) => trigger.kill());
     };
   }, []);
@@ -122,7 +124,7 @@ export default function Home() {
           Player
         </TitleFunction>
       </TitleSection>
-      <Wrapper isPotionPlaying={isPlaying.Potion} onRef={sceneRefs.wrapper.element} />
+      <Wrapper isPotionPlaying={isPlaying.Potion} />
     </div>
   );
 }
