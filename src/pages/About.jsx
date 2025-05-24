@@ -61,10 +61,10 @@ export default function About() {
           <TextBlock>
             <div className="first-fold">
               <ul className="about-contact">
-                {jsonData.links.map((link) => {
+                {jsonData.links.map((link, i) => {
                   const IconComponent = iconMap[link.icon];
                   return (
-                    <li key={`${link.url}`}>
+                    <li key={i}>
                       <a
                         href={`${link.url}`}
                         title={`${link.title}`}
@@ -120,13 +120,11 @@ export default function About() {
               <div className="columns fluent">
                 <ul>
                   {jsonData.languages.map((languages, i) => (
-                    <>
-                      <li key={i}>
-                        <h2>{jsonData.skills[i]}</h2>
-                        {languages.join(", ")}
-                        <br />
-                      </li>
-                    </>
+                    <li key={i}>
+                      <h2>{jsonData.skills[i]}</h2>
+                      {languages.join(", ")}
+                      <br />
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -135,11 +133,11 @@ export default function About() {
                 <ul>
                   {Object.entries(jsonData.languagesSpoken).map(
                     ([level, langs], i) => (
-                      <li key={level}>
+                      <li key={i}>
                         <span className="-comment">// {level}</span>
                         <br />
-                        {langs.map(([abbribiation, label], i) => (
-                          <span key={abbribiation}>
+                        {langs.map(([abbribiation, label], j) => (
+                          <span key={j}>
                             <em className="-purple">{abbribiation}</em> {label}
                             <br />
                           </span>
