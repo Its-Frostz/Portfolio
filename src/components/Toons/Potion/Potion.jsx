@@ -12,8 +12,7 @@ import "@/css/Components/toons/Potion.scss";
 export default function Potion({ isPlaying }) {
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
     const potion = getNodes("#potion");
-    tl
-      .addLabel("start")
+    tl.addLabel("start")
       .to(potion, {
         duration: 3,
         transformOrigin: "50% 90%",

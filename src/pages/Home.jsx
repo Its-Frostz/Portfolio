@@ -21,6 +21,7 @@ import "../css/pages/Home.scss";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  // Track animation states for different components
   const [isPlaying, setIsPlaying] = useState({
     Potion: false,
   });
@@ -36,6 +37,7 @@ export default function Home() {
     }));
   };
 
+  // Define scroll-triggered animation scenes
   const sceneRefs = {
     wrapper: {
       id: "#thanks",
@@ -45,11 +47,13 @@ export default function Home() {
     },
   };
   useEffect(() => {
+    // Store all scroll triggers for cleanup
     const triggers = [];
-    
+
     const setUpScene = () => {
       Object.entries(sceneRefs).forEach(([sceneId, ref]) => {
         const element = document.getElementById(ref.id.replace("#", ""));
+
         const trigger = ScrollTrigger.create({
           trigger: ref.id,
           start: ref.start,
@@ -58,9 +62,12 @@ export default function Home() {
           onEnterBack: () => togglePlayingTrue(ref.Toon),
           onLeave: () => togglePlayingFalse(ref.Toon),
           onLeaveBack: () => togglePlayingFalse(ref.Toon),
-          markers: true,
+          markers: true, // Visual markers for debugging (can be disabled in production)
           onToggle: (self) => {
-            element.classList.toggle("active", self.isActive);
+            // Toggle 'active' class based on scroll position
+            if (element) {
+              element.classList.toggle("active", self.isActive);
+            }
           },
         });
         triggers.push(trigger);
@@ -68,12 +75,15 @@ export default function Home() {
       //Can do something else with the element as well though
     };
     setUpScene();
+
+    // Cleanup function to kill all scroll triggers on component unmount
     return () => {
-      console.log(" im out toodalooo! ",triggers);
+      console.log(" im out toodalooo! ", triggers);
       triggers.forEach((trigger) => trigger.kill());
     };
   }, []);
 
+  // GSAP timeline for intro animation
   const playIntroScene = () => {
     gsap
       .timeline()
@@ -100,6 +110,7 @@ export default function Home() {
       );
   };
 
+  // Initialize GSAP animations on component mount
   useGSAP(() => {
     playIntroScene();
   }, []);
