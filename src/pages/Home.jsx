@@ -44,24 +44,33 @@ export default function Home() {
       element: document.getElementById("thanks"),
     },
   };
+  useEffect(() => {
+    const triggers = [];
 
-  const setUpScene = () => {
-    Object.entries(sceneRefs).forEach(([sceneId, ref]) => {
-      ScrollTrigger.create({
-        trigger: ref.id,
-        start: ref.start,
-        end: ref.end,
-        onEnter: () => togglePlaying(ref.Toon),
-        onLeave: () => togglePlaying(ref.Toon),
-        onLeaveBack: () => togglePlaying(ref.Toon),
-        markers: true,
-        // onToggle: (self) => {
-        //   ref.element.classList.toggle("active", self.isActive);
-        // },
+    const setUpScene = () => {
+      Object.entries(sceneRefs).forEach(([sceneId, ref]) => {
+        const trigger = ScrollTrigger.create({
+          trigger: ref.id,
+          start: ref.start,
+          end: ref.end,
+          onEnter: () => togglePlaying(ref.Toon),
+          onLeave: () => togglePlaying(ref.Toon),
+          onLeaveBack: () => togglePlaying(ref.Toon),
+          markers: true,
+          // onToggle: (self) => {
+          //   ref.element.classList.toggle("active", self.isActive);
+          // },
+        });
+        triggers.push(trigger);
       });
-    });
-    //Can do something else with the element as well though
-  }
+      //Can do something else with the element as well though
+    };
+    setUpScene();
+    return () => {
+      console.log(triggers);
+      triggers.forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   const playIntroScene = () => {
     gsap
@@ -88,10 +97,6 @@ export default function Home() {
         "enter+=1.5"
       );
   };
-
-  useEffect(() => {
-    setUpScene();
-  }, []);
 
   useGSAP(() => {
     playIntroScene();
