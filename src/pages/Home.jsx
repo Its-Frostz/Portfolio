@@ -1,6 +1,10 @@
 // Gsap and stuff
 import { useGSAP } from "@gsap/react";
 import { gsap, Power3 } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// React and stuff
+import { useEffect, useState } from "react";
 
 // Utility components
 import GapBlock from "../components/GapBlock.jsx";
@@ -14,10 +18,50 @@ import Wrapper from "../components/Wrapper.jsx";
 // SCSS
 import "../css/pages/Home.scss";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Home() {
-  const isPlaying = {
-    Potion: true,
+  const [isPlaying, setIsPlaying] = useState({
+    Potion: false,
+  });
+
+  const togglePlaying = (trackName) => {
+    setIsPlaying((prev) => ({
+      ...prev,
+      [trackName]: !prev[trackName],
+    }));
   };
+  useEffect(() => {
+    console.log(isPlaying);
+  }, [isPlaying]);
+
+  const sceneRefs = {
+    wrapper: {
+      id: "#thanks",
+      Toon: "Potion",
+      start: "top bottom",
+      end: "bottom top",
+      element: document.getElementById("thanks"),
+    },
+  };
+
+  const setUpScene = () => {
+    Object.entries(sceneRefs).forEach(([sceneId, ref]) => {
+      ScrollTrigger.create({
+        trigger: ref.id,
+        start: ref.start,
+        end: ref.end,
+        onEnter: () => togglePlaying(ref.Toon),
+        onLeave: () => togglePlaying(ref.Toon),
+        onLeaveBack: () => togglePlaying(ref.Toon),
+        markers: true,
+        // onToggle: (self) => {
+        //   ref.element.classList.toggle("active", self.isActive);
+        // },
+      });
+    });
+    //Can do something else with the element as well though
+  }
 
   const playIntroScene = () => {
     gsap
@@ -45,6 +89,10 @@ export default function Home() {
       );
   };
 
+  useEffect(() => {
+    setUpScene();
+  }, []);
+
   useGSAP(() => {
     playIntroScene();
   }, []);
@@ -69,7 +117,7 @@ export default function Home() {
           Player
         </TitleFunction>
       </TitleSection>
-      <Wrapper isPlaying={isPlaying.Potion} />
+      <Wrapper isPotionPlaying={isPlaying.Potion} onRef={sceneRefs.wrapper.element} />
     </div>
   );
 }

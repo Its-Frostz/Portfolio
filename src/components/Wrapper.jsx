@@ -8,12 +8,12 @@ import Potion from "./Toons/Potion/Potion";
 // SCSS
 import "../css/Components/Wrapper.scss";
 
-export default function Wrapper({ isPlaying }) {
+export default function Wrapper({ isPotionPlaying, onRef }) {
   return (
-    <SceneSection id="thanks">
+    <SceneSection id="thanks" ref={onRef}>
       <TextBlock>
         {/* I have an idea... <Potion/> tadaaaa */}
-        <Potion isPlaying={isPlaying} />{/* tadaaaa */}
+        <Potion isPlaying={isPotionPlaying} />{/* tadaaaa */}
 
         <div className="madeof">
           <p className="-comment">// Made with</p>
