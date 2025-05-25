@@ -7,6 +7,8 @@ import {
   Outlet,
   useLocation,
 } from "react-router";
+import { CSSTransition } from "react-transition-group";
+import { gsap } from "gsap";
 
 // Page components
 import Home from "./pages/Home.jsx";
