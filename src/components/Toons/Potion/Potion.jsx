@@ -2,7 +2,7 @@
 import PotionSVG from "./PotionSVG.jsx";
 
 // Animation stuff for toon
-import { useToonAnimation } from "../toonsHook";
+import { useToonAnimation } from "../animationHook.jsx";
 import { getNodes } from "@/utils.jsx";
 import { LOOP_EASE_IN_OUT } from "@/Constants.jsx";
 

@@ -1,10 +1,10 @@
 // Gsap and stuff
+// React and stuff
+import { useEffect, useState } from "react";
+
 import { useGSAP } from "@gsap/react";
 import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// React and stuff
-import { useEffect, useState } from "react";
 
 // Utility components
 import GapBlock from "../components/GapBlock.jsx";
