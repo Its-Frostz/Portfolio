@@ -85,33 +85,12 @@ function RootLayout() {
   const currentOutlet = useOutlet();
   const location = useLocation();
   const [isPlaying, setIsPlaying] = useState(true);
-  const prevPathRef = useRef(location.pathname);
   const { nodeRef } =
     routes.find((route) => route.path === location.pathname) ?? {}
 
   useEffect(() => {
     document.title = title;
   }, [title]);
-  
-  useEffect(() => {
-    // Skip on initial render
-    if (prevPathRef.current === location.pathname) {
-      return;
-    }
-    
-    // Update the previous path reference
-    prevPathRef.current = location.pathname;
-    
-    // Start exit animation
-    setIsPlaying(false);
-    
-    // After the exit animation completes, set isPlaying back to true for entrance animation
-    const timer = setTimeout(() => {
-      setIsPlaying(true);
-    }, 1500); // Timing should match the exit animation duration
-    
-    return () => clearTimeout(timer);
-  }, [location.pathname]);
 
   return (
     <div id="app" className={rootClass}>
@@ -122,6 +101,8 @@ function RootLayout() {
           nodeRef={nodeRef}
           timeout={1500}
           classNames="page"
+          onEnter={() => setIsPlaying(true)}
+          onExit={() => setIsPlaying(false)}
           unmountOnExit
         >
           {(state) => (
