@@ -1,10 +1,11 @@
 // React utility and Routing stuff
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   useMatches,
   createBrowserRouter,
   RouterProvider,
   Outlet,
+  useLocation,
 } from "react-router";
 
 // Page components
@@ -34,13 +35,34 @@ function useRouteMetadata() {
 // Root layout component that contains the consistent UI elements
 function RootLayout() {
   const { title, nav, rootClass } = useRouteMetadata();
+  const location = useLocation();
+  const [isPlaying, setIsPlaying] = useState(true);
+  const prevPathRef = useRef(location.pathname);
 
   useEffect(() => {
     document.title = title;
   }, [title]);
-
-  const [isPlaying, setIsPlaying] = useState(true);
   
+  // Simple and reliable page transition logic
+  useEffect(() => {
+    // Skip on initial render
+    if (prevPathRef.current === location.pathname) {
+      return;
+    }
+    
+    // Update the previous path reference
+    prevPathRef.current = location.pathname;
+    
+    // Start exit animation
+    setIsPlaying(false);
+    
+    // After the exit animation completes, set isPlaying back to true for entrance animation
+    const timer = setTimeout(() => {
+      setIsPlaying(true);
+    }, 800); // Timing should match the exit animation duration
+    
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   return (
     <div id="app" className={rootClass}>
