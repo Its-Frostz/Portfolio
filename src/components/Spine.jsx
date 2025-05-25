@@ -11,15 +11,21 @@ import "../css/Components/Spine.scss";
 export default function Spine({isPlaying}) {
   // State to track what animation to show
   const [animationMode, setAnimationMode] = useState('idle'); // 'idle', 'enter', 'exit'
-
-  // Handle the enter/exit logic
+  
+  // Handle the enter/exit logic - simplified for reliability
   useEffect(() => {
-    if (isPlaying && animationMode === 'idle') {
+    console.log(`isPlaying changed to: ${isPlaying}, current mode: ${animationMode}`);
+    
+    if (isPlaying) {
+      // When isPlaying becomes true, always go to enter mode
       setAnimationMode('enter');
-    } else if (!isPlaying && animationMode === 'enter') {
+      console.log("Setting enter animation");
+    } else {
+      // When isPlaying becomes false, always go to exit mode
       setAnimationMode('exit');
+      console.log("Setting exit animation");
     }
-  }, [isPlaying, animationMode]);
+  }, [isPlaying]);
 
   // Use the dynamic hook
   const svgRef = useDynamicAnimation(
@@ -60,10 +66,11 @@ export default function Spine({isPlaying}) {
       } 
       
       else if (animationMode === 'exit') {
+        console.log("exit animation");
         // Build EXIT animation
         tl.clear()
-          .addLabel('leave', 0)
-          .to(
+        .addLabel('leave', 0)
+        .to(
             '.spine-target .circle, .spine-target .pulse',
             { duration: 0.5, scale: 0, autoAlpha: 0, ease: Power3.easeIn },
             'leave'
@@ -76,10 +83,11 @@ export default function Spine({isPlaying}) {
               yPercent: 50, 
               ease: Power3.easeIn,
               // Reset state when animation completes
-              onComplete: () => setAnimationMode('idle')
+              onComplete: () => setAnimationMode('idle'),
             },
             'leave+=0.25'
           );
+        console.log("exit animation");
       }
     },
     // PARAMETER 3: dependencies - rebuild animation when this changes
