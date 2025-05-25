@@ -14,16 +14,13 @@ export default function Spine({isPlaying}) {
   
   // Handle the enter/exit logic - simplified for reliability
   useEffect(() => {
-    console.log(`isPlaying changed to: ${isPlaying}, current mode: ${animationMode}`);
     
     if (isPlaying) {
       // When isPlaying becomes true, always go to enter mode
-      setAnimationMode('enter');
-      console.log("Setting enter animation");
+      setAnimationMode('enter');  
     } else {
       // When isPlaying becomes false, always go to exit mode
       setAnimationMode('exit');
-      console.log("Setting exit animation");
     }
   }, [isPlaying]);
 
@@ -66,7 +63,6 @@ export default function Spine({isPlaying}) {
       } 
       
       else if (animationMode === 'exit') {
-        console.log("exit animation");
         // Build EXIT animation
         tl.clear()
         .addLabel('leave', 0)
@@ -87,7 +83,6 @@ export default function Spine({isPlaying}) {
             },
             'leave+=0.25'
           );
-        console.log("exit animation");
       }
     },
     // PARAMETER 3: dependencies - rebuild animation when this changes

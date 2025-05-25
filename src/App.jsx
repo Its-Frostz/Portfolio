@@ -1,6 +1,6 @@
 // React utility and Routing stuff
 import { useEffect, useState, useRef, createRef } from "react";
-import { createRoot } from 'react-dom/client'
+import { createRoot } from "react-dom/client";
 import {
   useMatches,
   createBrowserRouter,
@@ -77,7 +77,7 @@ const routes = [
       rootClass: "page-not-found",
     },
   },
-]
+];
 
 // Root layout component that contains the consistent UI elements
 function RootLayout() {
@@ -86,7 +86,7 @@ function RootLayout() {
   const location = useLocation();
   const [isPlaying, setIsPlaying] = useState(true);
   const { nodeRef } =
-    routes.find((route) => route.path === location.pathname) ?? {}
+    routes.find((route) => route.path === location.pathname) ?? {};
 
   useEffect(() => {
     document.title = title;
@@ -112,7 +112,7 @@ function RootLayout() {
           )}
         </CSSTransition>
       </SwitchTransition>
-      <Spine isPlaying={isPlaying}/>
+      <Spine isPlaying={isPlaying} />
       <Footer />
     </div>
   );
@@ -123,9 +123,7 @@ function App() {
     {
       path: "/",
       element: <RootLayout />,
-      children: [
-        ...routes,
-      ],
+      children: [...routes],
     },
   ]);
 

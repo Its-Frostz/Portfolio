@@ -50,7 +50,6 @@ export function useToonAnimation(isPlaying, initFn) {
   return svgRef;
 }
 
-
 // For enter/exit animations (like SpineLine)
 export function useDynamicAnimation(isPlaying, initFn, dependencies = []) {
   const elementRef = useRef(null);
@@ -97,8 +96,6 @@ export function useDynamicAnimation(isPlaying, initFn, dependencies = []) {
         isPlaying ? element.unpauseAnimations() : element.pauseAnimations();
       }
 
-      console.log("Playing timeline, isPlaying:", isPlaying);
-      
       // For dynamic animations like enter/exit, we always want to play the timeline
       // regardless of isPlaying state, since isPlaying determines which animation to show,
       // not whether it should play or not

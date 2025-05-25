@@ -21,7 +21,6 @@ import "../css/pages/Home.scss";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-
   /* SVG CONTROLLERS */
 
   // Track animation states for different components
@@ -81,7 +80,6 @@ export default function Home() {
 
     // Cleanup function to kill all scroll triggers on component unmount
     return () => {
-      console.log(" im out toodalooo! ", triggers);
       triggers.forEach((trigger) => trigger.kill());
     };
   }, []);
