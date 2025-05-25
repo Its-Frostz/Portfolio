@@ -92,19 +92,19 @@ export function useDynamicAnimation(isPlaying, initFn, dependencies = []) {
       const tl = timelineRef.current;
       if (!element || !tl) return;
 
-      // element native animations
+      // element native animations (for SVG elements)
       if ("unpauseAnimations" in element && "pauseAnimations" in element) {
         isPlaying ? element.unpauseAnimations() : element.pauseAnimations();
       }
 
-      // GSAP timeline - restart for dynamic animations
-      if (isPlaying) {
-        tl.restart();
-      } else {
-        tl.pause();
-      }
+      console.log("Playing timeline, isPlaying:", isPlaying);
+      
+      // For dynamic animations like enter/exit, we always want to play the timeline
+      // regardless of isPlaying state, since isPlaying determines which animation to show,
+      // not whether it should play or not
+      tl.restart();
     },
-    { dependencies: [isPlaying] }
+    { dependencies: [isPlaying, stableInitFn] }
   );
 
   return elementRef;
