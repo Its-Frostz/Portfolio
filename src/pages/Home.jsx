@@ -65,7 +65,7 @@ export default function Home() {
           onEnterBack: () => togglePlayingTrue(ref.Toon),
           onLeave: () => togglePlayingFalse(ref.Toon),
           onLeaveBack: () => togglePlayingFalse(ref.Toon),
-          markers: true, // Visual markers for debugging (can be disabled in production)
+          // markers: true, // Visual markers for debugging (can be disabled in production)
           onToggle: (self) => {
             // Toggle 'active' class based on scroll position
             if (element) {

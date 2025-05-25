@@ -1,13 +1,14 @@
 // React utility and Routing stuff
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, createRef } from "react";
+import { createRoot } from 'react-dom/client'
 import {
   useMatches,
   createBrowserRouter,
   RouterProvider,
-  Outlet,
+  useOutlet,
   useLocation,
 } from "react-router";
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 import { gsap } from "gsap";
 
 // Page components
@@ -34,18 +35,64 @@ function useRouteMetadata() {
   };
 }
 
+const routes = [
+  {
+    path: "/",
+    index: true, // This makes it the default child route
+    element: <Home />,
+    nodeRef: createRef(),
+    handle: {
+      title: ".Frostz()",
+      nav: "Atif.is()",
+      rootClass: "page-home",
+    },
+  },
+  {
+    path: "/about",
+    element: <About />,
+    nodeRef: createRef(),
+    handle: {
+      title: ".about()",
+      nav: "Atif.about()",
+      rootClass: "page-about",
+    },
+  },
+  {
+    path: "/test",
+    element: <Test />,
+    nodeRef: createRef(),
+    handle: {
+      title: ".test()",
+      nav: "test()",
+      rootClass: "page-test",
+    },
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+    nodeRef: createRef(),
+    handle: {
+      title: ".404()",
+      nav: "404()",
+      rootClass: "page-not-found",
+    },
+  },
+]
+
 // Root layout component that contains the consistent UI elements
 function RootLayout() {
   const { title, nav, rootClass } = useRouteMetadata();
+  const currentOutlet = useOutlet();
   const location = useLocation();
   const [isPlaying, setIsPlaying] = useState(true);
   const prevPathRef = useRef(location.pathname);
+  const { nodeRef } =
+    routes.find((route) => route.path === location.pathname) ?? {}
 
   useEffect(() => {
     document.title = title;
   }, [title]);
   
-  // Simple and reliable page transition logic
   useEffect(() => {
     // Skip on initial render
     if (prevPathRef.current === location.pathname) {
@@ -61,7 +108,7 @@ function RootLayout() {
     // After the exit animation completes, set isPlaying back to true for entrance animation
     const timer = setTimeout(() => {
       setIsPlaying(true);
-    }, 800); // Timing should match the exit animation duration
+    }, 1500); // Timing should match the exit animation duration
     
     return () => clearTimeout(timer);
   }, [location.pathname]);
@@ -69,7 +116,21 @@ function RootLayout() {
   return (
     <div id="app" className={rootClass}>
       <NavBar name={nav} />
-      <Outlet /> {/* Child routes render here */}
+      <SwitchTransition>
+        <CSSTransition
+          key={location.pathname}
+          nodeRef={nodeRef}
+          timeout={1500}
+          classNames="page"
+          unmountOnExit
+        >
+          {(state) => (
+            <div ref={nodeRef} className="pag">
+              {currentOutlet}
+            </div>
+          )}
+        </CSSTransition>
+      </SwitchTransition>
       <Spine isPlaying={isPlaying}/>
       <Footer />
     </div>
@@ -82,42 +143,7 @@ function App() {
       path: "/",
       element: <RootLayout />,
       children: [
-        {
-          index: true, // This makes it the default child route
-          element: <Home />,
-          handle: {
-            title: ".Frostz()",
-            nav: "Atif.is()",
-            rootClass: "page-home",
-          },
-        },
-        {
-          path: "/about",
-          element: <About />,
-          handle: {
-            title: ".about()",
-            nav: "Atif.about()",
-            rootClass: "page-about",
-          },
-        },
-        {
-          path: "/test",
-          element: <Test />,
-          handle: {
-            title: ".test()",
-            nav: "test()",
-            rootClass: "page-test",
-          },
-        },
-        {
-          path: "*",
-          element: <NotFound />,
-          handle: {
-            title: ".404()",
-            nav: "404()",
-            rootClass: "page-not-found",
-          },
-        },
+        ...routes,
       ],
     },
   ]);
