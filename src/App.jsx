@@ -79,7 +79,6 @@ const routes = [
   },
 ];
 
-
 // Root layout component that contains the consistent UI elements
 function RootLayout() {
   const { title, nav, rootClass } = useRouteMetadata();
@@ -87,60 +86,75 @@ function RootLayout() {
   const location = useLocation();
   const [isPlaying, setIsPlaying] = useState(true);
   const { nodeRef } =
-  routes.find((route) => route.path === location.pathname) ?? {};
-  
+    routes.find((route) => route.path === location.pathname) ?? {};
+
   useEffect(() => {
     document.title = title;
   }, [title]);
 
-  
   const enter = () => {
     setIsPlaying(true);
-    
+
     // Create and clear the timeline
     const tl = gsap.timeline({ paused: false });
     tl.clear();
-    
+
     // Add label for organization
-    tl.addLabel('enter', 0);
-    
+    tl.addLabel("enter", 0);
+
     // Add animations with modern object syntax
-    tl.fromTo('.header-breadcrumb', {
-      autoAlpha: 0,
-      x: -32
-    }, {
-      duration: 1,
-      autoAlpha: 1,
-      x: 0,
-      ease: Power3.easeOut
-    }, 'enter')
-    .fromTo('.transition-container', {
-      autoAlpha: 0
-    }, {
-      duration: 1,
-      autoAlpha: 1
-    }, 'enter') // Using the label as a position reference
-  }
-  
+    tl.fromTo(
+      ".header-breadcrumb",
+      {
+        autoAlpha: 0,
+        x: -32,
+      },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        x: 0,
+        ease: Power3.easeOut,
+      },
+      "enter"
+    ).fromTo(
+      ".transition-container",
+      {
+        autoAlpha: 0,
+      },
+      {
+        duration: 2,
+        autoAlpha: 1,
+      },
+      "enter"
+    ); // Using the label as a position reference
+  };
+
   const leave = () => {
     // Create and clear the timeline with modern syntax
     const tl = gsap.timeline();
     tl.clear();
-    
+
     // Add label for organization
-    tl.addLabel('leave', 0);
-    
+    tl.addLabel("leave", 0);
+
     // Add animations with modern object syntax
-    tl.set('.header-breadcrumb', { 
-      autoAlpha: 0 
-    }, 'leave')
-    .to('.transition-container', { 
-      duration: 1,
-      autoAlpha: 0 
-    }, 'leave'); // Using the label as a position reference
-    
-    setIsPlaying(false)
-  }
+    tl.set(
+      ".header-breadcrumb",
+      {
+        autoAlpha: 0,
+      },
+      "leave"
+    ).to(
+      ".transition-container",
+      {
+        duration: 1,
+        autoAlpha: 0,
+      },
+      "leave"
+    ); // Using the label as a position reference
+
+    setIsPlaying(false);
+  };
 
   return (
     <div id="app" className={rootClass}>
