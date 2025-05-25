@@ -6,7 +6,7 @@ import { fetchData, iconMap } from "@/utils.jsx";
 // SCSS
 import "../css/Components/NavBar.scss";
 
-export default function NavBar(props) {
+export default function NavBar({name}) {
   const handleToggleNav = () => {
     const isCurrentlyOpen = document.body.classList.contains("is-nav-open");
 
@@ -46,7 +46,7 @@ export default function NavBar(props) {
         <div className="header-bg"></div>
 
         <div className="header-container">
-          <div className="header-breadcrumb">{props.name}</div>
+          <div className="header-breadcrumb">{name}</div>
 
           <button
             title="Open menu"

@@ -21,6 +21,9 @@ import "../css/pages/Home.scss";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+
+  /* SVG CONTROLLERS */
+
   // Track animation states for different components
   const [isPlaying, setIsPlaying] = useState({
     Potion: false,
@@ -82,6 +85,8 @@ export default function Home() {
       triggers.forEach((trigger) => trigger.kill());
     };
   }, []);
+
+  /* Another Animations */
 
   // GSAP timeline for intro animation
   const playIntroScene = () => {

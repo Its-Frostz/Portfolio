@@ -39,11 +39,14 @@ function RootLayout() {
     document.title = title;
   }, [title]);
 
+  const [isPlaying, setIsPlaying] = useState(true);
+  
+
   return (
     <div id="app" className={rootClass}>
       <NavBar name={nav} />
       <Outlet /> {/* Child routes render here */}
-      <Spine />
+      <Spine isPlaying={isPlaying}/>
       <Footer />
     </div>
   );

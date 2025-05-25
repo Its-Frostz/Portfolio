@@ -53,7 +53,7 @@ export function useToonAnimation(isPlaying, initFn) {
 
 // For enter/exit animations (like SpineLine)
 export function useDynamicAnimation(isPlaying, initFn, dependencies = []) {
-  const svgRef = useRef(null);
+  const elementRef = useRef(null);
   const timelineRef = useRef(null);
 
   // Create a stable reference to the init function
@@ -61,8 +61,8 @@ export function useDynamicAnimation(isPlaying, initFn, dependencies = []) {
 
   useGSAP(
     () => {
-      const svg = svgRef.current;
-      if (!svg) return;
+      const element = elementRef.current;
+      if (!element) return;
 
       // Kill existing timeline
       if (timelineRef.current) {
@@ -73,28 +73,28 @@ export function useDynamicAnimation(isPlaying, initFn, dependencies = []) {
       timelineRef.current = tl;
 
       if (typeof stableInitFn === "function") {
-        stableInitFn(svg, tl);
+        stableInitFn(element, tl);
       } else {
-        console.warn("No init function provided to useDynamicToonAnimation");
+        console.warn("No init function provided to useDynamicAnimation");
       }
 
       return () => {
         tl.kill();
       };
     },
-    { dependencies: [stableInitFn], scope: svgRef }
+    { dependencies: [stableInitFn], scope: elementRef }
   );
 
   // Sync animation state with `isPlaying`
   useGSAP(
     () => {
-      const svg = svgRef.current;
+      const element = elementRef.current;
       const tl = timelineRef.current;
-      if (!svg || !tl) return;
+      if (!element || !tl) return;
 
-      // SVG native animations
-      if ("unpauseAnimations" in svg && "pauseAnimations" in svg) {
-        isPlaying ? svg.unpauseAnimations() : svg.pauseAnimations();
+      // element native animations
+      if ("unpauseAnimations" in element && "pauseAnimations" in element) {
+        isPlaying ? element.unpauseAnimations() : element.pauseAnimations();
       }
 
       // GSAP timeline - restart for dynamic animations
@@ -107,5 +107,5 @@ export function useDynamicAnimation(isPlaying, initFn, dependencies = []) {
     { dependencies: [isPlaying] }
   );
 
-  return svgRef;
+  return elementRef;
 }
