@@ -5,6 +5,14 @@
 import Github from "./components/Icons/Github.jsx";
 import Instagram from "./components/Icons/Instagram.jsx";
 import CV from "./components/Icons/CV.jsx";
+import NProgress from "nprogress";
+
+NProgress.configure({
+  easing: 'ease-out',
+  speed: 500,
+  trickleSpeed: 100,
+  showSpinner: false,
+})
 
 /**
  * Fetches data from the Data.json file.
@@ -13,11 +21,14 @@ import CV from "./components/Icons/CV.jsx";
  */
 export async function fetchData() {
   try {
+    startProgress();
     const response = await fetch("./Data/Data.json");
     const json = await response.json();
+    completeProgress();
     return json;
   } catch (error) {
     console.error(new Error(error));
+    completeProgress();
     return {};
   }
 }
@@ -102,3 +113,41 @@ export function isReverse(e) {
 export function isForward(e) {
   return e.scrollDirection === "FORWARD";
 }
+
+
+
+/**
+ * NProgress utilities for showing loading bar during navigation
+ * Configures and exposes methods to control the progress bar
+ */
+
+// Configure NProgress
+NProgress.configure({
+  minimum: 0.1,
+  easing: 'ease',
+  speed: 500,
+  showSpinner: true,
+  trickleSpeed: 200
+});
+
+/**
+ * Starts the progress bar
+ */
+export const startProgress = () => {
+  NProgress.start();
+};
+
+/**
+ * Sets the progress to a specific value (0-1)
+ * @param {number} progress - Value between 0 and 1
+ */
+export const setProgress = (progress) => {
+  NProgress.set(progress);
+};
+
+/**
+ * Completes the progress and hides the bar
+ */
+export const completeProgress = () => {
+  NProgress.done();
+};

@@ -1,6 +1,5 @@
 // React utility and Routing stuff
-import { useEffect, useState, useRef, createRef } from "react";
-import { createRoot } from "react-dom/client";
+import { useEffect, useState, createRef } from "react";
 import {
   useMatches,
   createBrowserRouter,
@@ -91,7 +90,7 @@ function RootLayout() {
   useEffect(() => {
     document.title = title;
   }, [title]);
-
+  
   const enter = () => {
     setIsPlaying(true);
 
