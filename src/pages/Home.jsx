@@ -93,7 +93,6 @@ export default function Home() {
       id: "#curriculum",
       end: "bottom bottom",
       scrub: 0.9,
-      markers: true,
     },
   };
 
@@ -111,9 +110,7 @@ export default function Home() {
             return ref.end ? ref.end : "bottom bottom";
           },
           scrub: ref.scrub,
-          markers: () => {
-            return ref.markers ? ref.markers : false;
-          },
+          // markers: true, // For debugging purposes
           onToggle: (self) => {
             // Toggle 'active' class based on scroll position
             if (element) {
@@ -159,25 +156,25 @@ export default function Home() {
       .set("#curriculum .title-container", { autoAlpha: 1 }) // show animations
       .addLabel("start", 0)  // Keeping original timing at 0
       .from("#curriculum .title", {
-        duration: 2,
+        duration: 0.7,
         yPercent: -50,
         autoAlpha: 0,
         rotationX: 90,
         transformOrigin: "50% 50% -100px",
-        ease: "power3.out",
+        ease: "power1.out",
         
       },"start")
       .from("#curriculum .std", {
-        duration: 2,
+        duration: 0.7,
         yPercent: 50,
         autoAlpha: 0,
         rotationX: -90,
         transformOrigin: "50% 50% -100px",
-        ease: "power3.out",
+        ease: "power1.out",
         
       },"start")
       .to("#curriculum .title, #curriculum .std", {
-        duration: 2,
+        duration: 0.5,
         autoAlpha: 0,
         yPercent: -100
       });
