@@ -1,7 +1,8 @@
-// Gsap and stuff
 // React and stuff
 import { useEffect, useState } from "react";
+import {completeProgress} from "@/utils.jsx";
 
+// Gsap and stuff
 import { useGSAP } from "@gsap/react";
 import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -88,34 +89,27 @@ export default function Home() {
 
   // GSAP timeline for intro animation
   const playIntroScene = () => {
-    gsap
-      .timeline()
-      .from(
-        "#intro .title",
-        2,
-        {
-          autoAlpha: 0,
-          rotationX: 90,
-          transformOrigin: "50% 50% -100px",
-          ease: Power3.easeOut,
-        },
-        "enter"
-      )
-      .from(
-        "#intro .std",
-        2,
-        {
-          autoAlpha: 0,
-          x: -32,
-          ease: Power3.easeOut,
-        },
-        "enter+=1.5"
-      );
+    gsap.timeline()
+    .addLabel("enter",1)
+    .from("#intro .title", {
+      duration: 2,
+      autoAlpha: 0,
+      rotationX: 90,
+      transformOrigin: "50% 50% -100px",
+      ease: "power3.out",
+    }, "enter")
+    .from("#intro .std", {
+      duration: 2,
+      autoAlpha: 0,
+      x: -32,
+      ease: "power3.out",
+    }, "enter+=1.5")
   };
 
   // Initialize GSAP animations on component mount
   useGSAP(() => {
     playIntroScene();
+    completeProgress();
   }, []);
 
   return (

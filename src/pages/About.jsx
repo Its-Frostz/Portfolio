@@ -2,6 +2,11 @@
 import { useEffect, useState } from "react";
 import { fetchData, iconMap } from "@/utils.jsx";
 
+// Gsap and stuff
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import gsap from "gsap";
+
 // Utility Components
 import TextBlock from "../components/TextBlock";
 import Wrapper from "../components/Wrapper";
@@ -9,16 +14,63 @@ import Wrapper from "../components/Wrapper";
 // SCSS
 import "../css/pages/About.scss";
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function About() {
   const [jsonData, setJsonData] = useState({});
   const [currentHumor, setCurrentHumor] = useState("");
-
+  
   // Function to generate random number between 1 and max (inclusive)
   const getRandomItem = (array) => {
     if (!array || array.length === 0) return "";
     return array[Math.floor(Math.random() * array.length)];
   };
-  useEffect(() => {
+
+  const playIntro = () => {
+    gsap
+      .timeline()
+      .addLabel('enter', 1)
+      .from(
+        '.title',
+        {
+          duration: 2,
+          autoAlpha: 0,
+          rotationX: 90,
+          transformOrigin: '50% 50% -100px',
+          ease: 'power3.out',
+        },
+        'enter'
+      )
+      .from(
+        '.std',
+        {
+          duration: 2,
+          autoAlpha: 0,
+          x: -32,
+          ease: 'power3.out',
+        },
+        'enter+=1.5'
+      )
+  }
+
+  const playHeaderBg = () => {
+    const duration = window.innerHeight
+  
+    gsap.to('.header-bg', {
+      autoAlpha: 1,
+      duration: 4,
+      ease: 'power1.out',
+      scrollTrigger: {
+        trigger: '#about',
+        start: `top+=${duration} bottom`,
+        end: `+=${duration}`,
+        marker:true,
+        scrub: true,
+      },
+    })
+  }
+
+  useGSAP(() => {
     const loadData = async () => {
       // Renamed 'fetch' to avoid conflict with window.fetch if ever an issue
       try {
@@ -37,7 +89,9 @@ export default function About() {
       }
     };
     loadData();
-  }, []);
+    playIntro();
+    playHeaderBg();
+  });
 
   // useEffect(() => {
   //   if (!jsonData.humour || jsonData.humour.length === 0) return;
@@ -57,8 +111,9 @@ export default function About() {
         <h1 className="title">
           about(<span className="params">Atif</span>)
         </h1>
+        <TextBlock>
         {jsonData.links && (
-          <TextBlock>
+          <>
             <div className="first-fold">
               <ul className="about-contact">
                 {jsonData.links.map((link, i) => {
@@ -157,8 +212,9 @@ export default function About() {
                 </ul>
               </div>
             </div>
-          </TextBlock>
-        )}
+          </>
+      )}
+      </TextBlock>
       </div>
       <Wrapper />
     </div>

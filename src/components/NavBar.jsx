@@ -1,7 +1,7 @@
 // React and util
 import { NavLink } from "react-router";
 import { useEffect, useState } from "react";
-import { fetchData, iconMap } from "@/utils.jsx";
+import { fetchData, iconMap, startProgress} from "@/utils.jsx";
 
 // SCSS
 import "../css/Components/NavBar.scss";
@@ -78,6 +78,7 @@ export default function NavBar({name}) {
                   className={({ isActive }) =>
                     isActive ? "router-link-exact-active" : ""
                   }
+                  onClick={()=>{handleToggleNav();startProgress();}}
                 >
                   .is()
                 </NavLink>
@@ -89,6 +90,7 @@ export default function NavBar({name}) {
                   className={({ isActive }) =>
                     isActive ? "router-link-exact-active" : ""
                   }
+                  onClick={()=>{handleToggleNav();startProgress();}}
                 >
                   .about()
                 </NavLink>

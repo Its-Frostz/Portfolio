@@ -8,7 +8,7 @@ import {
   useLocation,
 } from "react-router";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import { gsap, Power3 } from "gsap";
+import { gsap } from "gsap";
 
 // Page components
 import Home from "./pages/Home.jsx";
@@ -112,7 +112,7 @@ function RootLayout() {
         duration: 1,
         autoAlpha: 1,
         x: 0,
-        ease: Power3.easeOut,
+        ease: "power3.out",
       },
       "enter"
     ).fromTo(

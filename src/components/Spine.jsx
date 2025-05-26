@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useDynamicAnimation } from "./Toons/animationHook.jsx";
 
 // GSAP and stuff
-import { Power3,Elastic } from "gsap";
+import { Elastic } from "gsap";
 
 // SCSS
 import "../css/Components/Spine.scss";
@@ -39,7 +39,7 @@ export default function Spine({isPlaying}) {
           .fromTo(
             '.spine',
             { autoAlpha: 0, yPercent: 20 },
-            { duration: 1, autoAlpha: 1, yPercent: 0, ease: Power3.easeOut },
+            { duration: 1, autoAlpha: 1, yPercent: 0, ease: 'power3.out' },
             'enter'
           )
           .fromTo(
@@ -57,7 +57,7 @@ export default function Spine({isPlaying}) {
           .fromTo(
             '.spine-target .pulse',
             { autoAlpha: 1, scale: 0 },
-            { duration: 3.5, autoAlpha: 0, scale: 8, ease: Power3.easeOut},
+            { duration: 3.5, autoAlpha: 0, scale: 8, ease: 'power3.out'},
             'enter+=1.2'
           );
       } 
@@ -68,7 +68,7 @@ export default function Spine({isPlaying}) {
         .addLabel('leave', 0)
         .to(
             '.spine-target .circle, .spine-target .pulse',
-            { duration: 0.5, scale: 0, autoAlpha: 0, ease: Power3.easeIn },
+            { duration: 0.5, scale: 0, autoAlpha: 0, ease: 'power3.in' },
             'leave'
           )
           .to(
@@ -77,7 +77,7 @@ export default function Spine({isPlaying}) {
               duration: 0.5, 
               autoAlpha: 0, 
               yPercent: 50, 
-              ease: Power3.easeIn,
+              ease: 'power3.in',
               // Reset state when animation completes
               onComplete: () => setAnimationMode('idle'),
             },
