@@ -4,7 +4,7 @@ import { completeProgress } from "@/utils.jsx";
 
 // Gsap and stuff
 import { useGSAP } from "@gsap/react";
-import { gsap, Power3 } from "gsap";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Utility components
@@ -41,7 +41,7 @@ export default function Home() {
   };
 
   // Define scroll-triggered animation scenes
-  const sceneRefs = {
+  const sceneRefsSVG = {
     wrapper: {
       id: "#thanks",
       Toon: "Potion",
@@ -53,8 +53,8 @@ export default function Home() {
     // Store all scroll triggers for cleanup
     const triggers = [];
 
-    const setUpScene = () => {
-      Object.entries(sceneRefs).forEach(([sceneId, ref]) => {
+    const setUpSceneSVG = () => {
+      Object.entries(sceneRefsSVG).forEach(([sceneId, ref]) => {
         const element = document.getElementById(ref.id.replace("#", ""));
 
         const trigger = ScrollTrigger.create({
@@ -77,7 +77,7 @@ export default function Home() {
       });
       //Can do something else with the element as well though
     };
-    setUpScene();
+    setUpSceneSVG();
 
     // Cleanup function to kill all scroll triggers on component unmount
     return () => {
@@ -85,7 +85,46 @@ export default function Home() {
     };
   }, []);
 
-  /* Another Animations */
+  /* Other Animations */
+  const timelines = {};
+
+  const SceneRefs = {
+    curriculum: {
+      id: "#curriculum",
+      end: "bottom bottom",
+      scrub: 0.9,
+      markers: true,
+    },
+  };
+
+  const setUpScene = () => {
+    Object.entries(SceneRefs).forEach(([sceneId, ref]) => {
+      const element = document.getElementById(ref.id.replace("#", ""));
+
+      const timeLine = gsap.timeline({
+        scrollTrigger: {
+          trigger: ref.id,
+          start: () => {
+            return ref.start ? ref.start : "top bottom";
+          },
+          end: () => {
+            return ref.end ? ref.end : "bottom bottom";
+          },
+          scrub: ref.scrub,
+          markers: () => {
+            return ref.markers ? ref.markers : false;
+          },
+          onToggle: (self) => {
+            // Toggle 'active' class based on scroll position
+            if (element) {
+              element.classList.toggle("active-scene", self.isActive);
+            }
+          },
+        },
+      });
+      timelines[sceneId] = timeLine;
+    });
+  };
 
   // GSAP timeline for intro animation
   const playIntroScene = () => {
@@ -115,10 +154,41 @@ export default function Home() {
       );
   };
 
+  const curriculumScene = () => {
+    timelines.curriculum
+      .set("#curriculum .title-container", { autoAlpha: 1 }) // show animations
+      .addLabel("start", 0)  // Keeping original timing at 0
+      .from("#curriculum .title", {
+        duration: 2,
+        yPercent: -50,
+        autoAlpha: 0,
+        rotationX: 90,
+        transformOrigin: "50% 50% -100px",
+        ease: "power3.out",
+        
+      },"start")
+      .from("#curriculum .std", {
+        duration: 2,
+        yPercent: 50,
+        autoAlpha: 0,
+        rotationX: -90,
+        transformOrigin: "50% 50% -100px",
+        ease: "power3.out",
+        
+      },"start")
+      .to("#curriculum .title, #curriculum .std", {
+        duration: 2,
+        autoAlpha: 0,
+        yPercent: -100
+      });
+  };
+
   // Initialize GSAP animations on component mount
   useGSAP(() => {
     playIntroScene();
     completeProgress();
+    setUpScene();
+    curriculumScene();
   }, []);
 
   return (
@@ -127,7 +197,7 @@ export default function Home() {
       <GapBlock />
 
       <TitleSection name="curriculum">
-        <TitleFunction params="/_life/..." subtitle="<VitaeJournal>">
+        <TitleFunction params="/_life/..." subtitle="<VitaeJournal/>">
           Summarization
         </TitleFunction>
       </TitleSection>
