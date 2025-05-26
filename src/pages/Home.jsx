@@ -1,6 +1,6 @@
 // React and stuff
 import { useEffect, useState } from "react";
-import {completeProgress} from "@/utils.jsx";
+import { completeProgress } from "@/utils.jsx";
 
 // Gsap and stuff
 import { useGSAP } from "@gsap/react";
@@ -89,21 +89,30 @@ export default function Home() {
 
   // GSAP timeline for intro animation
   const playIntroScene = () => {
-    gsap.timeline()
-    .addLabel("enter",1)
-    .from("#intro .title", {
-      duration: 2,
-      autoAlpha: 0,
-      rotationX: 90,
-      transformOrigin: "50% 50% -100px",
-      ease: "power3.out",
-    }, "enter")
-    .from("#intro .std", {
-      duration: 2,
-      autoAlpha: 0,
-      x: -32,
-      ease: "power3.out",
-    }, "enter+=1.5")
+    gsap
+      .timeline()
+      .addLabel("enter", 1)
+      .from(
+        "#intro .title",
+        {
+          duration: 2,
+          autoAlpha: 0,
+          rotationX: 90,
+          transformOrigin: "50% 50% -100px",
+          ease: "power3.out",
+        },
+        "enter"
+      )
+      .from(
+        "#intro .std",
+        {
+          duration: 2,
+          autoAlpha: 0,
+          x: -32,
+          ease: "power3.out",
+        },
+        "enter+=1.5"
+      );
   };
 
   // Initialize GSAP animations on component mount

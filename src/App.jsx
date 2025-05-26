@@ -90,7 +90,7 @@ function RootLayout() {
   useEffect(() => {
     document.title = title;
   }, [title]);
-  
+
   const enter = () => {
     setIsPlaying(true);
 

@@ -1,12 +1,12 @@
 // React and util
 import { NavLink } from "react-router";
 import { useEffect, useState } from "react";
-import { fetchData, iconMap, startProgress} from "@/utils.jsx";
+import { fetchData, iconMap, startProgress } from "@/utils.jsx";
 
 // SCSS
 import "../css/Components/NavBar.scss";
 
-export default function NavBar({name}) {
+export default function NavBar({ name }) {
   const handleToggleNav = () => {
     const isCurrentlyOpen = document.body.classList.contains("is-nav-open");
 
@@ -78,7 +78,10 @@ export default function NavBar({name}) {
                   className={({ isActive }) =>
                     isActive ? "router-link-exact-active" : ""
                   }
-                  onClick={()=>{handleToggleNav();startProgress();}}
+                  onClick={() => {
+                    handleToggleNav();
+                    startProgress();
+                  }}
                 >
                   .is()
                 </NavLink>
@@ -90,7 +93,10 @@ export default function NavBar({name}) {
                   className={({ isActive }) =>
                     isActive ? "router-link-exact-active" : ""
                   }
-                  onClick={()=>{handleToggleNav();startProgress();}}
+                  onClick={() => {
+                    handleToggleNav();
+                    startProgress();
+                  }}
                 >
                   .about()
                 </NavLink>

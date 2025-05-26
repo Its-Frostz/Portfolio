@@ -6,14 +6,6 @@ import Github from "./components/Icons/Github.jsx";
 import Instagram from "./components/Icons/Instagram.jsx";
 import CV from "./components/Icons/CV.jsx";
 import NProgress from "nprogress";
-
-NProgress.configure({
-  easing: 'ease-out',
-  speed: 500,
-  trickleSpeed: 100,
-  showSpinner: false,
-})
-
 /**
  * Fetches data from the Data.json file.
  * @returns {Promise<Object>} The parsed JSON data from Data.json
