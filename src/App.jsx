@@ -23,6 +23,7 @@ import Footer from "./components/Footer.jsx";
 
 // SCSS
 import "./css/App.scss";
+import { useGSAP } from "@gsap/react";
 
 function useRouteMetadata() {
   const matches = useMatches();
@@ -83,15 +84,15 @@ function RootLayout() {
   const { title, nav, rootClass } = useRouteMetadata();
   const currentOutlet = useOutlet();
   const location = useLocation();
-  const [isPlaying, setIsPlaying] = useState(true);
   const { nodeRef } =
     routes.find((route) => route.path === location.pathname) ?? {};
+  const [isPlaying, setIsPlaying] = useState(true);
+    const [navLogo, setNavLogo] = useState(".is()");
 
-  useEffect(() => {
-    document.title = title;
-  }, [title]);
-
+  
   const enter = () => {
+    document.title = title;
+    setNavLogo(nav);
     setIsPlaying(true);
 
     // Create and clear the timeline
@@ -137,10 +138,13 @@ function RootLayout() {
     tl.addLabel("leave", 0);
 
     // Add animations with modern object syntax
-    tl.set(
+    tl.to(
       ".header-breadcrumb",
       {
+        duration: 1,
         autoAlpha: 0,
+        x: -32,
+        ease: "power3.out",
       },
       "leave"
     ).to(
@@ -155,9 +159,13 @@ function RootLayout() {
     setIsPlaying(false);
   };
 
+  useEffect(() => {
+    enter();
+  }, []);
+
   return (
     <div id="app" className={rootClass}>
-      <NavBar name={nav} />
+      <NavBar name={navLogo} />
       <SwitchTransition>
         <CSSTransition
           key={location.pathname}
