@@ -15,6 +15,7 @@ import TitleSection from "../components/TitleSection.jsx";
 // Home components
 import Intro from "../components/Home/Intro.jsx";
 import Wrapper from "../components/Wrapper.jsx";
+import Backtrace from "../components/Home/Backtrace.jsx";
 
 // SCSS
 import "../css/pages/Home.scss";
@@ -199,15 +200,7 @@ export default function Home() {
         </TitleFunction>
       </TitleSection>
 
-      <TitleSection name="Scene1">
-        <TitleFunction
-          purple=".Wings"
-          params="2007"
-          subtitle="The journey begins... Enjoy ;)"
-        >
-          Player
-        </TitleFunction>
-      </TitleSection>
+      <Backtrace />
       <Wrapper isPotionPlaying={isPlaying.Potion} />
     </div>
   );
