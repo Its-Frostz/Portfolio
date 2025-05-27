@@ -10,7 +10,7 @@ import Hexo from "../Toons/Hexo/Hexo.jsx";
 // SCSS
 // import "../../css/pages/Backtrace.scss";
 
-export default function Backtrace() {
+export default function Backtrace({isBacktracePlaying}) {
   return (
     <div className="BacktraceScene">
       <TitleFunction
@@ -25,7 +25,7 @@ export default function Backtrace() {
         id="Backtrace1"
         container={
           <>
-            <Hexo isPlaying={true} />
+            <Hexo isPlaying={isBacktracePlaying} />
           </>
         }
       >
@@ -55,7 +55,7 @@ export default function Backtrace() {
           <p>
             Over the years, I have been into
             <span className="-big -purple">
-                Game dev, Machine Learning, Web Development, Cybersecurity 
+                Game Dev, Machine Learning, Web Dev, Cybersecurity 
             </span>
             applying them across hackathons, contests, and real-world prototypes.
           </p>

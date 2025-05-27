@@ -28,6 +28,7 @@ export default function Home() {
   // Track animation states for different components
   const [isPlaying, setIsPlaying] = useState({
     Potion: false,
+    Backtrace: false,
   });
 
   const togglePlayingTrue = (trackName) => {
@@ -46,6 +47,12 @@ export default function Home() {
     wrapper: {
       id: "#thanks",
       Toon: "Potion",
+      start: "top bottom",
+      end: "bottom top",
+    },
+    backtrace: {
+      id: ".BacktraceScene",
+      Toon: "Backtrace",
       start: "top bottom",
       end: "bottom top",
     },
@@ -200,7 +207,7 @@ export default function Home() {
         </TitleFunction>
       </TitleSection>
 
-      <Backtrace />
+      <Backtrace isBacktracePlaying={isPlaying.Backtrace}/>
       <Wrapper isPotionPlaying={isPlaying.Potion} />
     </div>
   );

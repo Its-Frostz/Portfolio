@@ -42,7 +42,7 @@
   "languages": [
     ["Unreal Engine", "Unity", "Blueprints", "C++", "C#", "Animation Blueprints", "AI Behavior Trees", "Lighting Systems", "Multiplayer Networking"],
     ["Python", "PyTorch", "TensorFlow", "Keras", "NumPy", "Pandas", "OpenCV", "FastAPI", "Flask"],
-    ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Vue", "GSAP", "React-Spring", "Flask", "Express", "Node"],
+    ["JavaScript", "TypeScript", "React", "Vue", "GSAP", "React-Spring", "Express", "Node"],
     ["C++", "Python", "C#", "Java"] 
   ],
   "education": [

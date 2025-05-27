@@ -1,6 +1,6 @@
 import React from "react";
 
-const PotionSVG = React.forwardRef((ref) => {
+export default function({ref}) {
   return (
     <svg
       ref={ref}
@@ -77,6 +77,4 @@ const PotionSVG = React.forwardRef((ref) => {
       </g>
     </svg>
   );
-});
-
-export default PotionSVG;
+};
