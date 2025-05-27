@@ -1,5 +1,5 @@
 // React utility and Routing stuff
-import { useEffect, useState, createRef } from "react";
+import { useEffect, useState, createRef, lazy } from "react";
 import {
   useMatches,
   createBrowserRouter,
@@ -11,10 +11,10 @@ import { CSSTransition, SwitchTransition } from "react-transition-group";
 import { gsap } from "gsap";
 
 // Page components
-import Home from "./pages/Home.jsx";
-import About from "./pages/About.jsx";
-import NotFound from "./pages/404.jsx";
-import Test from "./pages/Test.jsx";
+const Home = lazy(() => import("./pages/Home.jsx"));
+const About = lazy(() => import("./pages/About.jsx"));
+const NotFound = lazy(() => import("./pages/404.jsx"));
+const Test = lazy(() => import("./pages/Test.jsx"));
 
 // Static components
 import NavBar from "./components/NavBar.jsx";
@@ -23,7 +23,6 @@ import Footer from "./components/Footer.jsx";
 
 // SCSS
 import "./css/App.scss";
-import { useGSAP } from "@gsap/react";
 
 function useRouteMetadata() {
   const matches = useMatches();

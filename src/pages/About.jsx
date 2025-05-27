@@ -1,6 +1,6 @@
 // React and util
 import { useEffect, useState } from "react";
-import { fetchData, iconMap } from "@/utils.jsx";
+import { fetchData, iconMap, random } from "@/utils.jsx";
 
 // Gsap and stuff
 import { useGSAP } from "@gsap/react";
@@ -18,13 +18,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
   const [jsonData, setJsonData] = useState({});
-  const [currentHumor, setCurrentHumor] = useState("");
+  // const [currentHumor, setCurrentHumor] = useState("");
 
   // Function to generate random number between 1 and max (inclusive)
-  const getRandomItem = (array) => {
-    if (!array || array.length === 0) return "";
-    return array[Math.floor(Math.random() * array.length)];
-  };
+  // const getRandomItem = (array) => {
+  //   if (!array || array.length === 0) return "";
+  //   return array[random(0, array.length - 1)];
+  // };
 
   const playIntro = () => {
     gsap
