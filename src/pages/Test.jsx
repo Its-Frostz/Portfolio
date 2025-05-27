@@ -1,6 +1,6 @@
 import React from "react";
-import Potion from "@/components/Toons/Potion/Potion.jsx";
+import Hexo from "@/components/Toons/Hexo/Hexo.jsx";
 
 export default function Test() {
-  return <Potion isPlaying={true} />;
+  return <Hexo isPlaying={true} />;
 }
