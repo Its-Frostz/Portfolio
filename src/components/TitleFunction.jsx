@@ -1,20 +1,20 @@
 // Utility Component
 import TextBlock from "./TextBlock";
 
-export default function TitleFunction(props) {
+export default function TitleFunction({purple, params, subtitle, children}) {
   function purp() {
-    if (props.purple != null) {
+    if (purple != null) {
       return (
         <>
-          <span className="func">{props.purple}(</span>
-          <span className="params">{props.params}</span>
+          <span className="func">{purple}(</span>
+          <span className="params">{params}</span>
           <span className="func">)</span>
         </>
       );
     } else {
       return (
         <>
-          (<span className="params">{props.params}</span>)
+          (<span className="params">{params}</span>)
         </>
       );
     }
@@ -22,12 +22,12 @@ export default function TitleFunction(props) {
   return (
     <div>
       <h1 className="title">
-        {props.children}
-        {props.params && <span>{purp()}</span>}
+        {children}
+        {params && <span>{purp()}</span>}
       </h1>
-      {props.subtitle && (
+      {subtitle && (
         <TextBlock>
-          <p className="-gray">{props.subtitle}</p>
+          <p className="-gray">{subtitle}</p>
         </TextBlock>
       )}
     </div>
