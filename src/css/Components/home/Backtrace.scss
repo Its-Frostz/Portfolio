@@ -1,0 +1,37 @@
+
+.BacktraceScene {
+    #Backtrace1 {
+      .static-container {
+        position: relative;
+        z-index: 2;
+      }
+  
+      .container {
+        z-index: unset;
+      }
+  
+      svg {
+        overflow: visible;
+      }
+    }
+  
+    #hexo {
+      position: absolute;
+      left: -5vw;
+      top: calc(50% - 15vw);
+      width: 30vw;
+      height: 30vw;
+      z-index: 10;
+      transform: rotateY(180deg);
+  
+      @media screen and (max-width: 1024px) {
+        top: auto;
+        bottom: 0;
+      }
+  
+      @media screen and (max-width: 768px) {
+        width: 50vw;
+        height: 50vh;
+      }
+    }
+  }
