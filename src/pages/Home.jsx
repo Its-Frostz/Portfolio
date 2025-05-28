@@ -50,8 +50,26 @@ export default function Home() {
       start: "top bottom",
       end: "bottom top",
     },
-    backtrace: {
-      id: ".BacktraceScene",
+    backtraceTitle: {
+      id: ".BacktraceTitle",
+      Toon: "Backtrace",
+      start: "top bottom",
+      end: "bottom top",
+    },
+    backtrace1: {
+      id: ".Backtrace1",
+      Toon: "Backtrace",
+      start: "top bottom",
+      end: "bottom top",
+    },
+    backtrace2: {
+      id: ".Backtrace2",
+      Toon: "Backtrace",
+      start: "top bottom",
+      end: "bottom top",
+    },
+    backtrace3: {
+      id: ".Backtrace3",
       Toon: "Backtrace",
       start: "top bottom",
       end: "bottom top",
