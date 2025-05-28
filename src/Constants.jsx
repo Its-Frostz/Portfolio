@@ -17,7 +17,7 @@ export const LOOP_EASE_IN = {
 
 export const LOOP_EASE_IN_OUT = {
   ...LOOP,
-  ease: "power2.inout",
+  ease: "power2.inOut",
 };
 
 export const LOOP_ELASTIC_OUT = {
