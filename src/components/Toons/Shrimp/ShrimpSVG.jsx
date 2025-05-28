@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ShimpSVG({ ref }) {
+export default function ShrimpSVG({ ref }) {
   return (
     <svg
       ref={ref}

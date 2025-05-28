@@ -13,7 +13,7 @@ import "@/css/Components/home/Backtrace.scss";
 export default function Backtrace({ isBacktracePlaying }) {
   return (
     <div className="BacktraceScene">
-      <TitleSection name="Backtracetitle">
+      <TitleSection name="BacktraceTitle">
         <TitleFunction
           purple=".Wings"
           params="2015"
@@ -51,7 +51,7 @@ export default function Backtrace({ isBacktracePlaying }) {
             Starting from winning interschool competitions to multiple State
             level hackathons and few national competitions
             <strong className="-purple">
-              {" to now 9th rank in International Codewars Olympiad "}
+              {" to now 9th place @ International Codewars Olympiad "}
             </strong>
           </p>
         </TextBlock>
@@ -61,10 +61,10 @@ export default function Backtrace({ isBacktracePlaying }) {
           <p>
             Over the years, I have been into
             <span className="-big -purple">
-              Game Dev, Machine Learning, Web Dev, Cybersecurity
+              Game Dev, Machine Learning, Web Dev, Cybersecurity, Competitive
+              Programming
             </span>
-            applying them across hackathons, contests, and real-world
-            prototypes.
+            applying them across hackathons, contests & real-world prototypes.
           </p>
         </TextBlock>
       </SceneSection>
@@ -73,8 +73,8 @@ export default function Backtrace({ isBacktracePlaying }) {
           <p>
             In this entire journey
             <span className="-big">
-              <span className="-purple">Problem Solving </span>is what drove me,
-              which in turn has had made me who
+              <span className="-purple">Problem Solving </span>is what has driven me,
+              and in turn has made me who
               <span className="-purple"> I am </span>today.
             </span>
           </p>

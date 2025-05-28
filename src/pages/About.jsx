@@ -1,6 +1,6 @@
 // React and util
 import { useEffect, useState } from "react";
-import { fetchData, iconMap, random } from "@/utils.jsx";
+import { fetchData, iconMap, Random } from "@/utils.jsx";
 
 // Gsap and stuff
 import { useGSAP } from "@gsap/react";
