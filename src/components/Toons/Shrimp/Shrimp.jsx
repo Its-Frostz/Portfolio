@@ -10,7 +10,8 @@ export default function Shrimp({ isPlaying }) {
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
     const shrimp = getNodes("#Cinnamon");
     tl.addLabel("start")
-      .to([shrimp.skirt, shrimp.backSkirt], 3, {
+      .to([shrimp.skirt, shrimp.backSkirt], {
+        duration: 3,
         skewY: -0.5,
         skewX: 0.5,
         transformOrigin: "50% 0%",
@@ -18,8 +19,8 @@ export default function Shrimp({ isPlaying }) {
       })
       .to(
         shrimp.leftFoot,
-        2,
         {
+          duration: 2,
           transformOrigin: "1% 99%",
           rotation: 80,
           ...LOOP_EASE_IN_OUT,
@@ -28,8 +29,8 @@ export default function Shrimp({ isPlaying }) {
       )
       .to(
         shrimp.rightFoot,
-        2,
         {
+          duration: 2,
           transformOrigin: "1% 99%",
           yPercent: -7,
           rotation: 50,
@@ -39,8 +40,8 @@ export default function Shrimp({ isPlaying }) {
       )
       .to(
         shrimp.leftArm,
-        0.6,
         {
+          duration: 0.6,
           transformOrigin: "20% 50%",
           skewY: 20,
           yPercent: -10,
@@ -50,8 +51,8 @@ export default function Shrimp({ isPlaying }) {
       )
       .to(
         shrimp.rightArm,
-        0.5,
         {
+          duration: 0.5,
           transformOrigin: "20% 50%",
           skewY: 20,
           yPercent: -20,
@@ -61,8 +62,8 @@ export default function Shrimp({ isPlaying }) {
       )
       .to(
         shrimp.body,
-        10,
         {
+          duration: 10,
           bezier: {
             curviness: 1.25,
             values: [

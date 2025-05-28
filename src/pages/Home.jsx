@@ -102,6 +102,26 @@ export default function Home() {
       end: "bottom bottom",
       scrub: 0.9,
     },
+    backtraceTitle: {
+      id: "#BacktraceTitle",
+      end: "bottom bottom",
+      scrub: 0.9,
+    },
+    backtrace1: {
+      id: "#Backtrace1",
+      end: "bottom bottom",
+      scrub: 0.9,
+    },
+    backtrace2: {
+      id: "#Backtrace2",
+      end: "bottom bottom",
+      scrub: 0.9,
+    },
+    backtrace3: {
+      id: "#Backtrace3",
+      end: "bottom bottom",
+      scrub: 0.9,
+    },
   };
 
   const setUpScene = () => {
@@ -162,30 +182,40 @@ export default function Home() {
   const curriculumScene = () => {
     timelines.curriculum
       .set("#curriculum .title-container", { autoAlpha: 1 }) // show animations
-      .addLabel("start", 0)  // Keeping original timing at 0
-      .from("#curriculum .title", {
-        duration: 0.7,
-        yPercent: -50,
-        autoAlpha: 0,
-        rotationX: 90,
-        transformOrigin: "50% 50% -100px",
-        ease: "power1.out",
-        
-      },"start")
-      .from("#curriculum .std", {
-        duration: 0.7,
-        yPercent: 50,
-        autoAlpha: 0,
-        rotationX: -90,
-        transformOrigin: "50% 50% -100px",
-        ease: "power1.out",
-        
-      },"start")
+      .addLabel("start", 0) // Keeping original timing at 0
+      .from(
+        "#curriculum .title",
+        {
+          duration: 0.7,
+          yPercent: -50,
+          autoAlpha: 0,
+          rotationX: 90,
+          transformOrigin: "50% 50% -100px",
+          ease: "power1.out",
+        },
+        "start"
+      )
+      .from(
+        "#curriculum .std",
+        {
+          duration: 0.7,
+          yPercent: 50,
+          autoAlpha: 0,
+          rotationX: -90,
+          transformOrigin: "50% 50% -100px",
+          ease: "power1.out",
+        },
+        "start"
+      )
       .to("#curriculum .title, #curriculum .std", {
         duration: 0.5,
         autoAlpha: 0,
-        yPercent: -100
+        yPercent: -100,
       });
+  };
+
+  const backtraceScene = () => {
+    console.log(timelines.backtraceTitle);
   };
 
   // Initialize GSAP animations on component mount
@@ -194,6 +224,7 @@ export default function Home() {
     completeProgress();
     setUpScene();
     curriculumScene();
+    backtraceScene();
   }, []);
 
   return (
@@ -207,7 +238,7 @@ export default function Home() {
         </TitleFunction>
       </TitleSection>
 
-      <Backtrace isBacktracePlaying={isPlaying.Backtrace}/>
+      <Backtrace isBacktracePlaying={isPlaying.Backtrace} />
       <Wrapper isPotionPlaying={isPlaying.Potion} />
     </div>
   );
