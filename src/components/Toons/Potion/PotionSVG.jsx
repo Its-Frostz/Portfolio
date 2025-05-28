@@ -9,8 +9,8 @@ export default function({ref}) {
       viewBox="0 0 100 100"
     >
       <g className="potion-potion">
-        <g className="potion-vase">
-          <g className="potion-bottle">
+        <g className="vase">
+          <g className="bottle">
             <path
               fill="#00c8c8"
               d="M55.6 23.2H44.8c-2.1 0-3.8-1.8-3.8-3.8l.1-6.4c0-1.6 1.4-3 3-3l12.6.1c1.6 0 3 1.4 3 3l-.1 6.4c-.3 2-2 3.7-4 3.7z"
@@ -26,8 +26,8 @@ export default function({ref}) {
               opacity=".8"
             />
 
-            <g className="potion-liquids">
-              <path className="potion-liquid2" fill="#4612a5">
+            <g className="liquids">
+              <path className="liquid2" fill="#4612a5">
                 <animate
                   dur="1.6s"
                   repeatCount="indefinite"
@@ -40,7 +40,7 @@ export default function({ref}) {
                          0.455 0.03 0.515 0.955"
                 />
               </path>
-              <path className="potion-liquid" fill="#5918df">
+              <path className="liquid" fill="#5918df">
                 <animate
                   dur="1.4s"
                   repeatCount="indefinite"
@@ -55,9 +55,9 @@ export default function({ref}) {
               </path>
             </g>
           </g>
-          <g className="potion-drops">
+          <g className="drops">
             <ellipse
-              className="potion-drop2"
+              className="drop2"
               cx="49.4"
               cy="37.5"
               fill="#5918df"
@@ -65,7 +65,7 @@ export default function({ref}) {
               ry="4.6"
             />
             <ellipse
-              className="potion-drop"
+              className="drop"
               cx="59.8"
               cy="42"
               fill="#5918df"

@@ -20,7 +20,7 @@ export default function Potion({ isPlaying }) {
         ...LOOP_EASE_IN_OUT,
       })
       .fromTo(
-        potion.potionDrop,
+        potion.drop,
         {
           yPercent: 100,
           rotation: 0,
@@ -37,7 +37,7 @@ export default function Potion({ isPlaying }) {
         "start"
       )
       .fromTo(
-        potion.potionDrop2,
+        potion.drop2,
         {
           yPercent: 100,
           rotation: 0,
