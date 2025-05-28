@@ -20,10 +20,10 @@ export default function About() {
   const [jsonData, setJsonData] = useState({});
   // const [currentHumor, setCurrentHumor] = useState("");
 
-  // Function to generate random number between 1 and max (inclusive)
+  // Function to generate Random number between 1 and max (inclusive)
   // const getRandomItem = (array) => {
   //   if (!array || array.length === 0) return "";
-  //   return array[random(0, array.length - 1)];
+  //   return array[Random(0, array.length - 1)];
   // };
 
   const playIntro = () => {

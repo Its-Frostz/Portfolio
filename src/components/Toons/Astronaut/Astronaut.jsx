@@ -4,7 +4,7 @@ import AstronautSVG from "./AstronautSVG.jsx";
 // Animation stuff for toon
 import { useToonAnimation } from "../animationHook.jsx";
 import { LOOP_EASE_IN_OUT, LOOP_ELASTIC_OUT } from "@/Constants.jsx";
-import { getNodes, random } from "@/utils.jsx";
+import { getNodes, Random } from "@/utils.jsx";
 
 export default function Astronaut({ isPlaying }) {
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
@@ -91,9 +91,9 @@ export default function Astronaut({ isPlaying }) {
         astro.astro,
         {
           duration: 5,
-          yPercent: random(-40, -20),
-          xPercent: random(-10, 10),
-          rotation: random(-120, 120),
+          yPercent: Random(-40, -20),
+          xPercent: Random(-10, 10),
+          rotation: Random(-120, 120),
           transformOrigin: '50% 50%',
           ...LOOP_EASE_IN_OUT,
         },
