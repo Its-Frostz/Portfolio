@@ -13,7 +13,7 @@ export default function MonsierSVG({ ref }) {
       <g className="Monsier">
         <g className="legs">
           <path
-            className="l-leg"
+            className="left-leg"
             fill="none"
             stroke="#ffae00"
             strokeLinecap="round"
@@ -23,7 +23,7 @@ export default function MonsierSVG({ ref }) {
             d="M34.4 90s8.1-.4 13.8-5.3"
           />
           <path
-            className="r-leg"
+            className="right-leg"
             fill="none"
             stroke="#ffae00"
             strokeLinecap="round"
@@ -35,7 +35,7 @@ export default function MonsierSVG({ ref }) {
         </g>
         <g className="arms">
           <path
-            className="l-arm"
+            className="left-arm"
             fill="none"
             stroke="#ffae00"
             strokeLinecap="round"
@@ -45,7 +45,7 @@ export default function MonsierSVG({ ref }) {
             d="M32.8 66.1s-6.4 5.2-10.6-2"
           />
           <path
-            className="r-arm"
+            className="right-arm"
             fill="none"
             stroke="#ffae00"
             strokeLinecap="round"
@@ -87,12 +87,12 @@ export default function MonsierSVG({ ref }) {
           />
           <g className="mustache">
             <path
-              className="r-mustache"
+              className="right-mustache"
               fill="#c2e3ed"
               d="M50.5 45.8s-1 7.8 6.5 7.8h8s1-7.5-6-7.5-8.5-.3-8.5-.3z"
             />
             <path
-              className="l-mustache"
+              className="left-mustache"
               fill="#c2e3ed"
               d="M49.3 45.8s.9 7.8-6.4 7.8h-8s-1-7.5 6-7.5c6.9 0 8.4-.3 8.4-.3z"
             />

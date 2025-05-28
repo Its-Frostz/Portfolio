@@ -13,48 +13,48 @@ export default function Monsier({ isPlaying }) {
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
     const monsier = getNodes("#Monsier");
     tl.set(monsier.head, {
-        transformOrigin: '50% 90%',
-        rotation: 5,
-      })
-      .addLabel('start')
+      transformOrigin: "50% 90%",
+      rotation: 5,
+    })
+      .addLabel("start")
       .to(
         monsier.head,
-        3,
         {
+          duration: 3,
           rotation: -5,
           ...LOOP_EASE_IN_OUT,
         },
-        'start'
+        "start"
       )
       .to(
-        [monsier.lArm, monsier.lMustache],
-        2,
+        [monsier.leftArm, monsier.leftMustache],
         {
-          transformOrigin: '90% 50%',
+          duration: 2,
+          transformOrigin: "90% 50%",
           rotation: -20,
           ...LOOP_EASE_IN_OUT,
         },
-        'start'
+        "start"
       )
       .to(
-        [monsier.rArm, monsier.rMustache],
-        2,
+        [monsier.rightArm, monsier.rightMustache],
         {
-          transformOrigin: '10% 50%',
+          duration: 2,
+          transformOrigin: "10% 50%",
           rotation: 20,
           ...LOOP_EASE_IN_OUT,
         },
-        'start'
+        "start"
       )
       .to(
         monsier.Monsier,
-        2,
         {
+          duration: 2,
           yPercent: -10,
           ...LOOP_EASE_IN_OUT,
         },
-        'start'
-      )
+        "start"
+      );
   });
   return <MonsierSVG ref={svgRef} />;
 }

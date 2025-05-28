@@ -12,7 +12,7 @@ export default function HexoSVG({ ref }) {
       <g className="Hexo-Hexo">
         <g className="Hexo-body">
           <path
-            className="r-arm"
+            className="right-arm"
             fill="none"
             stroke="#9FD4E5"
             strokeLinecap="round"
@@ -22,7 +22,7 @@ export default function HexoSVG({ ref }) {
             d="M69 60.2s15.6 2.2 13.2 18.4c-2.6 17.5-18.7 3.6-24.5 8.9"
           />
           <path
-            className="l-arm"
+            className="left-arm"
             fill="none"
             stroke="#D1F4FC"
             strokeLinecap="round"
@@ -35,7 +35,7 @@ export default function HexoSVG({ ref }) {
             <path
               className="skin"
               fill="#D1F4FC"
-              d="M36.1 19.4l21.4-9.5c4.7-2.1 10.3-.9 13.7 2.9l15.7 17.4c3.5 3.8 4.1 9.5 1.5 14L76.7 64.4c-2.5 4.5-7.7 6.8-12.8 5.7 0 0-19.8-4.1-25.3-5.7-4-1.1-6.6-5.3-7-9.6l-2.4-23.3c-.6-5.1 2.2-10 6.9-12.1z"
+              d="M36.1 19.4l21.4-9.5c4.7-2.1 10.3-.9 13.7 2.9l15.7 17.4c3.5 3.8 4.1 9.5 1.5 14L76.7 64.4c-2.5 4.5-7.7 6.8-12.8 5.7 0 0-19.8-4.1-25.3-5.7-4-1.1-6.6-5.3-7-9.6left-2.4-23.3c-.6-5.1 2.2-10 6.9-12.1z"
             />
             <path
               className="face"
@@ -76,7 +76,7 @@ export default function HexoSVG({ ref }) {
           <path
             className="logo"
             fill="#FFF"
-            d="M16.8 47.3l-2.6-1.2-2 2 .6 3.6.9.6-.6-3.9.9-.9.7 4.5.5.3.5-.5-.8-4.4 1.2.5.6 3.8.7-.8z"
+            d="M16.8 47.3left-2.6-1.2-2 2 .6 3.6.9.6-.6-3.9.9-.9.7 4.5.5.3.5-.5-.8-4.4 1.2.5.6 3.8.7-.8z"
           />
         </g>
       </g>

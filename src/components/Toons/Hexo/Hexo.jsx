@@ -20,7 +20,7 @@ export default function Hexo({ isPlaying }) {
         yPercent: -5,
         ...LOOP_EASE_IN_OUT,
       }, "start")
-      .to([hexo.rArm, hexo.lArm], {
+      .to([hexo.rightArm, hexo.leftArm], {
         duration: 1.5,
         rotationZ: 5,
         transformOrigin: "90% 0%",
