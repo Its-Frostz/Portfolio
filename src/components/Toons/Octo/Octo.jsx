@@ -3,7 +3,7 @@ import OctoSVG from "./OctoSVG.jsx";
 
 // Animation stuff for toon
 import { useToonAnimation } from "../animationHook.jsx";
-import { LOOP_EASE_IN_OUT, LOOP } from "@/Constants.jsx";
+import { LOOP_EASE_IN_OUT } from "@/Constants.jsx";
 import { getNodes, Random } from "@/utils.jsx";
 
 export default function Octo({ isPlaying }) {
