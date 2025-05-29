@@ -8,11 +8,11 @@ import { getNodes, Random } from "@/utils.jsx";
 
 export default function UFO({ isPlaying }) {
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
-    const trish = getNodes("#trish");
+    const Trish = getNodes("#Trish");
     tl.clear()
       .addLabel("start", 0)
       .to(
-        trish.ship,
+        Trish.ship,
         {
           duration: 0.25,
           rotationZ: 5,
@@ -22,7 +22,7 @@ export default function UFO({ isPlaying }) {
         "start"
       )
       .fromTo(
-        trish.eye,
+        Trish.eye,
         {
           duration: 0.05,
           scaleY: 0.1,
@@ -36,7 +36,7 @@ export default function UFO({ isPlaying }) {
         "start"
       )
       .to(
-        trish.trish,
+        Trish.trish,
         {
           duration: 12,
           motionPath: {

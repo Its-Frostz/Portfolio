@@ -5,25 +5,25 @@ export default function UFOSVG({ ref }) {
     <svg
       ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      id="trish"
+      id="Trish"
       viewBox="0 0 100 200"
-      aria-labelledby="trishDesc"
+      aria-labelledby="TrishDesc"
     >
-      <desc id="trishDesc">
+      <desc id="TrishDesc">
         Meet Trish the alien who gave Hritick Roshan better eyesight, flying around in its
         purple spaceship
       </desc>
-      <linearGradient id="trishLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <linearGradient id="TrishLight" x1="0%" y1="0%" x2="0%" y2="100%">
         <stop offset="0%" stopColor="#f00" stopOpacity=".75" />
         <stop offset="100%" stopColor="#f00" stopOpacity="0" />
       </linearGradient>
-      <linearGradient id="trishLight2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <linearGradient id="TrishLight2" x1="0%" y1="0%" x2="0%" y2="100%">
         <stop offset="0%" stopColor="#0ff" stopOpacity=".75" />
         <stop offset="100%" stopColor="#0ff" stopOpacity="0" />
       </linearGradient>
       <g className="trish">
         <g className="light">
-          <path fill="url(#trishLight2)" d="M50 12.5L0 191.6h100L50 12.5z" />
+          <path fill="url(#TrishLight2)" d="M50 12.5L0 191.6h100L50 12.5z" />
         </g>
         <g className="ship">
           <path

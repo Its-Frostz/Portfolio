@@ -9,7 +9,6 @@ import { getNodes, Random } from "@/utils.jsx";
 export default function Shrimp({ isPlaying }) {
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
     const cinnamon = getNodes("#Cinnamon");
-    console.log('Random values:', Random(-30, 30), Random(-50, -15));
     tl.addLabel("start")
       .to([cinnamon.skirt, cinnamon.backSkirt], {
         duration: 3,

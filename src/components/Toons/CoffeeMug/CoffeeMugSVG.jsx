@@ -5,7 +5,7 @@ export default function CoffeeMugSVG({ ref }) {
     <svg
       ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      id="coffee"
+      id="Coffee"
       viewBox="0 0 20 20"
     >
       <g className="coffee">

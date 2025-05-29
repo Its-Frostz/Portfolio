@@ -5,11 +5,11 @@ export default function OctoSVG({ ref }) {
     <svg
       ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      id="octo"
+      id="Octo"
       viewBox="0 0 100 100"
-      aria-labelledby="octoDesc"
+      aria-labelledby="OctoDesc"
     >
-      <desc id="octoDesc">
+      <desc id="OctoDesc">
         A green one-eyed octopus, smiling and swimming around with his little
         tentacles
       </desc>

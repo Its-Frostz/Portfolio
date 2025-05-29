@@ -5,15 +5,15 @@ export default function AstronautSVG({ ref }) {
     <svg
       ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      id="Astro"
+      id="Nichan"
       viewBox="0 0 100 100"
-      aria-labelledby="AstroDesc"
+      aria-labelledby="NichanDesc"
     >
-      <desc id="AstroDesc">
+      <desc id="NichanDesc">
         An Astronaut in a purple space suit, floating in space trying to reach
         for his coffee cup
       </desc>
-      <g className="Astro">
+      <g className="Nichan">
         <g className="tube">
           <path
             fill="none"

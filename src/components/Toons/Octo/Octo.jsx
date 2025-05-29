@@ -8,7 +8,7 @@ import { getNodes, Random } from "@/utils.jsx";
 
 export default function Octo({ isPlaying }) {
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
-    const octo = getNodes("#octo");
+    const octo = getNodes("#Octo");
     tl
       .addLabel("start", 0)
       .fromTo(

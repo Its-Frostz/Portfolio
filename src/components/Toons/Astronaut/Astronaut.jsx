@@ -8,7 +8,7 @@ import { getNodes, Random } from "@/utils.jsx";
 
 export default function Astronaut({ isPlaying }) {
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
-    const astro = getNodes("#Astro");
+    const astro = getNodes("#Nichan");
     tl.set(astro.head, {
         rotation: -15,
         transformOrigin: '50% 90%',
@@ -88,7 +88,7 @@ export default function Astronaut({ isPlaying }) {
         'start'
       )
       .to(
-        astro.astro,
+        astro.nichan,
         {
           duration: 5,
           yPercent: Random(-40, -20),

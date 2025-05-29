@@ -7,7 +7,7 @@ import { getNodes, Random } from "@/utils.jsx";
 
 export default function CoffeeMug({ isPlaying }) {
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
-    const Coffee = getNodes("#coffee");
+    const Coffee = getNodes("#Coffee");
     tl.to(Coffee.coffee, {
       duration: 5,
       yPercent: Random(20, 200),
