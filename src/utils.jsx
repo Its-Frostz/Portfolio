@@ -82,7 +82,7 @@ export function getNodes(parentSelector, root = document) {
 
   if (!el) return {};
 
-  const allowedNodes = ["div", "span", "svg", "g", "ellipse", "path"].map(
+  const allowedNodes = ["div", "span", "svg", "g", "ellipse", "path", "circle"].map(
     (node) => `${parentSelector} ${node}`
   );
 

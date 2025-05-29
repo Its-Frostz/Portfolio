@@ -10,7 +10,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(MotionPathPlugin);
 
 // For continuous/looping animations
-export function useToonAnimation(isPlaying, initFn) {
+export function useToonAnimation(isPlaying, initFn, dependency = []) {
   const svgRef = useRef(null);
   const timelineRef = useRef(null);
 
@@ -30,7 +30,7 @@ export function useToonAnimation(isPlaying, initFn) {
         tl.kill();
       };
     },
-    { dependencies: [], scope: svgRef }
+    { dependencies: [...dependency], scope: svgRef }
   ); // scope ties GSAP context to this ref
 
   // Sync animation state with `isPlaying`
@@ -48,8 +48,9 @@ export function useToonAnimation(isPlaying, initFn) {
       // GSAP timeline
       isPlaying ? tl.play() : tl.pause();
     },
-    { dependencies: [isPlaying] }
+    { dependencies: [...dependency, isPlaying] }
   );
+
 
   return svgRef;
 }
