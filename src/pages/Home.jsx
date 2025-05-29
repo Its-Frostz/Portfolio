@@ -296,7 +296,41 @@ export default function Home() {
         "start+=2"
       );
   };
-
+  const backtraceMonsier = () => {
+    timelines.backtraceMonsier
+      .clear()
+      .addLabel("start", 0)
+      .from(
+        "#Monsier",
+        {
+          duration: 4,
+          xPercent: 70,
+          ease: "power3.out",
+        },
+        "start"
+      )
+      .to(
+        "#Hexo",
+        {
+          duration: 4,
+          autoAlpha: 0,
+          xPercent: -100,
+          ease: "power3.in",
+        },
+        "start"
+      )
+      .to(
+        ["#smart", "#open"],
+        {
+          duration: 4,
+          autoAlpha: 0,
+          scale: 0,
+          ease: "power3.out",
+          stagger: 0.2,
+        },
+        "start"
+      );
+  };
 
   // Initialize GSAP animations on component mount
   useGSAP(() => {
@@ -305,6 +339,7 @@ export default function Home() {
     setUpScene();
     curriculumScene();
     backtraceTitle();
+    backtraceMonsier();
   }, []);
 
   return (
