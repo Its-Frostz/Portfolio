@@ -8,6 +8,12 @@ import TitleSection from "../TitleSection.jsx";
 import Hexo from "../Toons/Hexo/Hexo.jsx";
 import Dino from "../Toons/Dino/Dino.jsx";
 import Octo from "../Toons/Octo/Octo.jsx";
+import Monsier from "../Toons/Monsier/Monsier.jsx";
+import Shrimp from "../Toons/Shrimp/Shrimp.jsx";
+import Astronaut from "../Toons/Astronaut/Astronaut.jsx";
+import Shapes from "../Toons/Shapes/Shapes.jsx";
+import CoffeeMug from "../Toons/CoffeeMug/CoffeeMug.jsx";
+import UFO from "../Toons/UFO/UFO.jsx";
 
 // SCSS
 import "@/css/Components/home/Backtrace.scss";
