@@ -42,7 +42,7 @@ export default function Home() {
     }));
   };
 
-  // Define scroll-triggered animation scenes
+  // !Define scroll-triggered animation scenes
   const sceneRefsSVG = {
     wrapper: {
       id: "#thanks",
@@ -50,26 +50,8 @@ export default function Home() {
       start: "top bottom",
       end: "bottom top",
     },
-    backtraceTitle: {
-      id: ".BacktraceTitle",
-      Toon: "Backtrace",
-      start: "top bottom",
-      end: "bottom top",
-    },
-    backtrace1: {
-      id: ".Backtrace1",
-      Toon: "Backtrace",
-      start: "top bottom",
-      end: "bottom top",
-    },
-    backtrace2: {
-      id: ".Backtrace2",
-      Toon: "Backtrace",
-      start: "top bottom",
-      end: "bottom top",
-    },
-    backtrace3: {
-      id: ".Backtrace3",
+    backtraceScene: {
+      id: ".BacktraceScene",
       Toon: "Backtrace",
       start: "top bottom",
       end: "bottom top",
@@ -111,7 +93,7 @@ export default function Home() {
     };
   }, []);
 
-  /* Other Animations */
+  // !Other Animations
   const timelines = {};
 
   const SceneRefs = {
@@ -125,17 +107,17 @@ export default function Home() {
       end: "bottom bottom",
       scrub: 0.9,
     },
-    backtrace1: {
+    backtraceMonsier: {
       id: "#Backtrace1",
       end: "bottom bottom",
       scrub: 0.9,
     },
-    backtrace2: {
+    backtraceEverybody: {
       id: "#Backtrace2",
       end: "bottom bottom",
       scrub: 0.9,
     },
-    backtrace3: {
+    backtraceEnding: {
       id: "#Backtrace3",
       end: "bottom bottom",
       scrub: 0.9,
@@ -197,6 +179,7 @@ export default function Home() {
       );
   };
 
+  // GSAP timeline for Curriculum scene
   const curriculumScene = () => {
     timelines.curriculum
       .set("#curriculum .title-container", { autoAlpha: 1 }) // show animations
@@ -221,7 +204,7 @@ export default function Home() {
           autoAlpha: 0,
           rotationX: -90,
           transformOrigin: "50% 50% -100px",
-          ease: "power1.out",
+          ease: "power3.out",
         },
         "start"
       )
@@ -232,9 +215,88 @@ export default function Home() {
       });
   };
 
-  const backtraceScene = () => {
-    console.log(timelines.backtraceTitle);
+  // GSAP timeline for Backtrace scene
+  const backtraceTitle = () => {
+    timelines.backtraceTitle
+      .clear()
+      .set("#Cinnamon", {
+        autoAlpha: 0,
+        scale: 0,
+        xPercent: 600,
+        yPercent: 100,
+      })
+      .set("#dino", {
+        scale: 0,
+        xPercent: 400,
+        yPercent: 100,
+      })
+      .set(["#Nichan", "#Coffee", "#Trish", "#Octo"], {
+        autoAlpha: 0,
+        scale: 0,
+        xPercent: 400,
+        yPercent: 100,
+      })
+      // This scene
+      .set(["#BacktraceTitle .title-container", "#Backtrace1 .container"], {
+        autoAlpha: 1,
+      })
+      .addLabel("start", 0)
+
+      // Animations
+      .from(
+        "#BacktraceTitle .title",
+        {
+          duration: 6,
+          yPercent: -50,
+          autoAlpha: 0,
+          rotationX: 90,
+          transformOrigin: "50% 50% -100px",
+          ease: "power1.out",
+        },
+        "start"
+      )
+
+      .from(
+        "#BacktraceTitle .std",
+        {
+          duration: 6,
+          yPercent: 50,
+          autoAlpha: 0,
+          rotationX: -90,
+          transformOrigin: "50% 50% -100px",
+          ease: "power3.out",
+        },
+        "start"
+      )
+
+      .to("#BacktraceTitle .title", {
+        duration: 6,
+        autoAlpha: 0,
+        yPercent: -100,
+      })
+
+      .from(
+        ["#smart", "#open"],
+        {
+          duration: 6,
+          autoAlpha: 0,
+          scale: 0,
+          ease: "power3.out",
+          stagger: 0.2,
+        },
+        "start+=2"
+      )
+
+      .from(
+        "#Hexo",
+        {
+          duration: 6,
+          scale: 0,
+        },
+        "start+=2"
+      );
   };
+
 
   // Initialize GSAP animations on component mount
   useGSAP(() => {
@@ -242,7 +304,7 @@ export default function Home() {
     completeProgress();
     setUpScene();
     curriculumScene();
-    backtraceScene();
+    backtraceTitle();
   }, []);
 
   return (
