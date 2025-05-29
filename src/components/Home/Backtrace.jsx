@@ -6,6 +6,8 @@ import TitleSection from "../TitleSection.jsx";
 
 // Toons
 import Hexo from "../Toons/Hexo/Hexo.jsx";
+import Dino from "../Toons/Dino/Dino.jsx";
+import Octo from "../Toons/Octo/Octo.jsx";
 
 // SCSS
 import "@/css/Components/home/Backtrace.scss";
@@ -27,6 +29,14 @@ export default function Backtrace({ isBacktracePlaying }) {
         container={
           <>
             <Hexo isPlaying={isBacktracePlaying} />
+            <Dino isPlaying={isBacktracePlaying} />
+            <Octo isPlaying={isBacktracePlaying} />
+            <Monsier isPlaying={isBacktracePlaying} />
+            <Shrimp isPlaying={isBacktracePlaying} />
+            <Astronaut isPlaying={isBacktracePlaying} />
+            <Shapes isPlaying={isBacktracePlaying} />
+            <CoffeeMug isPlaying={isBacktracePlaying} />
+            <UFO isPlaying={isBacktracePlaying} />
           </>
         }
       >
