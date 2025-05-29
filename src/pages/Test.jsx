@@ -6,6 +6,7 @@ import Astronaut from "@/components/Toons/Astronaut/Astronaut.jsx";
 import Shapes from "@/components/Toons/Shapes/Shapes.jsx";
 import CoffeeMug from "@/components/Toons/CoffeeMug/CoffeeMug.jsx";
 import UFO from "@/components/Toons/UFO/UFO.jsx";
+import Octo from "@/components/Toons/Octo/Octo.jsx";
 
 export default function Test() {
   return (
@@ -16,8 +17,9 @@ export default function Test() {
       <Shrimp isPlaying={true} />
       <Astronaut isPlaying={true} />
       <Shapes isPlaying={true} />
-      <CoffeeMug isPlaying={true} /> */}
-      <UFO isPlaying={true} />
+      <CoffeeMug isPlaying={true} />
+      <UFO isPlaying={true} /> */}
+      <Octo isPlaying={true} />
     </>
   );
 }

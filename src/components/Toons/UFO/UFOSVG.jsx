@@ -14,12 +14,12 @@ export default function UFOSVG({ ref }) {
         purple spaceship
       </desc>
       <linearGradient id="trishLight" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#f00" stop-opacity=".75" />
-        <stop offset="100%" stop-color="#f00" stop-opacity="0" />
+        <stop offset="0%" stopColor="#f00" stopOpacity=".75" />
+        <stop offset="100%" stopColor="#f00" stopOpacity="0" />
       </linearGradient>
       <linearGradient id="trishLight2" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#0ff" stop-opacity=".75" />
-        <stop offset="100%" stop-color="#0ff" stop-opacity="0" />
+        <stop offset="0%" stopColor="#0ff" stopOpacity=".75" />
+        <stop offset="100%" stopColor="#0ff" stopOpacity="0" />
       </linearGradient>
       <g className="trish">
         <g className="light">
