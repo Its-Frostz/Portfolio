@@ -85,7 +85,7 @@
       transition: filter 200ms ease-out;
       filter: brightness(1.2);
 
-      .dino-sounds {
+      .sounds {
         opacity: 1;
         animation: smoke 1s linear infinite;
       }
@@ -103,7 +103,7 @@
       height: 60vh;
     }
 
-    .dino-sounds {
+    .sounds {
       opacity: 0;
       stroke-dasharray: 74;
       stroke-dashoffset: 0;

@@ -22,9 +22,9 @@ export const SONGS = [
 
 export default function Dino({ isPlaying }) {
   const [rhythm, setRhythm] = useState(0.3);
-  const [song, setSong] = useState(4);
+  // const [song, setSong] = useState(4);
+  const [song, setSong] = useState(Random(0, 4));
   let rotationZ = rhythm * 32;
-  //   const [song, setSong] = useState(Random(0, 4));
   function setupStuff() {
     const bright = document.querySelector(".bright");
     const teeth1 = document.querySelector("#dino .teeth1");

@@ -32,12 +32,14 @@ export default function Home() {
   });
 
   const togglePlayingTrue = (trackName) => {
-    setIsPlaying(() => ({
+    setIsPlaying((prevState) => ({
+      ...prevState,
       [trackName]: true,
     }));
   };
   const togglePlayingFalse = (trackName) => {
-    setIsPlaying(() => ({
+    setIsPlaying((prevState) => ({
+      ...prevState,
       [trackName]: false,
     }));
   };
@@ -269,7 +271,7 @@ export default function Home() {
         "start"
       )
 
-      .to("#BacktraceTitle .title", {
+      .to("#BacktraceTitle .title, #BacktraceTitle .std", {
         duration: 6,
         autoAlpha: 0,
         yPercent: -100,
@@ -296,6 +298,7 @@ export default function Home() {
         "start+=2"
       );
   };
+
   const backtraceMonsier = () => {
     timelines.backtraceMonsier
       .clear()
@@ -332,6 +335,105 @@ export default function Home() {
       );
   };
 
+  const backtraceEverybody = () => {
+    timelines.backtraceEverybody
+      .clear()
+      .addLabel("start", 0)
+      .to(
+        "#Monsier",
+        {
+          duration: 4,
+          yPercent: 130,
+          ease: "power3.in",
+        },
+        "start"
+      )
+      .to(
+        ["#dino", "#Nichan", "#Coffee", "#Trish", "#Cinnamon", "#Octo"],
+        {
+          duration: 5,
+          autoAlpha: 1,
+          scale: 1,
+          xPercent: 0,
+          yPercent: 0,
+          ease: "power3.out",
+          stagger: 0.2,
+        },
+        "start"
+      );
+  };
+
+  const backtraceEnding = () => {
+    timelines.backtraceEnding
+    .clear()
+    .addLabel("start", 0)
+    .to(
+      "#dino",
+      {
+        duration: 6,
+        yPercent: 200,
+        scale: 1.5,
+        ease: "power3.in",
+      },
+      "start"
+    )
+    .to(
+      "#Trish",
+      {
+        duration: 6,
+        xPercent: -250,
+        yPercent: -100,
+        autoAlpha: 0,
+        ease: "power3.in",
+      },
+      "start"
+    )
+    .to(
+      "#Cinnamon",
+      {
+        duration: 6,
+        xPercent: -300,
+        yPercent: 300,
+        autoAlpha: 0,
+        ease: "power3.in",
+      },
+      "start"
+    )
+    .to(
+      "#Octo",
+      {
+        duration: 6,
+        xPercent: -500,
+        yPercent: 400,
+        autoAlpha: 0,
+        ease: "none",
+      },
+      "start+=2"
+    )
+    .to(
+      "#Nichan",
+      {
+        duration: 12,
+        bottom: "-10vh",
+        right: "-10vw",
+        scale: 4,
+        ease: "power3.inOut",
+      },
+      "start"
+    )
+    .to(
+      "#Coffee",
+      {
+        duration: 12,
+        top: "8rem",
+        left: 0,
+        scale: 4,
+        ease: "power3.inOut",
+      },
+      "start"
+    );
+  };
+
   // Initialize GSAP animations on component mount
   useGSAP(() => {
     playIntroScene();
@@ -340,6 +442,8 @@ export default function Home() {
     curriculumScene();
     backtraceTitle();
     backtraceMonsier();
+    backtraceEverybody();
+    backtraceEnding();
   }, []);
 
   return (
