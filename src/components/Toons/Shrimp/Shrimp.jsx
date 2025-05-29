@@ -4,13 +4,14 @@ import ShrimpSVG from "./ShrimpSVG.jsx";
 // Animation stuff for toon
 import { useToonAnimation } from "../animationHook.jsx";
 import { LOOP_EASE_IN_OUT } from "@/Constants.jsx";
-import { getNodes, random } from "@/utils.jsx";
+import { getNodes, Random } from "@/utils.jsx";
 
 export default function Shrimp({ isPlaying }) {
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
-    const shrimp = getNodes("#Cinnamon");
+    const cinnamon = getNodes("#Cinnamon");
+    console.log('Random values:', Random(-30, 30), Random(-50, -15));
     tl.addLabel("start")
-      .to([shrimp.skirt, shrimp.backSkirt], {
+      .to([cinnamon.skirt, cinnamon.backSkirt], {
         duration: 3,
         skewY: -0.5,
         skewX: 0.5,
@@ -18,7 +19,7 @@ export default function Shrimp({ isPlaying }) {
         ...LOOP_EASE_IN_OUT,
       })
       .to(
-        shrimp.leftFoot,
+        cinnamon.leftFoot,
         {
           duration: 2,
           transformOrigin: "1% 99%",
@@ -28,7 +29,7 @@ export default function Shrimp({ isPlaying }) {
         "start"
       )
       .to(
-        shrimp.rightFoot,
+        cinnamon.rightFoot,
         {
           duration: 2,
           transformOrigin: "1% 99%",
@@ -39,7 +40,7 @@ export default function Shrimp({ isPlaying }) {
         "-=1.9"
       )
       .to(
-        shrimp.leftArm,
+        cinnamon.leftArm,
         {
           duration: 0.6,
           transformOrigin: "20% 50%",
@@ -50,7 +51,7 @@ export default function Shrimp({ isPlaying }) {
         "start"
       )
       .to(
-        shrimp.rightArm,
+        cinnamon.rightArm,
         {
           duration: 0.5,
           transformOrigin: "20% 50%",
@@ -61,24 +62,24 @@ export default function Shrimp({ isPlaying }) {
         "start"
       )
       .to(
-        shrimp.body,
+        cinnamon.cinnamon,
         {
           duration: 10,
-          bezier: {
+          motionPath: {
             curviness: 1.25,
-            values: [
+            path: [
               {
-                yPercent: random(-50, -15),
-                xPercent: random(-30, 30),
-                rotation: random(-40, -20),
+                yPercent: Random(-50, -15),
+                xPercent: Random(-30, 30),
+                rotation: Random(-40, -20),
               },
               {
-                yPercent: random(-50, -15),
-                xPercent: random(-30, 30),
-                rotation: random(40, 20),
+                yPercent: Random(-50, -15),
+                xPercent: Random(-30, 30),
+                rotation: Random(40, 20),
               },
             ],
-            autoRotate: true,
+            // autoRotate: true,
           },
           ...LOOP_EASE_IN_OUT,
         },

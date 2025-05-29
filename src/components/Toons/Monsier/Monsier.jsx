@@ -47,7 +47,7 @@ export default function Monsier({ isPlaying }) {
         "start"
       )
       .to(
-        monsier.Monsier,
+        monsier.monsier,
         {
           duration: 2,
           yPercent: -10,

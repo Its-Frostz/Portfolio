@@ -11,11 +11,11 @@ export default function Test() {
     <>
       {/* <Potion isPlaying={true} />
       <Hexo isPlaying={true} />
-      <Monsier isPlaying={true} /> 
+      <Monsier isPlaying={true} />  */}
       <Shrimp isPlaying={true} />
-      <Astronaut isPlaying={true} />
-      <Shapes isPlaying={true} /> */}
-      <CoffeeMug isPlaying={true} />
+      {/* <Astronaut isPlaying={true} />
+      <Shapes isPlaying={true} />
+      <CoffeeMug isPlaying={true} /> */}
     </>
   );
 }

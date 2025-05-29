@@ -18,10 +18,10 @@ export default function AstronautSVG({ ref }) {
           <path
             fill="none"
             stroke="#e2f1f7"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            stroke-width="5.061"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="5.061"
             d="M62.3 58.8s10.4 3.6 14.5-8.1-8.6-18.4-8.6-18.4"
           />
         </g>

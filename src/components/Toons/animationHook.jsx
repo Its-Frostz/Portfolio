@@ -3,7 +3,11 @@ import { useRef, useCallback } from "react";
 
 // GSAP and stuff
 import { gsap } from "gsap";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { useGSAP } from "@gsap/react";
+
+// Register plugins
+gsap.registerPlugin(MotionPathPlugin);
 
 // For continuous/looping animations
 export function useToonAnimation(isPlaying, initFn) {
