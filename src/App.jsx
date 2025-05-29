@@ -8,6 +8,8 @@ import {
   useLocation,
 } from "react-router";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
+
+// gsap and stuff
 import { gsap } from "gsap";
 
 // Page components
@@ -86,9 +88,8 @@ function RootLayout() {
   const { nodeRef } =
     routes.find((route) => route.path === location.pathname) ?? {};
   const [isPlaying, setIsPlaying] = useState(true);
-    const [navLogo, setNavLogo] = useState(".is()");
+  const [navLogo, setNavLogo] = useState(".is()");
 
-  
   const enter = () => {
     document.title = title;
     setNavLogo(nav);

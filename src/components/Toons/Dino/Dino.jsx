@@ -60,7 +60,6 @@ export default function Dino({ isPlaying }) {
 
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
     const dino = getNodes("#dino");
-    console.log(rotationZ);
     setupStuff();
 
     tl.addLabel("start", 0)
