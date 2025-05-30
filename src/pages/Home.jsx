@@ -98,7 +98,7 @@ export default function Home() {
         scrollTrigger: {
           trigger: ref.id,
           start: () => {
-            return ref.start ? ref.start : "top bottom";
+            return ref.start ? ref.start : "top 90%";
           },
           end: () => {
             return ref.end ? ref.end : "bottom bottom";

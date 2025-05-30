@@ -59,7 +59,7 @@ export const backtraceTitle = (timeline) => {
     })
 
     .from(
-      ["#smart", "#open"],
+      ["#open", "#smart"],
       {
         duration: 6,
         autoAlpha: 0,
@@ -130,7 +130,7 @@ export const backtraceEverybody = (timeline) => {
       "start"
     )
     .to(
-      ["#dino", "#Nichan", "#Coffee", "#Trish", "#Cinnamon", "#Octo"],
+      ["#dino", "#Trish", "#Octo", "#Cinnamon", "#Coffee", "#Nichan"],
       {
         duration: 5,
         autoAlpha: 1,
@@ -147,7 +147,7 @@ export const backtraceEverybody = (timeline) => {
 export const backtraceEnding = (timeline) => {
   timeline
     .clear()
-    .addLabel("start", 0)
+    .addLabel("start", 5)
     .to(
       "#dino",
       {
@@ -200,7 +200,7 @@ export const backtraceEnding = (timeline) => {
         scale: 4,
         ease: "power3.inOut",
       },
-      "start"
+      "start+=1"
     )
     .to(
       "#Coffee",
@@ -211,6 +211,6 @@ export const backtraceEnding = (timeline) => {
         scale: 4,
         ease: "power3.inOut",
       },
-      "start"
+      "start+=1"
     );
 };
