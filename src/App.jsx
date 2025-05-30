@@ -85,8 +85,10 @@ function RootLayout() {
   const { title, nav, rootClass } = useRouteMetadata();
   const currentOutlet = useOutlet();
   const location = useLocation();
-  const { nodeRef } =
-    routes.find((route) => route.path === location.pathname) ?? {};
+  const match = routes.find(route =>
+    route.path === location.pathname || (route.path === "*" && !routes.some(r => r.path === location.pathname))
+  );
+  const nodeRef = match?.nodeRef || createRef();  
   const [isPlaying, setIsPlaying] = useState(true);
   const [navLogo, setNavLogo] = useState(".is()");
 
