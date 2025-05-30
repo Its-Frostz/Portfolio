@@ -1,3 +1,6 @@
+// Utils
+import { useViewport } from "@/utils.jsx";
+
 // Utility components
 import SceneSection from "../SceneSection.jsx";
 import TextBlock from "../TextBlock.jsx";
@@ -19,6 +22,7 @@ import UFO from "../Toons/UFO/UFO.jsx";
 import "@/css/Components/home/Backtrace.scss";
 
 export default function Backtrace({ isBacktracePlaying }) {
+  const { isMobile, isDesktop } = useViewport();
   return (
     <div className="BacktraceScene">
       <TitleSection name="BacktraceTitle">
@@ -36,13 +40,13 @@ export default function Backtrace({ isBacktracePlaying }) {
           <>
             <Hexo isPlaying={isBacktracePlaying} />
             <Dino isPlaying={isBacktracePlaying} />
-            <Octo isPlaying={isBacktracePlaying} />
-            <Monsier isPlaying={isBacktracePlaying} />
-            <Shrimp isPlaying={isBacktracePlaying} />
             <Astronaut isPlaying={isBacktracePlaying} />
             <Shapes isPlaying={isBacktracePlaying} />
             <CoffeeMug isPlaying={isBacktracePlaying} />
-            <UFO isPlaying={isBacktracePlaying} />
+            {isDesktop && <Shrimp isPlaying={isBacktracePlaying} />}
+            {isDesktop && <Octo isPlaying={isBacktracePlaying} />}
+            {!isMobile && <UFO isPlaying={isBacktracePlaying} />}
+            {!isMobile && <Monsier isPlaying={isBacktracePlaying} />}
           </>
         }
       >
@@ -89,8 +93,8 @@ export default function Backtrace({ isBacktracePlaying }) {
           <p>
             In this entire journey
             <span className="-big">
-              <span className="-purple">Problem Solving </span>is what has driven me,
-              and in turn has made me who
+              <span className="-purple">Problem Solving </span>is what has
+              driven me, and in turn has made me who
               <span className="-purple"> I am </span>today.
             </span>
           </p>

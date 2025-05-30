@@ -1,3 +1,6 @@
+// React and stuff
+import { useEffect, useState } from "react";
+
 /**
  * Icons used for mapping in the application.
  * These icons are imported from the components/Icons directory.
@@ -5,7 +8,10 @@
 import Github from "./components/Icons/Github.jsx";
 import Instagram from "./components/Icons/Instagram.jsx";
 import CV from "./components/Icons/CV.jsx";
+
+// Progress bar
 import NProgress from "nprogress";
+
 /**
  * Fetches data from the Data.json file.
  * @returns {Promise<Object>} The parsed JSON data from Data.json
@@ -98,6 +104,23 @@ export function getNodes(parentSelector, root = document) {
   return el;
 }
 
+export const useViewport = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  
+  useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
+  
+  // Define breakpoints
+  const isMobile = width <= 768;
+  const isTablet = width > 768 && width <= 1024;
+  const isDesktop = width > 1024;
+  
+  return { width, isMobile, isTablet, isDesktop };
+};
+
 export function isReverse(e) {
   return e.scrollDirection === "REVERSE";
 }
@@ -105,8 +128,6 @@ export function isReverse(e) {
 export function isForward(e) {
   return e.scrollDirection === "FORWARD";
 }
-
-
 
 /**
  * NProgress utilities for showing loading bar during navigation
