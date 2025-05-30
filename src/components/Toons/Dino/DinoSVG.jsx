@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DinoSVG({ ref, song }) {
+export default function DinoSVG({ ref, onClick }) {
   return (
     <svg
       ref={ref}
@@ -36,7 +36,7 @@ export default function DinoSVG({ ref, song }) {
             d="M55.3 93.6c-.2-2.2-.4-6.9-.1-10.7.2-2-1.2-3.7-3.2-4-1.8-.3-3.5.9-4 2.6l-3.6 11.8c-.3.8.3 1.6 1.2 1.6H54c.8.1 1.3-.5 1.3-1.3z"
           />
         </g>
-        <g className="head">
+        <g className="head" onClick={onClick} style={{ cursor: 'pointer' }}>
           <g className="back-hair">
             <path
               fill="#002c58"
@@ -72,7 +72,7 @@ export default function DinoSVG({ ref, song }) {
           />
           <path
             className="mouth-fuck-yeah"
-            style={{ display: song > 2 ? "block" : "none" }}
+            style={{ display: "none" }}
             fill="none"
             stroke="#002c58"
             strokeLinecap="round"

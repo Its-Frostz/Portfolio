@@ -12,7 +12,7 @@ import Dino from "@/components/Toons/Dino/Dino.jsx";
 export default function Test() {
   return (
     <>
-      <Potion isPlaying={true} />
+      {/* <Potion isPlaying={true} />
       <Hexo isPlaying={true} />
       <Monsier isPlaying={true} /> 
       <Shrimp isPlaying={true} />
@@ -20,7 +20,7 @@ export default function Test() {
       <Shapes isPlaying={true} />
       <CoffeeMug isPlaying={true} />
       <UFO isPlaying={true} />
-      <Octo isPlaying={true} />
+      <Octo isPlaying={true} /> */}
       <Dino isPlaying={true} />
     </>
   );
