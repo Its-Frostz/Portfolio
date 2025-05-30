@@ -6,23 +6,12 @@ import DinoSVG from "./DinoSVG.jsx";
 
 // Animation stuff for toon
 import { useToonAnimation } from "../animationHook.jsx";
-import { LOOP_EASE_IN_OUT, LOOP } from "@/Constants.jsx";
+import { LOOP_EASE_IN_OUT, LOOP, SONGS } from "@/Constants.jsx";
 import { getNodes, Random } from "@/utils.jsx";
-
-export const SONGS = [
-  // Howl's moving castle
-  "https://open.spotify.com/track/39uLYYZytVUwcjgeYLI409?si=4ab07ac682764778",
-  // Dog
-  "https://www.youtube.com/watch?v=EpX1_YJPGAY",
-  // Cat
-  "https://www.youtube.com/watch?v=hvL1339luv0",
-  // Original
-  "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-];
 
 export default function Dino({ isPlaying }) {
   const [rhythm, setRhythm] = useState(0.3);
-  // const [song, setSong] = useState(4);
+  // const [song, setSong] = useState(4); //DEBUGGING PURPOSES
   const [song, setSong] = useState(Random(0, 4));
   let rotationZ = rhythm * 32;
   function setupStuff() {
@@ -54,9 +43,12 @@ export default function Dino({ isPlaying }) {
     }
   }
 
-  //   document.querySelector(".dino-head").addEventListener("click", () => {
-  //     window.open(SONGS[song - 1]);
-  //   });
+  const handleHeadClick = () => {
+    console.log("Dino head clicked!");
+    if (song > 0 && song <= SONGS.length) {
+      window.open(SONGS[song - 1]);
+    }
+  };
 
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
     const dino = getNodes("#dino");
@@ -163,5 +155,5 @@ export default function Dino({ isPlaying }) {
     }
   }, [rhythm]);
 
-  return <DinoSVG ref={svgRef} />;
+  return <DinoSVG ref={svgRef} onClick={handleHeadClick}   />;
 }
