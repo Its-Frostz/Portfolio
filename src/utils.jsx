@@ -20,7 +20,7 @@ import NProgress from "nprogress";
 export async function fetchData() {
   try {
     startProgress();
-    const response = await fetch("./Data/Data.json");
+    const response = await fetch("/Data/Data.json");
     const json = await response.json();
     completeProgress();
     return json;
