@@ -45,6 +45,12 @@ export function useToonAnimation(isPlaying, initFn, dependency = []) {
         isPlaying ? svg.unpauseAnimations() : svg.pauseAnimations();
       }
 
+      // Control autoalpha based on isPlaying state
+      gsap.to(svg, {
+        autoAlpha: isPlaying ? 1 : 0,
+        duration: 0.3
+      });
+
       // GSAP timeline
       isPlaying ? tl.play() : tl.pause();
     },
