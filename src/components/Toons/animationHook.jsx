@@ -45,21 +45,40 @@ export function useToonAnimation(isPlaying, initFn, dependency = []) {
         isPlaying ? svg.unpauseAnimations() : svg.pauseAnimations();
       }
 
-      const timer = setTimeout(() => {
-        // Control autoalpha based on isPlaying state
-        gsap.to(svg, {
-          autoAlpha: isPlaying ? 1 : 0,
-          duration: 0.3,
-        });
-        clearTimeout(timer);
-      }, 900);
-
       // GSAP timeline
       isPlaying ? tl.play() : tl.pause();
     },
     { dependencies: [...dependency, isPlaying] }
   );
 
+  // Handle autoAlpha separately to avoid interference
+  useGSAP(
+    () => {
+      const svg = svgRef.current;
+      if (!svg) return;
+      let timer;
+      if (isPlaying === false) {
+        timer = setTimeout(() => {
+          // Control autoalpha based on isPlaying state
+          gsap.to(svg, {
+            autoAlpha: 0,
+            duration: 0.3,
+          });
+          clearTimeout(timer);
+        }, 900);
+      } else {
+        gsap.to(svg, {
+          autoAlpha: 1,
+          duration: 0.3,
+        });
+      }
+
+      return () => {
+        clearTimeout(timer); // Clean up timer if component unmounts or dependencies change
+      };
+    },
+    { dependencies: [isPlaying] }
+  );
 
   return svgRef;
 }
