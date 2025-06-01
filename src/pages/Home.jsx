@@ -24,7 +24,7 @@ import { curriculumScene } from "./TimeLines/CurriculamTL.jsx";
 import { backtraceTitle, backtraceMonsier, backtraceEverybody, backtraceEnding } from "./TimeLines/BacktraceTL.jsx";
 
 // SCSS
-import "../css/pages/Home.scss";
+import "@/css/pages/Home.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 

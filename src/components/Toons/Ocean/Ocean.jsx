@@ -7,9 +7,8 @@ import '@/css/Components/toons/Ocean.scss';
 
 export default function Ocean({ isPlaying }) {
   const svgRef = useToonAnimation(isPlaying, (svg, tl) => {
-    const scenery = getNodes(".scenery");
     tl.fromTo(
-        scenery.w1,
+        ".ocean-waves.w1",
         {
           xPercent: 10,
           yPercent: 0,
@@ -23,7 +22,7 @@ export default function Ocean({ isPlaying }) {
           repeat: -1,
         }
       ).fromTo(
-        scenery.w2,
+          ".ocean-waves.w2",
         {
           xPercent: 10,
           yPercent: 0,
@@ -44,19 +43,15 @@ export default function Ocean({ isPlaying }) {
     <div>
       <div
         ref={svgRef}
-        class="scenery"
+        className="scenery"
         role="img"
         aria-labelledby="sceneryDesc"
       >
-        {/* <p class="ariaLabel" id="pepeDesc">
-          A floating head carrying musical instruments in the ear, foliage and
-          monuments in the hair, flies over a greenish ocean during the sunset
-        </p> */}
-        <div class="sky"></div>
-        <div class="ocean">
-          <div class="sky-mask"></div>
-          <div class="ocean-waves w1"></div>
-          <div class="ocean-waves w2"></div>
+        <div className="sky"></div>
+        <div className="ocean">
+          <div className="sky-mask"></div>
+          <div className="ocean-waves w1"></div>
+          <div className="ocean-waves w2"></div>
         </div>
       </div>
     </div>
