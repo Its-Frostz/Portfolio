@@ -138,31 +138,55 @@ function RootLayout() {
   //   };
   // }, []);
 
+  // useEffect(() => {
+  //   const lenis = new Lenis({
+  //     duration: 1.2, // Sweet spot for smoothness
+  //     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease - no snapping
+  //     smooth: true,
+  //     smoothTouch: true,
+  //     touchMultiplier: 2, // More responsive touch
+  //     wheelMultiplier: 1, // Normal wheel sensitivity
+  //     threshold: 0, // KEY: Start smoothing from first pixel!
+  //     lerp: 0.1, // Linear interpolation - super smooth transitions
+  //     infinite: false,
+  //     gestureDirection: 'vertical',
+  //   });
+  
+  //   function raf(time) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
+  
+  //   requestAnimationFrame(raf);
+  
+  //   return () => {
+  //     lenis.destroy();
+  //   };
+  // }, []);
+  
   useEffect(() => {
+    // Initialize Lenis
     const lenis = new Lenis({
-      duration: 1.2, // Sweet spot for smoothness
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease - no snapping
+      duration: 0.6, // Control the duration of the scroll
+      easing: (t) => 1 - Math.pow(1 - t, 3), // Cubic easing for smooth stop
       smooth: true,
-      smoothTouch: true,
-      touchMultiplier: 2, // More responsive touch
-      wheelMultiplier: 1, // Normal wheel sensitivity
-      threshold: 0, // KEY: Start smoothing from first pixel!
-      lerp: 0.1, // Linear interpolation - super smooth transitions
-      infinite: false,
-      gestureDirection: 'vertical',
+      smoothTouch: true, // Enable smooth scrolling on touch devices
     });
-  
-    function raf(time) {
+
+    const animate = (time) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-  
-    requestAnimationFrame(raf);
-  
+      requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+
+    // Cleanup on unmount
     return () => {
       lenis.destroy();
     };
   }, []);
+
+
 
   const enter = () => {
     document.title = title;
