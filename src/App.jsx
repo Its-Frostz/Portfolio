@@ -18,10 +18,6 @@ const Home = lazy(() => import("./pages/Home.jsx"));
 const About = lazy(() => import("./pages/About.jsx"));
 const NotFound = lazy(() => import("./pages/404.jsx"));
 const Test = lazy(() => import("./pages/Test.jsx"));
-// import Home from "./pages/Home.jsx";
-// import About from "./pages/About.jsx";
-// import NotFound from "./pages/404.jsx";
-// import Test from "./pages/Test.jsx";
 
 // Static components
 import NavBar from "./components/NavBar.jsx";
@@ -99,94 +95,32 @@ function RootLayout() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [navLogo, setNavLogo] = useState(".is()");
 
-  // useEffect(() => {
-  //   const lenis = new Lenis({
-  //     // Smoother, more responsive feel
-  //     duration: 1.8,
-      
-  //     // Better easing - feels more natural
-  //     easing: (t) => 1 - Math.pow(1 - t, 3), // easeOutCubic
-      
-  //     // Mobile optimization
-  //     smooth: true,
-  //     smoothTouch: true, // Enable smooth scrolling on touch devices
-  //     touchMultiplier: 2, // More responsive touch scrolling
-  //     infinite: false,
-      
-  //     // Better performance on mobile
-  //     syncTouch: true, // Sync touch events
-  //     syncTouchLerp: 0.1, // Smooth lerp for touch
-  //     touchInertiaMultiplier: 35, // Natural momentum on mobile
-      
-  //     // Wheel settings for desktop
-  //     wheelMultiplier: 1.2,
-  //     normalizeWheel: true,
-      
-  //     // Performance
-  //     autoResize: true,
-  //   });
-  
-  //   function raf(time) {
-  //     lenis.raf(time);
-  //     requestAnimationFrame(raf);
-  //   }
-  
-  //   requestAnimationFrame(raf);
-  
-  //   return () => {
-  //     lenis.destroy();
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   const lenis = new Lenis({
-  //     duration: 1.2, // Sweet spot for smoothness
-  //     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease - no snapping
-  //     smooth: true,
-  //     smoothTouch: true,
-  //     touchMultiplier: 2, // More responsive touch
-  //     wheelMultiplier: 1, // Normal wheel sensitivity
-  //     threshold: 0, // KEY: Start smoothing from first pixel!
-  //     lerp: 0.1, // Linear interpolation - super smooth transitions
-  //     infinite: false,
-  //     gestureDirection: 'vertical',
-  //   });
-  
-  //   function raf(time) {
-  //     lenis.raf(time);
-  //     requestAnimationFrame(raf);
-  //   }
-  
-  //   requestAnimationFrame(raf);
-  
-  //   return () => {
-  //     lenis.destroy();
-  //   };
-  // }, []);
-  
   useEffect(() => {
-    // Initialize Lenis
+    // Initialize Lenis with responsive settings
     const lenis = new Lenis({
-      duration: 0.6, // Control the duration of the scroll
-      easing: (t) => 1 - Math.pow(1 - t, 3), // Cubic easing for smooth stop
+      duration: 0.8, // Much faster duration
+      easing: (t) => 1 - Math.pow(1 - t, 2), // Simple ease-out quad
       smooth: true,
-      smoothTouch: true, // Enable smooth scrolling on touch devices
+      smoothTouch: true,
+      wheelMultiplier: 1.5, // Faster response to wheel
+      touchMultiplier: 2,
+      lerp: 0.08, // More responsive interpolation
+      infinite: false,
     });
-
+  
+    // Simple RAF loop
     const animate = (time) => {
       lenis.raf(time);
       requestAnimationFrame(animate);
     };
-
+    
     requestAnimationFrame(animate);
-
+  
     // Cleanup on unmount
     return () => {
       lenis.destroy();
     };
   }, []);
-
-
 
   const enter = () => {
     document.title = title;
