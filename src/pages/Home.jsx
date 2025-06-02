@@ -1,5 +1,4 @@
 // React and stuff
-import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
 import { completeProgress } from "@/utils.jsx";
 import { SCENE_REFS_SVG, SCENE_REFS } from "@/Constants.jsx";
@@ -22,12 +21,7 @@ import Backtrace from "../components/Home/Backtrace.jsx";
 //Timelines
 import { playIntroScene } from "./TimeLines/IntroTL.jsx";
 import { curriculumScene } from "./TimeLines/CurriculamTL.jsx";
-import {
-  backtraceTitle,
-  backtraceMonsier,
-  backtraceEverybody,
-  backtraceEnding,
-} from "./TimeLines/BacktraceTL.jsx";
+import { backtraceTitle, backtraceMonsier, backtraceEverybody, backtraceEnding } from "./TimeLines/BacktraceTL.jsx";
 
 // SCSS
 import "@/css/pages/Home.scss";
@@ -35,41 +29,6 @@ import "@/css/pages/Home.scss";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  useEffect(() => {
-    let locoScroll;
-
-    (async () => {
-      const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      locoScroll = new LocomotiveScroll({
-        el: document.querySelector("#home"),
-        smooth: true,
-        // other options
-      });
-
-      // Update ScrollTrigger when Locomotive Scroll updates
-      locoScroll.on("scroll", ScrollTrigger.update);
-      ScrollTrigger.scrollerProxy("#home", {
-        scrollTop(value) {
-          return arguments.length
-            ? locoScroll.scrollTo(value, 0, 0)
-            : locoScroll.scroll.instance.scroll.y;
-        },
-        getBoundingClientRect() {
-          return {
-            top: 0,
-            left: 0,
-            width: window.innerWidth,
-            height: window.innerHeight,
-          };
-        },
-      });
-    })();
-
-    return () => {
-      if (locoScroll) locoScroll.destroy();
-    };
-  }, []);
-
   /* SVG CONTROLLERS */
 
   // Track animation states for different components
@@ -160,14 +119,14 @@ export default function Home() {
 
   // Initialize GSAP animations on component mount
   useGSAP(() => {
-    playIntroScene(); //Intro
-    completeProgress(); //Progress bar
-    setUpScene(); //Scroll triggers
-    curriculumScene(timelines.curriculum); //Curriculum
-    backtraceTitle(timelines.backtraceTitle); //Backtrace
-    backtraceMonsier(timelines.backtraceMonsier); //Backtrace
-    backtraceEverybody(timelines.backtraceEverybody); //Backtrace
-    backtraceEnding(timelines.backtraceEnding); //Backtrace
+    playIntroScene();//Intro
+    completeProgress();//Progress bar
+    setUpScene();//Scroll triggers
+    curriculumScene(timelines.curriculum);//Curriculum
+    backtraceTitle(timelines.backtraceTitle);//Backtrace
+    backtraceMonsier(timelines.backtraceMonsier);//Backtrace
+    backtraceEverybody(timelines.backtraceEverybody);//Backtrace
+    backtraceEnding(timelines.backtraceEnding);//Backtrace
   }, []);
 
   return (
@@ -181,7 +140,7 @@ export default function Home() {
         </TitleFunction>
       </TitleSection>
 
-      {/* <Backtrace isBacktracePlaying={isPlaying.Backtrace} /> */}
+      <Backtrace isBacktracePlaying={isPlaying.Backtrace} />
       <Wrapper isPotionPlaying={isPlaying.Potion} />
     </div>
   );
