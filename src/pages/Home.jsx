@@ -21,7 +21,12 @@ import Backtrace from "../components/Home/Backtrace.jsx";
 //Timelines
 import { playIntroScene } from "./TimeLines/IntroTL.jsx";
 import { curriculumScene } from "./TimeLines/CurriculamTL.jsx";
-import { backtraceTitle, backtraceMonsier, backtraceEverybody, backtraceEnding } from "./TimeLines/BacktraceTL.jsx";
+import {
+  backtraceTitle,
+  backtraceMonsier,
+  backtraceEverybody,
+  backtraceEnding,
+} from "./TimeLines/BacktraceTL.jsx";
 
 // SCSS
 import "@/css/pages/Home.scss";
@@ -119,14 +124,14 @@ export default function Home() {
 
   // Initialize GSAP animations on component mount
   useGSAP(() => {
-    playIntroScene();//Intro
-    completeProgress();//Progress bar
-    setUpScene();//Scroll triggers
-    curriculumScene(timelines.curriculum);//Curriculum
-    backtraceTitle(timelines.backtraceTitle);//Backtrace
-    backtraceMonsier(timelines.backtraceMonsier);//Backtrace
-    backtraceEverybody(timelines.backtraceEverybody);//Backtrace
-    backtraceEnding(timelines.backtraceEnding);//Backtrace
+    playIntroScene(); //Intro
+    completeProgress(); //Progress bar
+    setUpScene(); //Scroll triggers
+    curriculumScene(timelines.curriculum); //Curriculum
+    backtraceTitle(timelines.backtraceTitle); //Backtrace
+    backtraceMonsier(timelines.backtraceMonsier); //Backtrace
+    backtraceEverybody(timelines.backtraceEverybody); //Backtrace
+    backtraceEnding(timelines.backtraceEnding); //Backtrace
   }, []);
 
   return (

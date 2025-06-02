@@ -11,12 +11,17 @@ import { CSSTransition, SwitchTransition } from "react-transition-group";
 
 // gsap and stuff
 import { gsap } from "gsap";
+import Lenis from "lenis";
 
 // Page components
 const Home = lazy(() => import("./pages/Home.jsx"));
 const About = lazy(() => import("./pages/About.jsx"));
 const NotFound = lazy(() => import("./pages/404.jsx"));
 const Test = lazy(() => import("./pages/Test.jsx"));
+// import Home from "./pages/Home.jsx";
+// import About from "./pages/About.jsx";
+// import NotFound from "./pages/404.jsx";
+// import Test from "./pages/Test.jsx";
 
 // Static components
 import NavBar from "./components/NavBar.jsx";
@@ -85,12 +90,79 @@ function RootLayout() {
   const { title, nav, rootClass } = useRouteMetadata();
   const currentOutlet = useOutlet();
   const location = useLocation();
-  const match = routes.find(route =>
-    route.path === location.pathname || (route.path === "*" && !routes.some(r => r.path === location.pathname))
+  const match = routes.find(
+    (route) =>
+      route.path === location.pathname ||
+      (route.path === "*" && !routes.some((r) => r.path === location.pathname))
   );
-  const nodeRef = match?.nodeRef || createRef();  
+  const nodeRef = match?.nodeRef || createRef();
   const [isPlaying, setIsPlaying] = useState(true);
   const [navLogo, setNavLogo] = useState(".is()");
+
+  // useEffect(() => {
+  //   const lenis = new Lenis({
+  //     // Smoother, more responsive feel
+  //     duration: 1.8,
+      
+  //     // Better easing - feels more natural
+  //     easing: (t) => 1 - Math.pow(1 - t, 3), // easeOutCubic
+      
+  //     // Mobile optimization
+  //     smooth: true,
+  //     smoothTouch: true, // Enable smooth scrolling on touch devices
+  //     touchMultiplier: 2, // More responsive touch scrolling
+  //     infinite: false,
+      
+  //     // Better performance on mobile
+  //     syncTouch: true, // Sync touch events
+  //     syncTouchLerp: 0.1, // Smooth lerp for touch
+  //     touchInertiaMultiplier: 35, // Natural momentum on mobile
+      
+  //     // Wheel settings for desktop
+  //     wheelMultiplier: 1.2,
+  //     normalizeWheel: true,
+      
+  //     // Performance
+  //     autoResize: true,
+  //   });
+  
+  //   function raf(time) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
+  
+  //   requestAnimationFrame(raf);
+  
+  //   return () => {
+  //     lenis.destroy();
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2, // Sweet spot for smoothness
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease - no snapping
+      smooth: true,
+      smoothTouch: true,
+      touchMultiplier: 2, // More responsive touch
+      wheelMultiplier: 1, // Normal wheel sensitivity
+      threshold: 0, // KEY: Start smoothing from first pixel!
+      lerp: 0.1, // Linear interpolation - super smooth transitions
+      infinite: false,
+      gestureDirection: 'vertical',
+    });
+  
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+  
+    requestAnimationFrame(raf);
+  
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   const enter = () => {
     document.title = title;
