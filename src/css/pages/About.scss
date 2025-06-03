@@ -16,7 +16,7 @@
 // }
 
 #about {
-  .pic {
+  #me {
     pointer-events: none;
     display: block;
     position: fixed;
@@ -27,7 +27,7 @@
     width: 43vw;
     aspect-ratio: 1/1;
     border-radius: 100%;
-    background-image: url(../../Assets/me2.jpg);
+    // background-image: url(../../Assets/me2.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

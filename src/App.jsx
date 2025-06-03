@@ -23,6 +23,7 @@ const Test = lazy(() => import("./pages/Test.jsx"));
 import NavBar from "./components/NavBar.jsx";
 import Spine from "./components/Spine.jsx";
 import Footer from "./components/Footer.jsx";
+import pic from "./Assets/me.webp";
 
 // SCSS
 import "./css/App.scss";
@@ -51,7 +52,7 @@ const routes = [
   },
   {
     path: "/about",
-    element: <About />,
+    element: <About pic={pic}/>,
     nodeRef: createRef(),
     handle: {
       title: ".about()",

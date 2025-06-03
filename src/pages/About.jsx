@@ -16,7 +16,7 @@ import "../css/pages/About.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function About() {
+export default function About({ pic }) {
   const [jsonData, setJsonData] = useState({});
   // const [currentHumor, setCurrentHumor] = useState("");
 
@@ -106,7 +106,9 @@ export default function About() {
 
   return (
     <div id="about" className="wrapper">
-      <div className="pic"></div>
+      <div className="pic">
+        <img id="me" src={pic} alt="" />
+      </div>
       <div className="static-container">
         <h1 className="title">
           about(<span className="params">Atif</span>)
