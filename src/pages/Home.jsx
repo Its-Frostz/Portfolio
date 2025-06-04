@@ -140,8 +140,8 @@ export default function Home() {
       <GapBlock />
 
       <TitleSection name="curriculum">
-        <TitleFunction params="/_life/..." subtitle="<VitaeJournal/>">
-          Summarization
+        <TitleFunction params="/_life/.." subtitle="<VitaeJournal/>">
+          Reflect
         </TitleFunction>
       </TitleSection>
 
