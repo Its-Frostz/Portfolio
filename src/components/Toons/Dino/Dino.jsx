@@ -12,7 +12,7 @@ import { getNodes, Random } from "@/utils.jsx";
 export default function Dino({ isPlaying }) {
   const [rhythm, setRhythm] = useState(0.3);
   // const [song, setSong] = useState(4); //DEBUGGING PURPOSES
-  const [song, setSong] = useState(Random(0, 4));
+  const [song, setSong] = useState(Random(1, 4));
   let rotationZ = rhythm * 32;
   function setupStuff() {
     const bright = document.querySelector(".bright");
@@ -44,7 +44,6 @@ export default function Dino({ isPlaying }) {
   }
 
   const handleHeadClick = () => {
-    console.log("Dino head clicked!");
     if (song > 0 && song <= SONGS.length) {
       window.open(SONGS[song - 1]);
     }
