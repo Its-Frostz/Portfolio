@@ -1,0 +1,77 @@
+.noLimitScene {
+  .gap {
+    height: 40vh;
+  }
+}
+#NoLimit1 {
+  overflow: hidden;
+
+  .static-container {
+    display: flex;
+    align-items: center;
+    height: 120vh;
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    perspective: none;
+    perspective-origin: "none";
+  }
+  .std {
+    display: flex;
+    max-width: 100%;
+  }
+  .NLtext {
+    // padding-left: 100vw;
+    padding-right: 2rem;
+    width: max-content;
+    white-space: nowrap;
+    letter-spacing: normal;
+    word-spacing: normal;
+    font: 500 normal 12vw/0.9 "Mori", sans-serif;
+  }
+}
+
+// .whoosh {
+//   position: relative;
+//   width: 40vw;
+// }
+
+// .logo-plane {
+//   height: 32.9%;
+//   opacity: 0;
+//   position: absolute;
+//   width: 25.8%;
+//   z-index: 2;
+// }
+
+// .logo-path {
+//   bottom: 51%;
+//   height: 100%;
+//   left: -59%;
+//   position: absolute;
+//   width: 147.3%;
+//   z-index: 1;
+
+//   svg {
+//     height: 100%;
+//     left: 0;
+//     position: absolute;
+//     top: 0;
+//     width: 100%;
+//   }
+
+//   path {
+//     visibility: hidden;
+//   }
+
+//   .offset-1,
+//   .offset-3 {
+//     transform: translateX(-0.5%) translateY(-0.5%);
+//   }
+
+//   .offset-2,
+//   .offset-4 {
+//     transform: translateX(0.5%) translateY(0.5%);
+//   }
+// }

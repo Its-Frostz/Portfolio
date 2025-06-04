@@ -8,6 +8,7 @@ import CoffeeMug from "@/components/Toons/CoffeeMug/CoffeeMug.jsx";
 import UFO from "@/components/Toons/UFO/UFO.jsx";
 import Octo from "@/components/Toons/Octo/Octo.jsx";
 import Dino from "@/components/Toons/Dino/Dino.jsx";
+import NoLimit from "@/components/Home/NoLimit.jsx";
 
 export default function Test() {
   return (
@@ -22,6 +23,7 @@ export default function Test() {
       <UFO isPlaying={true} />
       <Octo isPlaying={true} /> */}
       {/* <Dino isPlaying={true} /> */}
+      <NoLimit/>
     </>
   );
 }
