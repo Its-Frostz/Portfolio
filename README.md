@@ -8,6 +8,11 @@ This is a React.js project where I showcase my work, skills, and journey as a de
 - [Vite](https://vite.dev/)
 - [GSAP 3](https://greensock.com/3/)
 - [GSAP ScrollTrigger](https://greensock.com/scrolltrigger/)
+- [GSAP MotionPath](https://gsap.com/docs/v3/Plugins/MotionPathPlugin)
+- [Lenis SmoothScroll](https://github.com/darkroomengineering/lenis/blob/main/README.md)
+- [React Progressive Image](https://github.com/FormidableLabs/react-progressive-image)
+- [React Transition Group](https://reactcommunity.org/react-transition-group/)
+- [A few cups of tea](https://www.youtube.com/shorts/sOx3F2Oltzc)
 
 ## 🛠️ Getting Started
 
