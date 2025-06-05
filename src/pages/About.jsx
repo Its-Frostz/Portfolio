@@ -1,6 +1,7 @@
 // React and util
-import { useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { fetchData, iconMap, Random } from "@/utils.jsx";
+import ProgressiveImage from "react-progressive-image";
 
 // Gsap and stuff
 import { useGSAP } from "@gsap/react";
@@ -10,13 +11,15 @@ import gsap from "gsap";
 // Utility Components
 import TextBlock from "../components/TextBlock";
 import Wrapper from "../components/Wrapper";
+import pic from "../Assets/me.webp";
+import compressedPic from "../Assets/meSmall.jpg";
 
 // SCSS
 import "../css/pages/About.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function About({ pic }) {
+export default function About() {
   const [jsonData, setJsonData] = useState({});
   // const [currentHumor, setCurrentHumor] = useState("");
 
@@ -106,9 +109,25 @@ export default function About({ pic }) {
 
   return (
     <div id="about" className="wrapper">
-      <div className="pic">
-        <img id="me" src={pic} alt="" />
-      </div>
+      <ProgressiveImage src={pic} placeholder={compressedPic}>
+        {(src, loading) => (
+          <img
+            id="me"
+            style={{ 
+              opacity: loading ? 0.75 : 1,
+              // Add blur to existing filters instead of replacing them
+              filter: loading 
+                ? 'grayscale(1) brightness(1) blur(6px)' 
+                : 'grayscale(1) brightness(1) blur(0px)',
+              transition: loading 
+                ? 'none' 
+                : 'opacity 0.7s ease-out, filter 0.5s ease-out'
+            }}
+            src={src}
+            alt="Should have been me :("
+          />
+        )}
+      </ProgressiveImage>
       <div className="static-container">
         <h1 className="title">
           about(<span className="params">Atif</span>)
