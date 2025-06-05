@@ -6,29 +6,41 @@
 #NoLimit1 {
   overflow: hidden;
 
-  .static-container {
+  // .static-container {
+  //   display: flex;
+  //   align-items: center;
+  //   height: 120vh;
+  //   position: relative;
+  //   width: 100%;
+  //   padding: 0;
+  //   margin: 0;
+  //   perspective: none;
+  //   perspective-origin: "none";
+  // }
+  .theContainer {
     display: flex;
     align-items: center;
     height: 120vh;
     position: relative;
     width: 100%;
-    padding: 0;
-    margin: 0;
-    perspective: none;
-    perspective-origin: "none";
+    
   }
-  .std {
+  .text-container {
     display: flex;
-    max-width: 100%;
   }
   .NLtext {
+    color: var(--std-color);
     // padding-left: 100vw;
     padding-right: 2rem;
+    transform: translateY(0px) rotate(0deg);
     width: max-content;
     white-space: nowrap;
     letter-spacing: normal;
     word-spacing: normal;
     font: 500 normal 12vw/0.9 "Mori", sans-serif;
+  }
+  .-purple {
+    color: var(--purple);
   }
 }
 
