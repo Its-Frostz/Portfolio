@@ -46,7 +46,8 @@ export default function Backtrace({ isBacktracePlaying }) {
             {isDesktop && <Shrimp isPlaying={isBacktracePlaying} />}
             {isDesktop && <Octo isPlaying={isBacktracePlaying} />}
             {!isMobile && <UFO isPlaying={isBacktracePlaying} />}
-            {!isMobile && <Monsier isPlaying={isBacktracePlaying} />}
+            {/* {!isMobile && <Monsier isPlaying={isBacktracePlaying} />} */}
+            <Monsier isPlaying={isBacktracePlaying} />
           </>
         }
       >
@@ -68,10 +69,10 @@ export default function Backtrace({ isBacktracePlaying }) {
             .
           </p>
           <p>
-            Starting from winning interschool competitions to multiple State
-            level hackathons and few national competitions
+          From interschool victories to state-level hackathons and national showdowns —
+          
             <strong className="-purple">
-              {" to now 9th place @ International Codewars Olympiad "}
+              {" now ranked 9th globally @ International Codewars Olympiad "}
             </strong>
           </p>
         </TextBlock>

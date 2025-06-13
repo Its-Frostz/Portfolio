@@ -19,6 +19,7 @@ export const backtraceTitle = (timeline) => {
       xPercent: 400,
       yPercent: 100,
     })
+    
     // This scene
     .set(["#BacktraceTitle .title-container", "#Backtrace1 .container"], {
       autoAlpha: 1,
@@ -80,7 +81,8 @@ export const backtraceTitle = (timeline) => {
     );
 };
 
-export const backtraceMonsier = (timeline) => {
+export const backtraceMonsier = (timeline, isMobile) => {
+  const xPercent = isMobile ? 73 : 70;
   timeline
     .clear()
     .addLabel("start", 0)
@@ -88,7 +90,7 @@ export const backtraceMonsier = (timeline) => {
       "#Monsier",
       {
         duration: 4,
-        xPercent: 70,
+        xPercent: xPercent,
         ease: "power3.out",
       },
       "start"

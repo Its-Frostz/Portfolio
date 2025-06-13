@@ -1,6 +1,6 @@
 // React and stuff
 import { useEffect, useState } from "react";
-import { completeProgress } from "@/utils.jsx";
+import { completeProgress, useViewport } from "@/utils.jsx";
 import { SCENE_REFS_SVG, SCENE_REFS } from "@/Constants.jsx";
 
 // Gsap and stuff
@@ -54,6 +54,8 @@ export default function Home() {
       [trackName]: false,
     }));
   };
+
+  const { isMobile } = useViewport();
 
   // !Define scroll-triggered animation scenes
   useEffect(() => {
@@ -129,7 +131,7 @@ export default function Home() {
     setUpScene(); //Scroll triggers
     curriculumScene(timelines.curriculum); //Curriculum
     backtraceTitle(timelines.backtraceTitle); //Backtrace
-    backtraceMonsier(timelines.backtraceMonsier); //Backtrace
+    backtraceMonsier(timelines.backtraceMonsier, isMobile); //Backtrace
     backtraceEverybody(timelines.backtraceEverybody); //Backtrace
     backtraceEnding(timelines.backtraceEnding); //Backtrace
   }, []);

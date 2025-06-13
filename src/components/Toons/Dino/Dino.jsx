@@ -1,5 +1,5 @@
 // React and util
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // Svg component
 import DinoSVG from "./DinoSVG.jsx";
@@ -154,5 +154,5 @@ export default function Dino({ isPlaying }) {
     }
   }, [rhythm]);
 
-  return <DinoSVG ref={svgRef} onClick={handleHeadClick}   />;
+  return <DinoSVG ref={svgRef} onClick={handleHeadClick} />;
 }
