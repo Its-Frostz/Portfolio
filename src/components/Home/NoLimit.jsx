@@ -29,7 +29,7 @@ const horizontalScene = () => {
     const textElement = el.text[0];
     const textWidth = textElement.scrollWidth;
     const viewportWidth = window.innerWidth;
-    const x = textWidth - viewportWidth; // padding-left (100vw) + text width
+    const x = textWidth - viewportWidth+750; // padding-left (100vw) + text width
 
     const scrollTween = gsap.to(el.textCont, {
       x: -x, // Move the full calculated distance
