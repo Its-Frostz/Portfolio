@@ -1,12 +1,13 @@
 // GSAP and stuff
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Utility Components
 import SceneSection from "../SceneSection";
 import GapBlock from "../GapBlock";
 import TextBlock from "../TextBlock";
-import SplitText from "gsap/SplitText";
+
 // Scss
 import "@/css/Components/home/NoLimit.scss";
 
@@ -21,15 +22,6 @@ const horizontalScene = () => {
   };
 
   document.fonts.ready.then(() => {
-    // Clear any existing ScrollTriggers for this element to prevent duplicates
-    ScrollTrigger.getAll().forEach((trigger) => {
-      if (
-        trigger.trigger === ".theContainer" ||
-        trigger.vars?.trigger === ".theContainer"
-      ) {
-        trigger.kill();
-      }
-    });
 
     const split = SplitText.create(el.text, { type: "chars" });
 
@@ -39,18 +31,14 @@ const horizontalScene = () => {
     const viewportWidth = window.innerWidth;
     const x = textWidth - viewportWidth; // padding-left (100vw) + text width
 
-    console.log("Calculated x:", x);
-    console.log("Text width:", textWidth);
-    console.log("Viewport width:", viewportWidth);
-
     const scrollTween = gsap.to(el.textCont, {
       x: -x, // Move the full calculated distance
       ease: "none",
       scrollTrigger: {
         trigger: ".theContainer",
         start: "center center",
-        pin: true,
         end: `+=${x}`,
+        pin: true,
         scrub: true,
         markers: true, // Enable to debug
         id: "horizontal-scroll", // Add ID to identify this trigger
@@ -60,52 +48,75 @@ const horizontalScene = () => {
       },
     });
 
-    // Create character animations that work with the horizontal scroll
-    split.chars.forEach((char) => {
-      const y = gsap.utils.random([-300, 300]);
-      const rotation = gsap.utils.random(-60, 60);
-
-      gsap.to(
-        char,
-        {
-          // TO: Final positions (where animation ends)
-          yPercent: -y, // Normal vertical position
-          rotation: -rotation, // No rotation
-          ease: "elastic.out(1.2, 1)",
-          scrollTrigger: {
-            trigger: char,
-            containerAnimation: scrollTween, // This links it to the horizontal scroll
-            start: "left 80%", // When char enters from right side of viewport
-            end: "left 20%", // When char reaches left side
-            scrub: 0.1,
-          },
-        }
-      );
+    SplitText.create(el.text, {
+      type: 'chars',
+      autoSplit: true,
+      onSplit: (s) => {
+        const tweens = s.chars.map((c) => {
+          gsap.from(c, {
+            y: 'random([-300, -250, 250, 300])',
+            rotation: 'random([-60, -50, -40, 40, 50, 60])',
+            ease: 'elastic.out(1.2, 1)',
+            scrollTrigger: {
+              trigger: c,
+              containerAnimation: scrollTween,
+              start: 'left 75%',
+              end: 'left 35%',
+              scrub: true,
+              // markers: true,
+            },
+          });
+        });
+        return tweens;
+      },
     });
+
+    // Create character animations that work with the horizontal scroll
+    // split.chars.forEach((char) => {
+    //   const y = gsap.utils.random([-300, 300]);
+    //   const rotation = gsap.utils.random(-60, 60);
+
+    //   gsap.from(
+    //     char,
+    //     {
+    //       // TO: Final positions (where animation ends)
+    //       yPercent: -y, // Normal vertical position
+    //       rotation: -rotation, // No rotation
+    //       ease: "elastic.out(1.2, 1)",
+    //       scrollTrigger: {
+    //         trigger: char,
+    //         containerAnimation: scrollTween, // This links it to the horizontal scroll
+    //         start: "left 80%", // When char enters from right side of viewport
+    //         end: "left 20%", // When char reaches left side
+    //         scrub: 0.1,
+    //       },
+    //     }
+    //   );
+    // });
   });
 };
 
 export default function NoLimit({ children }) {
   // Cleanup function to prevent memory leaks and double animations
-  const cleanup = () => {
-    ScrollTrigger.getAll().forEach((trigger) => {
-      if (
-        trigger.trigger === ".theContainer" ||
-        (trigger.vars?.containerAnimation &&
-          trigger.vars.containerAnimation.vars?.scrollTrigger?.trigger ===
-            ".theContainer")
-      ) {
-        trigger.kill();
-      }
-    });
-  };
+  // const cleanup = () => {
+  //   ScrollTrigger.getAll().forEach((trigger) => {
+  //     if (
+  //       trigger.trigger === ".theContainer" ||
+  //       (trigger.vars?.containerAnimation &&
+  //         trigger.vars.containerAnimation.vars?.scrollTrigger?.trigger ===
+  //           ".theContainer")
+  //     ) {
+  //       trigger.kill();
+  //     }
+  //   });
+  // };
 
   useGSAP(() => {
     // cleanup(); // Clean up any existing animations first
     horizontalScene();
 
     // Return cleanup function for useGSAP
-    return cleanup;
+    // return cleanup;
   }, []); // Empty dependency array to run only once
 
   return (
