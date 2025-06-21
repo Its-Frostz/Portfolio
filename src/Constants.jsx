@@ -34,26 +34,36 @@ export const SCENE_REFS = {
     id: "#curriculum",
     end: "bottom bottom",
     scrub: 0.9,
+    preventOverlaps: true,
+    fastScrollEnd: true,
   },
   backtraceTitle: {
     id: "#BacktraceTitle",
     end: "bottom bottom",
     scrub: 0.9,
+    preventOverlaps: true,
+    fastScrollEnd: true,
   },
   backtraceMonsier: {
     id: "#Backtrace1",
     end: "bottom bottom",
     scrub: 0.9,
+    preventOverlaps: true,
+    fastScrollEnd: true,
   },
   backtraceEverybody: {
     id: "#Backtrace2",
     end: "bottom bottom",
     scrub: 0.9,
+    preventOverlaps: true,
+    fastScrollEnd: true,
   },
   backtraceEnding: {
     id: "#Backtrace3",
     end: "bottom bottom",
     scrub: 0.9,
+    preventOverlaps: true,
+    fastScrollEnd: true,
   },
 };
 

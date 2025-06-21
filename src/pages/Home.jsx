@@ -35,6 +35,10 @@ import "@/css/pages/Home.scss";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+
+  // !Base setups 
+
+  /* AfterLine setup */
   
   useEffect(() => {
     const updateAfterLineHeight = () => {
@@ -80,6 +84,8 @@ export default function Home() {
       resizeObserver.disconnect();
     };
   }, []);
+
+  // ! Animation setups 
 
   /* SVG CONTROLLERS */
 
@@ -157,6 +163,10 @@ export default function Home() {
           end: () => {
             return ref.end ? ref.end : "bottom bottom";
           },
+          
+          preventOverlaps: ref.preventOverlaps,
+          fastScrollEnd: ref.fastScrollEnd,
+          
           scrub: ref.scrub,
           // markers: true, // For debugging purposes
           onToggle: (self) => {
