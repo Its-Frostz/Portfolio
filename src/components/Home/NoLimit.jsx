@@ -25,7 +25,7 @@ const horizontalScene = () => {
   const textElement = el.text[0];
   const textWidth = textElement.scrollWidth;
   const viewportWidth = window.innerWidth;
-  const x = textWidth - viewportWidth+750; // padding-left (100vw) + text width
+  const x = textWidth - viewportWidth+(0.40*viewportWidth); // padding-left (100vw) + text width
 
   const scrollTween = gsap.to([el.textCont, ".afterLine", ".spine", ".spine-target"], {
     x: -x, // Move the full calculated distance
@@ -35,13 +35,10 @@ const horizontalScene = () => {
       start: "center center",
       end: `+=${x}`,
       pin: true,
-      scrub: true,
-      markers: true, // Enable to debug
+      scrub: 0.3,
+      // markers: true, // Enable to debug
       id: "horizontal-scroll", // Add ID to identify this trigger
-      // onUpdate: self => {
-      //   console.log('Horizontal scroll progress:', self.progress);
-      // }
-    },
+    }
   });
 
   SplitText.create(el.text, {
@@ -52,13 +49,14 @@ const horizontalScene = () => {
         gsap.from(c, {
           y: 'random([-300, -250, 250, 300])',
           rotation: 'random([-60, -50, -40, 40, 50, 60])',
+          autoAlpha: 0,
           ease: 'elastic.out(1.2, 1)',
           scrollTrigger: {
             trigger: c,
             containerAnimation: scrollTween,
             start: 'left 75%',
             end: 'left 35%',
-            scrub: true,
+            scrub: 0.5,
             // markers: true,
           },
         });
@@ -116,7 +114,7 @@ export default function NoLimit({ children }) {
 
   return (
     <div className="noLimitScene">
-      <GapBlock />
+      {/* <GapBlock /> */}
       <section className="scene" id="NoLimit1">
         <div className="theContainer">
           <div className="text-container">
