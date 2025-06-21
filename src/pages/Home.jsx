@@ -35,6 +35,52 @@ import "@/css/pages/Home.scss";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  
+  useEffect(() => {
+    const updateAfterLineHeight = () => {
+      const afterLine = document.querySelector('.afterLine');
+      const wrapper = document.querySelector('.wrapper');
+      
+      if (afterLine && wrapper) {
+        // Get the total document height
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Calculate offsets
+        const topOffset = window.innerHeight * 0.5; // 50vh
+        const bottomOffset = window.innerHeight * 0.44; // 44vh
+        
+        // Calculate the line height: total document height - top offset - bottom offset
+        const lineHeight = documentHeight - topOffset - bottomOffset;
+        
+        afterLine.style.height = `${lineHeight}px`;
+        
+        console.log('Document height:', documentHeight);
+        console.log('Top offset:', topOffset);
+        console.log('Bottom offset:', bottomOffset);
+        console.log('Calculated line height:', lineHeight);
+      }
+    };
+  
+    // Update on mount
+    updateAfterLineHeight();
+    
+    // Update on window resize
+    window.addEventListener('resize', updateAfterLineHeight);
+    
+    // Update when content changes (optional)
+    const resizeObserver = new ResizeObserver(updateAfterLineHeight);
+    const wrapper = document.querySelector('.wrapper');
+    if (wrapper) {
+      resizeObserver.observe(wrapper);
+    }
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', updateAfterLineHeight);
+      resizeObserver.disconnect();
+    };
+  }, []);
+
   /* SVG CONTROLLERS */
 
   // Track animation states for different components

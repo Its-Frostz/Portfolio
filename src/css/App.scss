@@ -78,19 +78,18 @@ body {
   min-height: 100vh;
   transition: opacity 0.5s linear;
 
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 50vh;
-    bottom: 44vh;
-    left: calc(25vw - 2rem);
-    z-index: 99;
-    width: 1px;
-    opacity: 0.3;
-    background: var(--purple)
-      linear-gradient(to bottom, var(--bg), rgba(var(--bg-rgb), 0) 20vh);
-  }
+}
+.afterLine {
+  display: block;
+  position: absolute;
+  top: 50vh;
+  left: calc(25vw - 2rem);
+  z-index: 5;
+  width: 1px;
+  height: calc(100% - 50vh - 44vh); /* Calculate height based on parent */
+  opacity: 0.3;
+  background: var(--purple)
+    linear-gradient(to bottom, var(--bg), rgba(var(--bg-rgb), 0) 20vh);
 }
 
 // general
@@ -202,9 +201,9 @@ body {
   .wrapper {
     padding-bottom: 10vh;
 
-    &:after {
-      left: 1rem;
-    }
+  }
+  .afterLine {
+    left: 1rem;
   }
 
   /* @element .title */
