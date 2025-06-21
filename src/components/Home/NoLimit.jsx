@@ -27,7 +27,7 @@ const horizontalScene = () => {
   const viewportWidth = window.innerWidth;
   const x = textWidth - viewportWidth+750; // padding-left (100vw) + text width
 
-  const scrollTween = gsap.to([el.textCont, ".wrapper:after", ".spine", ".spine-target"], {
+  const scrollTween = gsap.to([el.textCont, ".afterLine", ".spine", ".spine-target"], {
     x: -x, // Move the full calculated distance
     ease: "none",
     scrollTrigger: {
