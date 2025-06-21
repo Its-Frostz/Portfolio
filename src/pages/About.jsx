@@ -290,8 +290,8 @@ export default function About() {
           </TextBlock>
         </div>
         <Wrapper />
+        <div className="afterLine"></div>
       </div>
-      <div className="afterLine"></div>
     </>
   );
 }

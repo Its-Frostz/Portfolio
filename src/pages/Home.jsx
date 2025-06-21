@@ -210,8 +210,8 @@ export default function Home() {
           How <span className="-purple">{" far "}</span> are you willing to take it?
         </NoLimit>
         <Wrapper isPotionPlaying={isPlaying.Potion} />
+        <div className="afterLine"></div>
       </div>
-      <div className="afterLine"></div>
     </>
   );
 }
