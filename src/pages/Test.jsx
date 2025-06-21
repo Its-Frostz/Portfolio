@@ -23,7 +23,7 @@ export default function Test() {
       <UFO isPlaying={true} />
       <Octo isPlaying={true} /> */}
       {/* <Dino isPlaying={true} /> */}
-      <NoLimit/>
+      <NoLimit>How <span className="-purple">{" far "}</span> will you take it?</NoLimit>
     </>
   );
 }

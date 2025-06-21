@@ -207,7 +207,7 @@ export default function Home() {
 
         <Backtrace isBacktracePlaying={isPlaying.Backtrace} />
         <NoLimit>
-          How <span className="-purple">{" far "}</span> will you take it?
+          How <span className="-purple">{" far "}</span> are you willing to take it?
         </NoLimit>
         <Wrapper isPotionPlaying={isPlaying.Potion} />
       </div>
