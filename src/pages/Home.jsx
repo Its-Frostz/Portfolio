@@ -12,6 +12,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GapBlock from "../components/GapBlock.jsx";
 import TitleFunction from "../components/TitleFunction.jsx";
 import TitleSection from "../components/TitleSection.jsx";
+import NoLimit from "../components/Home/NoLimit.jsx";
 
 // Home components
 import Intro from "../components/Home/Intro.jsx";
@@ -137,18 +138,24 @@ export default function Home() {
   }, []);
 
   return (
-    <div id="home" className="wrapper">
-      <Intro />
-      <GapBlock />
+    <>
+      <div id="home" className="wrapper">
+        <Intro />
+        <GapBlock />
 
-      <TitleSection name="curriculum">
-        <TitleFunction params="/_life/.." subtitle="<VitaeJournal/>">
-          Reflect
-        </TitleFunction>
-      </TitleSection>
+        <TitleSection name="curriculum">
+          <TitleFunction params="/_life/.." subtitle="<VitaeJournal/>">
+            Reflect
+          </TitleFunction>
+        </TitleSection>
 
-      <Backtrace isBacktracePlaying={isPlaying.Backtrace} />
-      <Wrapper isPotionPlaying={isPlaying.Potion} />
-    </div>
+        <Backtrace isBacktracePlaying={isPlaying.Backtrace} />
+        <NoLimit>
+          How <span className="-purple">{" far "}</span> will you take it?
+        </NoLimit>
+        <Wrapper isPotionPlaying={isPlaying.Potion} />
+      </div>
+      <div className="afterLine"></div>
+    </>
   );
 }
