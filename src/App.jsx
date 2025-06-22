@@ -11,6 +11,7 @@ import { CSSTransition, SwitchTransition } from "react-transition-group";
 
 // gsap and stuff
 import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import Lenis from "lenis";
 
 // Page components
@@ -26,6 +27,8 @@ import Footer from "./components/Footer.jsx";
 
 // SCSS
 import "./css/App.scss";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 function useRouteMetadata() {
   const matches = useMatches();
@@ -107,15 +110,15 @@ function RootLayout() {
       lerp: 0.08, // More responsive interpolation
       infinite: false,
     });
-  
+
     // Simple RAF loop
     const animate = (time) => {
       lenis.raf(time);
       requestAnimationFrame(animate);
     };
-    
+
     requestAnimationFrame(animate);
-  
+
     // Cleanup on unmount
     return () => {
       lenis.destroy();
@@ -171,22 +174,28 @@ function RootLayout() {
 
     // Add animations with modern object syntax
     tl.to(
-      ".header-breadcrumb",
-      {
-        duration: 1,
-        autoAlpha: 0,
-        x: -32,
-        ease: "power3.out",
-      },
+      window,
+      { duration: 1.3, scrollTo: { y: 0 }, ease: "power2.out" },
       "leave"
-    ).to(
-      ".transition-container",
-      {
-        duration: 1,
-        autoAlpha: 0,
-      },
-      "leave"
-    ); // Using the label as a position reference
+    )
+      .to(
+        ".header-breadcrumb",
+        {
+          duration: 1.3,
+          autoAlpha: 0,
+          x: -32,
+          ease: "power3.out",
+        },
+        "leave"
+      )
+      .to(
+        ".transition-container",
+        {
+          duration: 1.3,
+          autoAlpha: 0,
+        },
+        "leave"
+      ); // Using the label as a position reference
 
     setIsPlaying(false);
   };
@@ -202,7 +211,7 @@ function RootLayout() {
         <CSSTransition
           key={location.pathname}
           nodeRef={nodeRef}
-          timeout={1500}
+          timeout={1600}
           classNames="page"
           onEnter={enter}
           onExit={leave}
