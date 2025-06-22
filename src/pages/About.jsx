@@ -42,11 +42,6 @@ export default function About() {
         const lineHeight = documentHeight - topOffset - bottomOffset;
         
         afterLine.style.height = `${lineHeight}px`;
-        
-        console.log('Document height:', documentHeight);
-        console.log('Top offset:', topOffset);
-        console.log('Bottom offset:', bottomOffset);
-        console.log('Calculated line height:', lineHeight);
       }
     };
   
