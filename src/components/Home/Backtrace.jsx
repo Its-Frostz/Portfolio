@@ -69,7 +69,7 @@ export default function Backtrace({ isBacktracePlaying }) {
             .
           </p>
           <p>
-          From interschool victories to state-level hackathons and national showdowns —
+          From interschool victories to renowned hackathons and national showdowns —
           
             <strong className="-purple">
               {" now ranked 9th globally @ International Codewars Olympiad "}
@@ -82,10 +82,10 @@ export default function Backtrace({ isBacktracePlaying }) {
           <p>
             Over the years, I have been into
             <span className="-big -purple">
-              Game Dev, Machine Learning, Web Dev, Cybersecurity, Competitive
+              Game Dev, Machine Learning, Web Dev, Competitive
               Programming
             </span>
-            applying them across hackathons, contests & real-world prototypes.
+            applying them across contests & real-world prototypes.
           </p>
         </TextBlock>
       </SceneSection>
@@ -94,8 +94,7 @@ export default function Backtrace({ isBacktracePlaying }) {
           <p>
             In this entire journey
             <span className="-big">
-              <span className="-purple">Problem Solving </span>is what has
-              driven me, and in turn has made me who
+              I was driven by <span className="-purple">stubborn curiosity </span>and a love for <span className="-purple">problem-solving</span>, I've become who
               <span className="-purple"> I am </span>today.
             </span>
           </p>

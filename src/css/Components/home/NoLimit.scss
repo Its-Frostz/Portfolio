@@ -38,6 +38,9 @@
     letter-spacing: normal;
     word-spacing: normal;
     font: 500 normal 12vw/0.9 "Mori", sans-serif;
+    @media screen and (max-width: 568px) {
+      font-size: 14vw;
+    }
   }
   .-purple {
     color: var(--purple);
