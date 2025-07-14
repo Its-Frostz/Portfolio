@@ -12,7 +12,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GapBlock from "../components/GapBlock.jsx";
 import TitleFunction from "../components/TitleFunction.jsx";
 import TitleSection from "../components/TitleSection.jsx";
-import NoLimit from "../components/Home/NoLimit.jsx";
+import NoLimit from "../components/Home/Nolimit.jsx";
 
 // Home components
 import Intro from "../components/Home/Intro.jsx";

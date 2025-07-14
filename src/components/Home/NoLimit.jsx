@@ -3,10 +3,9 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 // Utility Components
-import SceneSection from "../SceneSection";
 import GapBlock from "../GapBlock";
-import TextBlock from "../TextBlock";
 
 // Scss
 import "@/css/Components/home/NoLimit.scss";

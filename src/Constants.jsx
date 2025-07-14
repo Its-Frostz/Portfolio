@@ -26,8 +26,6 @@ export const SCENE_REFS_SVG = {
   },
 };
 
-
-
 //Scene refs for timeslines  
 export const SCENE_REFS = {
   curriculum: {

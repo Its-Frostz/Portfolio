@@ -94,8 +94,7 @@ export default function Backtrace({ isBacktracePlaying }) {
           <p>
             In this entire journey
             <span className="-big">
-              I was driven by <span className="-purple">stubborn curiosity </span>and a love for <span className="-purple">problem-solving</span>, I've become who
-              <span className="-purple"> I am </span>today.
+              I was driven by <span className="-purple">stubborn curiosity </span>and a love for <span className="-purple">problem-solving</span>.
             </span>
           </p>
         </TextBlock>
