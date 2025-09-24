@@ -51,14 +51,14 @@ export const SCENE_REFS = {
   },
   backtraceEverybody: {
     id: "#Backtrace2",
-    end: "bottom bottom",
+    end: "bottom bottom", 
     scrub: 0.9,
     preventOverlaps: true,
     fastScrollEnd: true,
   },
   backtraceEnding: {
     id: "#Backtrace3",
-    end: "bottom bottom",
+    end: "bottom bottom", // TODO: Change this end a bit below backtrace 3 to avoid clipping. Instead smoothly transition out of the screen...
     scrub: 0.9,
     preventOverlaps: true,
     fastScrollEnd: true,

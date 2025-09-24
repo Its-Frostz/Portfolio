@@ -37,6 +37,12 @@ const horizontalScene = () => {
       scrub: 0.3,
       // markers: true, // Enable to debug
       id: "horizontal-scroll", // Add ID to identify this trigger
+    },
+    onComplete: () => {
+      gsap.set([".afterLine", ".spine", ".spine-target"],{
+        autoAlpha: 0,
+        x: 0,
+      });
     }
   });
 
