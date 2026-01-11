@@ -37,13 +37,7 @@ const horizontalScene = () => {
       scrub: 0.3,
       // markers: true, // Enable to debug
       id: "horizontal-scroll", // Add ID to identify this trigger
-    },
-    onComplete: () => {
-      gsap.set([".afterLine", ".spine", ".spine-target"],{
-        autoAlpha: 0,
-        x: 0,
-      });
-    }
+    } // TODO: Next when the spine appears goota set the x:0 before anything...
   });
 
   SplitText.create(el.text, {
